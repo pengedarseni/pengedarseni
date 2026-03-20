@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth"><head><script>(function(firebaseConfig, initialAuthToken, appId) {
+        window.__firebase_config = firebaseConfig;
+        window.__initial_auth_token = initialAuthToken;
+        window.__app_id = appId;
+            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6ImY3ZjVhMTg0YTgyMWRjYTVmMDBlY2M0NDBmZGE3NGZmMjA4N2NkM2MiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIxMzU0Mzc4ODU2NzUwNjYyMzk0MyIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjXzJhNTA1ZjE5OGNmZjQzNWRfaW5kZXguaHRtbC0zNzMifSwiZXhwIjoxNzczNzQyODkyLCJpYXQiOjE3NzM3MzkyOTIsImFsZyI6IlJTMjU2In0.MQ9gwjCjvEj0lf1pkSjNUp95CKePRbkJMKlO9xN-6KdCggl6UBFD5ubXs-5-efjD_5ZZUj0tlkmZLjiB-f4oMzUCvc0y1pvC-QP9vfX0WEM7jJzOOfg_oPeHNf63u4qWLrosKpt5kBJCd6f0sjy7vEnd1bXRtvMl5y_qHTU_XhfXU0QQACPJMutTSM299fhVO8c9SKFM14otw9GTuus2lft-GH64MTaTOKSpM5I5EBoClC2p48Y1lbLJtJAbF0qJ6OShZbly9D_lgb0G4ovi3dDUhjLgR_vl8aRSQY_AmLpF4IEyoB8CaED7YaSuTqAPInovNJrWWUqN25BR4KtyyQ","c_2a505f198cff435d_index.html-373")</script><script>(function(){'use strict';var h=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,d){if(a==Array.prototype||a==Object.prototype)return a;a[b]=d.value;return a};function l(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var d=a[b];if(d&&d.Math==Math)return d}throw Error("Cannot find global object");}var n=l(this);
+function p(a,b){if(b)a:{var d=n;a=a.split(".");for(var c=0;c<a.length-1;c++){var e=a[c];if(!(e in d))break a;d=d[e]}a=a[a.length-1];c=d[a];b=b(c);b!=c&&b!=null&&h(d,a,{configurable:!0,writable:!0,value:b})}}function r(a){function b(c){return a.next(c)}function d(c){return a.throw(c)}return new Promise(function(c,e){function f(g){g.done?c(g.value):Promise.resolve(g.value).then(b,d).then(f,e)}f(a.next())})}function t(a){return r(a())}
+p("Object.values",function(a){return a?a:function(b){var d=[],c;for(c in b)Object.prototype.hasOwnProperty.call(b,c)&&d.push(b[c]);return d}});p("Array.prototype.includes",function(a){return a?a:function(b,d){var c=this;c instanceof String&&(c=String(c));var e=c.length;d=d||0;for(d<0&&(d=Math.max(d+e,0));d<e;d++){var f=c[d];if(f===b||Object.is(f,b))return!0}return!1}});/*
+
+ MIT License
+
+ Copyright (c) 2017-2023 W.Y.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+
+*/
+function u(a,b){const d=a.style;b.backgroundColor&&(d.backgroundColor=b.backgroundColor);b.width&&(d.width=`${b.width}px`);b.height&&(d.height=`${b.height}px`);const c=b.style;c!=null&&Object.keys(c).forEach(e=>{d[e]=c[e]})};var v=(()=>{let a=0;return()=>{a+=1;return`u${`0000${(Math.random()*1679616<<0).toString(36)}`.slice(-4)}${a}`}})();function w(a){const b=[];for(let d=0,c=a.length;d<c;d++)b.push(a[d]);return b}let x=null;function y(a={}){return x?x:a.l?x=a.l:x=w(window.getComputedStyle(document.documentElement))}function z(a,b){return(a=(a.ownerDocument.defaultView||window).getComputedStyle(a).getPropertyValue(b))?parseFloat(a.replace("px","")):0}
+function A(a,b={}){var d;if(!(d=b.width)){d=z(a,"border-left-width");var c=z(a,"border-right-width");d=a.clientWidth+d+c}(b=b.height)||(b=z(a,"border-top-width"),c=z(a,"border-bottom-width"),b=a.clientHeight+b+c);return{width:d,height:b}}function B(a){return new Promise((b,d)=>{const c=new Image;c.onload=()=>{c.decode().then(()=>{requestAnimationFrame(()=>b(c))})};c.onerror=d;c.crossOrigin="anonymous";c.decoding="async";c.src=a})}
+function C(a){return t(function*(){return Promise.resolve().then(()=>(new XMLSerializer).serializeToString(a)).then(encodeURIComponent).then(b=>`data:image/svg+xml;charset=utf-8,${b}`)})}
+function D(a,b,d){return t(function*(){const c=document.createElementNS("http://www.w3.org/2000/svg","svg"),e=document.createElementNS("http://www.w3.org/2000/svg","foreignObject");c.setAttribute("width",`${b}`);c.setAttribute("height",`${d}`);c.setAttribute("viewBox",`0 0 ${b} ${d}`);e.setAttribute("width","100%");e.setAttribute("height","100%");e.setAttribute("x","0");e.setAttribute("y","0");e.setAttribute("externalResourcesRequired","true");c.appendChild(e);e.appendChild(a);return C(c)})}
+var E=(a,b)=>{if(a instanceof b)return!0;a=Object.getPrototypeOf(a);return a===null?!1:a.constructor.name===b.name||E(a,b)};function F(a,b){return y(b).map(d=>{const c=a.getPropertyValue(d),e=a.getPropertyPriority(d);return`${d}: ${c}${e?" !important":""};`}).join(" ")}
+function G(a,b,d,c){a=window.getComputedStyle(a,d);var e=a.getPropertyValue("content");if(e!==""&&e!=="none"){var f=v();try{b.className=`${b.className} ${f}`}catch(k){return}e=document.createElement("style");var g=e.appendChild;d=`.${f}:${d}`;a.cssText?(c=a.getPropertyValue("content"),c=`${a.cssText} content: '${c.replace(/'|"/g,"")}';`):c=F(a,c);g.call(e,document.createTextNode(`${d}{${c}}`));b.appendChild(e)}};function H(a){return a.search(/^(data:)/)!==-1}function I(a,b,d){return t(function*(){const c=yield fetch(a,b);if(c.status===404)throw Error(`Resource "${c.url}" not found`);const e=yield c.blob();return new Promise((f,g)=>{const k=new FileReader;k.onerror=g;k.onloadend=()=>{try{f(d({o:c,result:k.result}))}catch(m){g(m)}};k.readAsDataURL(e)})})}const J={};function K(a,b,d){let c=a.replace(/\?.*/,"");d&&(c=a);/ttf|otf|eot|woff2?/i.test(c)&&(c=c.replace(/.*\//,""));return b?`[${b}]${c}`:c}
+function L(a,b,d){return t(function*(){const c=K(a,b,d.C);if(J[c]!=null)return J[c];d.u&&(a+=(/\?/.test(a)?"&":"?")+(new Date).getTime());let e;try{const f=yield I(a,d.i,({o:g,result:k})=>{b||(b=g.headers.get("Content-Type")||"");return k.split(/,/)[1]});e=`data:${b};base64,${f}`}catch(f){e=d.B||""}return J[c]=e})};const M={P:"application/font-woff",R:"application/font-woff",N:"application/font-truetype",v:"application/vnd.ms-fontobject",H:"image/png",F:"image/jpeg",D:"image/jpeg",A:"image/gif",M:"image/tiff",L:"image/svg+xml",O:"image/webp"};function N(a){return(a=/\.([^./]*?)$/g.exec(a))?a[1]:""};function O(a){return t(function*(){const b=a.toDataURL();return b==="data:,"?a.cloneNode(!1):B(b)})}function aa(a,b){return t(function*(){if(a.currentSrc){var d=document.createElement("canvas");const c=d.getContext("2d");d.width=a.clientWidth;d.height=a.clientHeight;c==null||c.drawImage(a,0,0,d.width,d.height);d=d.toDataURL();return B(d)}d=a.poster;d=yield L(d,M[N(d).toLowerCase()]||"",b);return B(d)})}
+function ba(a,b){return t(function*(){try{let d;if(a==null?0:(d=a.contentDocument)==null?0:d.body)return yield P(a.contentDocument.body,b,!0)}catch(d){}return a.cloneNode(!1)})}function ca(a,b){return t(function*(){return E(a,HTMLCanvasElement)?O(a):E(a,HTMLVideoElement)?aa(a,b):E(a,HTMLIFrameElement)?ba(a,b):a.cloneNode(a.tagName!=null&&a.tagName.toUpperCase()==="SVG")})}
+function da(a,b,d){return t(function*(){if(b.tagName!=null&&b.tagName.toUpperCase()==="SVG")return b;let c=[];if(a.tagName!=null&&a.tagName.toUpperCase()==="SLOT"&&a.assignedNodes)c=w(a.assignedNodes());else{let e;if(E(a,HTMLIFrameElement)&&((e=a.contentDocument)==null?0:e.body))c=w(a.contentDocument.body.childNodes);else{let f;c=w(((f=a.shadowRoot)!=null?f:a).childNodes)}}if(c.length===0||E(a,HTMLVideoElement))return b;yield c.reduce((e,f)=>e.then(()=>P(f,d)).then(g=>{g&&b.appendChild(g)}),Promise.resolve());
+return b})}function ea(a,b,d){const c=b.style;if(c){var e=window.getComputedStyle(a);e.cssText?(c.cssText=e.cssText,c.transformOrigin=e.transformOrigin):y(d).forEach(f=>{let g=e.getPropertyValue(f);f==="font-size"&&g.endsWith("px")&&(g=`${Math.floor(parseFloat(g.substring(0,g.length-2)))-.1}px`);E(a,HTMLIFrameElement)&&f==="display"&&g==="inline"&&(g="block");f==="d"&&b.getAttribute("d")&&(g=`path(${b.getAttribute("d")})`);c.setProperty(f,g,e.getPropertyPriority(f))})}}
+function fa(a,b){E(a,HTMLSelectElement)&&(b=Array.from(b.children).find(d=>a.value===d.getAttribute("value")))&&b.setAttribute("selected","")}
+function ha(a,b){return t(function*(){var d=a.querySelectorAll?a.querySelectorAll("use"):[];if(d.length===0)return a;var c={};for(var e=0;e<d.length;e++){var f=d[e].getAttribute("xlink:href");if(f){const g=document.querySelector(f);a.querySelector(f)||!g||c[f]||(c[f]=yield P(g,b,!0))}}d=Object.values(c);if(d.length){c=document.createElementNS("http://www.w3.org/1999/xhtml","svg");c.setAttribute("xmlns","http://www.w3.org/1999/xhtml");c.style.position="absolute";c.style.width="0";c.style.height="0";
+c.style.overflow="hidden";c.style.display="none";e=document.createElementNS("http://www.w3.org/1999/xhtml","defs");c.appendChild(e);for(f=0;f<d.length;f++)e.appendChild(d[f]);a.appendChild(c)}return a})}
+function P(a,b,d){return t(function*(){return d||!b.filter||b.filter(a)?Promise.resolve(a).then(c=>ca(c,b)).then(c=>da(a,c,b)).then(c=>{E(c,Element)&&(ea(a,c,b),G(a,c,":before",b),G(a,c,":after",b),E(a,HTMLTextAreaElement)&&(c.textContent=a.value),E(a,HTMLInputElement)&&c.setAttribute("value",a.value),fa(a,c));return c}).then(c=>ha(c,b)):null})};const Q=/url\((['"]?)([^'"]+?)\1\)/g,ia=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,ja=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function ka(a){const b=[];a.replace(Q,(d,c,e)=>{b.push(e);return d});return b.filter(d=>!H(d))}
+function la(a,b,d,c){return t(function*(){try{const e=d?(new URL(b,d||void 0)).toString():b;let f;f=yield L(e,M[N(b).toLowerCase()]||"",c);return a.replace(new RegExp(`(url\\(['"]?)(${b.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1")})(['"]?\\))`,"g"),`$1${f}$3`)}catch(e){}return a})}function ma(a,{I:b}){return b?a.replace(ja,d=>{for(;;){const [c,,e]=ia.exec(d)||[],f=c,g=e;if(!g)return"";if(g===b)return`src: ${f};`}}):a}
+function R(a,b,d){return t(function*(){if(a.search(Q)===-1)return a;const c=ma(a,d);return ka(c).reduce((e,f)=>e.then(g=>la(g,f,b,d)),Promise.resolve(c))})};function S(a,b,d){return t(function*(){var c;const e=(c=b.style)==null?void 0:c.getPropertyValue(a);return e?(c=yield R(e,null,d),b.style.setProperty(a,c,b.style.getPropertyPriority(a)),!0):!1})}function na(a,b){return t(function*(){(yield S("background",a,b))||(yield S("background-image",a,b));(yield S("mask",a,b))||(yield S("-webkit-mask",a,b))||(yield S("mask-image",a,b))||(yield S("-webkit-mask-image",a,b))})}
+function oa(a,b){return t(function*(){const d=E(a,HTMLImageElement);if(d&&!H(a.src)||E(a,SVGImageElement)&&!H(a.href.baseVal)){var c=d?a.src:a.href.baseVal,e=yield L(c,M[N(c).toLowerCase()]||"",b);yield new Promise((f,g)=>{a.onload=f;a.onerror=b.m?(...k)=>{try{f(b.m(...k))}catch(m){g(m)}}:g;a.decode&&(a.decode=f);a.loading==="lazy"&&(a.loading="eager");d?(a.srcset="",a.src=e):a.href.baseVal=e})}})}
+function pa(a,b){return t(function*(){const d=w(a.childNodes).map(c=>T(c,b));yield Promise.all(d).then(()=>a)})}function T(a,b){return t(function*(){E(a,Element)&&(yield na(a,b),yield oa(a,b),yield pa(a,b))})};const U={};function V(a){return t(function*(){var b=U[a];if(b!=null)return b;b=yield(yield fetch(a)).text();b={url:a,cssText:b};return U[a]=b})}function W(a,b){return t(function*(){let d=a.cssText;const c=/url\(["']?([^"')]+)["']?\)/g,e=(d.match(/url\([^)]+\)/g)||[]).map(f=>t(function*(){let g=f.replace(c,"$1");g.startsWith("https://")||(g=(new URL(g,a.url)).href);return I(g,b.i,({result:k})=>{d=d.replace(f,`url(${k})`);return[f,k]})}));return Promise.all(e).then(()=>d)})}
+function X(a){if(a==null)return[];const b=[];a=a.replace(/(\/\*[\s\S]*?\*\/)/gi,"");for(var d=RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");;){var c=d.exec(a);if(c===null)break;b.push(c[0])}a=a.replace(d,"");d=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi;for(c=RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");;){let e=d.exec(a);if(e===null)if(e=c.exec(a),e===null)break;else d.lastIndex=c.lastIndex;else c.lastIndex=
+d.lastIndex;b.push(e[0])}return b}
+function qa(a,b){return t(function*(){const d=[],c=[];a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach((f,g)=>{if(f.type===CSSRule.IMPORT_RULE){let k=g+1;f=V(f.href).then(m=>W(m,b)).then(m=>X(m).forEach(q=>{try{e.insertRule(q,q.startsWith("@import")?k+=1:e.cssRules.length)}catch(Da){}})).catch(()=>{});c.push(f)}})}catch(f){const g=a.find(k=>k.href==null)||document.styleSheets[0];e.href!=null&&c.push(V(e.href).then(k=>W(k,b)).then(k=>X(k).forEach(m=>{g.insertRule(m,g.cssRules.length)})).catch(()=>
+{}))}});return Promise.all(c).then(()=>{a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach(f=>{d.push(f)})}catch(f){}});return d})})}function ra(a){return a.filter(b=>b.type===CSSRule.FONT_FACE_RULE).filter(b=>b.style.getPropertyValue("src").search(Q)!==-1)}function sa(a,b){return t(function*(){if(a.ownerDocument==null)throw Error("Provided element is not within a Document");var d=w(a.ownerDocument.styleSheets);d=yield qa(d,b);return ra(d)})}
+function ta(a){function b(c){(c.style.fontFamily||getComputedStyle(c).fontFamily).split(",").forEach(e=>{d.add(e.trim().replace(/["']/g,""))});Array.from(c.children).forEach(e=>{e instanceof HTMLElement&&b(e)})}const d=new Set;b(a);return d}function ua(a,b){return t(function*(){const d=yield sa(a,b),c=ta(a);return(yield Promise.all(d.filter(e=>c.has(e.style.fontFamily.trim().replace(/["']/g,""))).map(e=>R(e.cssText,e.parentStyleSheet?e.parentStyleSheet.href:null,b)))).join("\n")})}
+function va(a,b){return t(function*(){const d=b.j!=null?b.j:b.K?null:yield ua(a,b);if(d){const c=document.createElement("style");c.appendChild(document.createTextNode(d));a.firstChild?a.insertBefore(c,a.firstChild):a.appendChild(c)}})};function wa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b),e=yield P(a,b,!0);yield va(e,b);yield T(e,b);u(e,b);return yield D(e,d,c)})}
+function xa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b);var e=yield wa(a,b);e=yield B(e);const f=document.createElement("canvas"),g=f.getContext("2d"),k=b.G||window.devicePixelRatio||1,m=b.h||d,q=b.g||c;f.width=m*k;f.height=q*k;!b.J&&(f.width>16384||f.height>16384)&&(f.width>16384&&f.height>16384?f.width>f.height?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384):f.width>16384?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=
+16384));f.style.width=`${m}`;f.style.height=`${q}`;b.backgroundColor&&(g.fillStyle=b.backgroundColor,g.fillRect(0,0,f.width,f.height));g.drawImage(e,0,0,f.width,f.height);return f})}function ya(a,b={}){return t(function*(){return(yield xa(a,b)).toDataURL()})};const za=["gemini.google.com","corp.google.com","proxy.googlers.com"];function Y(){return document.body.querySelectorAll('[class*="animate"]').length>0}function Z(a){return t(function*(){try{return yield ya(a,{h:a.offsetWidth,g:a.offsetHeight})}catch(d){var b=a.offsetHeight;const c=document.createElement("canvas");c.width=a.offsetWidth;c.height=b;return c.toDataURL("image/png")}})}
+function Aa(){return t(function*(){const a=document.body.offsetWidth,b=document.body.offsetHeight,d=document.body.cloneNode(!0);d.querySelectorAll('[class*="animate"]').forEach(c=>{c.classList.remove(...Array.from(c.classList).filter(e=>e.startsWith("animate")))});d.style.width=`${a}px`;d.style.height=`${b}px`;return d})}
+function Ba(a){return t(function*(){let b=document.body;if(Y()){var d=yield Aa();b=d;document.body.appendChild(d)}d=yield Z(b);Y()&&document.body.removeChild(b);window.parent.postMessage({type:"SEND_SCREENSHOT",image:d,topOffset:document.documentElement.scrollTop},a.origin)})}function Ca(a){return t(function*(){const b={type:"SEND_SCREENSHOT_FOR_DATA_VISUALIZATION",image:yield Z(document.body),topOffset:0};window.parent.postMessage(b,a.origin)})}
+window.addEventListener("message",a=>t(function*(){if(za.some(d=>a.origin.includes(d))){var b=a.data;b&&(b.type==="MAKE_SCREENSHOT"&&(yield Ba(a)),b.type==="MAKE_SCREENSHOT_FOR_DATA_VISUALIZATION"&&(yield Ca(a)))}}));
+})();</script><script>(function() {
+  // Ensure this script is executed only once
+  if (window.firebaseAuthBridgeScriptLoaded) {
+    return;
+  }
+  window.firebaseAuthBridgeScriptLoaded = true;
+
+  let nextTokenPromiseId = 0;
+
+  // Stores { resolve, reject } for ongoing token requests
+  const pendingTokenPromises = {};
+
+  // Listen for messages from the Host Application
+  window.addEventListener('message', function(event) {
+
+    const messageData = event.data;
+
+  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
+      const { success, token, error, promiseId } = messageData ?? {};
+      if (pendingTokenPromises[promiseId]) {
+        if (success) {
+          pendingTokenPromises[promiseId].resolve(token);
+        } else {
+          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
+        }
+        delete pendingTokenPromises[promiseId];
+      }
+    }
+  });
+
+  // Expose a function for the Generated App to request a new Firebase token
+  window.requestNewFirebaseToken = function() {
+    const currentPromiseId = nextTokenPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingTokenPromises[currentPromiseId] = { resolve, reject };
+    });
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'REQUEST_NEW_FIREBASE_TOKEN',
+        promiseId: currentPromiseId
+      }, '*');
+    } else {
+      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
+      delete pendingTokenPromises[currentPromiseId];
+    }
+    return promise;
+  };
+})();</script><script>
+let realOriginalGetUserMedia = null;
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+}
+
+(function() {
+  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
+    try {
+      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
+        get: function() {
+          return undefined; // Or throw an error
+        },
+        configurable: false
+      });
+    } catch (error) {
+      console.error("Error defining prototype getter:", error);
+    }
+  }
+})();
+
+(function() {
+  const pendingMediaResolvers = {};
+  let nextMediaPromiseId = 0;
+
+  function requestMediaPermissions(constraints) {
+    const mediaPromiseId = nextMediaPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingMediaResolvers[mediaPromiseId] = (granted) => {
+        delete pendingMediaResolvers[mediaPromiseId];
+        resolve(granted);
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'requestMediaPermission',
+      constraints: constraints,
+      promiseId: mediaPromiseId,
+    }, '*');
+
+    return promise;
+  }
+
+  let originalGetUserMedia = realOriginalGetUserMedia;
+
+  function interceptGetUserMedia() {
+    if (navigator.mediaDevices) {
+      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
+        value: function(constraints) {
+          return requestMediaPermissions(constraints).then((granted) => {
+            if (granted) {
+              if (originalGetUserMedia) {
+                return originalGetUserMedia(constraints);
+              } else {
+                throw new Error("Original getUserMedia not available.");
+              }
+            } else {
+              throw new DOMException('Permission denied', 'NotAllowedError');
+            }
+          });
+        },
+        writable: false,
+        configurable: false
+      });
+    }
+  }
+
+  interceptGetUserMedia();
+
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'childList' && mutation.addedNodes) {
+        mutation.addedNodes.forEach(node => {
+          if (node === navigator.mediaDevices) {
+            interceptGetUserMedia();
+          }
+        });
+      }
+    }
+  });
+
+  function interceptSpeechRecognition() {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      return;
+    }
+
+    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const SpeechRecognitionWrapper = function(...args) {
+      const recognizer = new OriginalSpeechRecognition(...args);
+      const originalStart = recognizer.start.bind(recognizer);
+
+      recognizer.start = function() {
+        requestMediaPermissions({ audio: true }).then(granted => {
+          if (granted) {
+            originalStart();
+          } else {
+            const errorEvent = new SpeechRecognitionErrorEvent('error');
+            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
+            recognizer.dispatchEvent(errorEvent);
+          }
+        });
+      };
+
+      return recognizer;
+    };
+
+    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
+    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
+
+    if (window.SpeechRecognition) {
+      window.SpeechRecognition = SpeechRecognitionWrapper;
+    }
+    if (window.webkitSpeechRecognition) {
+      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
+    }
+  }
+
+  interceptSpeechRecognition();
+
+  window.addEventListener('message', function(event) {
+    if (event.data) {
+      if (event.data.type === 'resolveMediaPermission') {
+        const { promiseId, granted } = event.data;
+        if (pendingMediaResolvers[promiseId]) {
+          pendingMediaResolvers[promiseId](granted);
+        }
+      }
+    }
+  });
+
+})();</script><script>((function(modelInformation) {
+  const originalFetch = window.fetch;
+  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
+  let googleLlmBaseApiUrls = [
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageTransformModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
+  ];
+  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+    );
+  });
+  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
+    );
+  });
+
+  const pendingFetchResolvers = {};
+  let nextPromiseId = 0;
+
+  function handleStringInput(input, optionsArgument) {
+    const actualUrl = input;
+    const fetchCallArgs = [actualUrl, optionsArgument];
+    const effectiveOptions = optionsArgument || {};
+    const bodyForApiKeyCheck = effectiveOptions.body;
+    const bodyForPostMessage = effectiveOptions.body;
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  function handleRequestInput(input, optionsArgument) {
+    const actualUrl = input.url;
+    const fetchCallArgs = [input, optionsArgument];
+    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (optionsArgument) {
+      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
+      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
+      if ('body' in optionsArgument) {
+        bodyForApiKeyCheck = optionsArgument.body;
+        bodyForPostMessage = optionsArgument.body;
+      } else {
+        bodyForApiKeyCheck = undefined;
+        bodyForPostMessage = input.body;
+      }
+    } else {
+      bodyForApiKeyCheck = undefined;
+      bodyForPostMessage = input.body;
+    }
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  window.fetch = function(input, optionsArgument) {
+    let actualUrl;
+    let fetchCallArgs;
+    let effectiveOptions = {};
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (typeof input === 'string') {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
+    } else if (input instanceof Request) {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
+    } else {
+      return originalFetch.apply(window, [input, optionsArgument]);
+    }
+
+    effectiveOptions.method = effectiveOptions.method || 'GET';
+    if (!effectiveOptions.headers) {
+      effectiveOptions.headers = new Headers();
+    }
+
+
+    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
+      let apiKeyIsNull = true;
+
+      const regex = new RegExp("models/([^:]+)");
+      const modelNameMatch = actualUrl.match(regex);
+      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
+
+
+      try {
+        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
+        const apiKeyParam = urlObject.searchParams.get('key');
+        if (apiKeyParam) {
+          apiKeyIsNull = false;
+        }
+      } catch (e) {
+        // Continue checks even if URL parsing fails
+      }
+
+      if (apiKeyIsNull && effectiveOptions.headers) {
+        const h = new Headers(effectiveOptions.headers);
+        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
+        if (apiKeyHeaderValue) {
+          apiKeyIsNull = false;
+          return originalFetch.apply(window, fetchCallArgs);
+        }
+      }
+
+      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
+        try {
+          const bodyData = JSON.parse(bodyForApiKeyCheck);
+          if (bodyData && bodyData.apiKey) {
+            apiKeyIsNull = false;
+            return originalFetch.apply(window, fetchCallArgs);
+          }
+        } catch (e) {
+          // Ignore JSON parsing errors
+        }
+      }
+
+      if(apiKeyIsNull) {
+        const promiseId = nextPromiseId++;
+        const promise = new Promise((resolve) => {
+          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
+            delete pendingFetchResolvers[promiseId];
+            resolve(resolvedResponse);
+          };
+        });
+
+        let serializedBodyForPostMessage;
+        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
+            serializedBodyForPostMessage = bodyForPostMessage;
+        } else if (bodyForPostMessage instanceof ReadableStream) {
+            serializedBodyForPostMessage = null;
+        } else {
+            try {
+                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
+            } catch (e) {
+                serializedBodyForPostMessage = null;
+            }
+        }
+
+        const messageOptions = {
+            method: effectiveOptions.method,
+            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
+            body: serializedBodyForPostMessage
+        };
+
+        window.parent.postMessage({
+          type: 'requestFetch',
+          url: actualUrl,
+          modelName: modelName,
+          options: messageOptions,
+          promiseId: promiseId,
+        }, '*');
+
+        return promise;
+      }
+      return originalFetch.apply(window, fetchCallArgs);
+    }
+    return originalFetch.apply(window, fetchCallArgs);
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resolveFetch') {
+      const { promiseId, response } = event.data;
+      if (pendingFetchResolvers[promiseId]) {
+        try {
+          const reconstructedResponse = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: new Headers(response.headers),
+          });
+          pendingFetchResolvers[promiseId](reconstructedResponse);
+        } catch (error) {
+          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
+        }
+      }
+    }
+  });
+
+}))({"textModelName":"gemini-3-flash-preview","imageModelName":"imagen-4.0-generate-001","imageEditModelName":"gemini-2.5-flash-image-preview","imageTransformModelName":"gemini-3-pro-image-preview-11-2025","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20","gemini-2.5-flash-preview-09-2025"],"deprecatedImageModelNames":["imagen-3.0-generate-001","imagen-3.0-generate-002"]})</script><script>(function(){'use strict';function a(){window.parent.postMessage({type:"interaction"},"*")}window.addEventListener("click",a,{capture:!0,passive:!0});window.addEventListener("touchstart",a,{capture:!0,passive:!0});window.addEventListener("keydown",a,{capture:!0,passive:!0});}).call(this);
+</script><script>(function() {
+  const originalConsoleLog = console.log;
+  const originalConsoleError = console.error;
+
+    /**
+   * Normalizes an error event or a promise rejection reason into a structured error object.
+   * @param {*} errorEventOrReason The error object or reason.
+   * @return {object} Structured error data { message, name, stack }.
+   */
+  function getErrorObject(errorEventOrReason) {
+    if (errorEventOrReason instanceof Error) {
+      return {
+        message: errorEventOrReason.message,
+        name: errorEventOrReason.name,
+        stack: errorEventOrReason.stack,
+      };
+    }
+    // Fallback for non-Error objects.
+    try {
+      return {
+        message: JSON.stringify(errorEventOrReason),
+        name: 'UnknownErrorType',
+        stack: null,
+      };
+    } catch (e) {
+      return {
+        message: String(errorEventOrReason),
+        name: 'UnknownErrorTypeNonStringifiable',
+        stack: null,
+      };
+    }
+  }
+
+  /**
+   * Converts an array of arguments (from log/error) into a single string.
+   * Handles Error objects specially to include their message and stack.
+   * @param {Array<*>} args - Arguments passed to console methods.
+   * @return {string} A string representation of the arguments.
+   */
+  function stringifyArgs(args) {
+    return args
+      .map((arg) => {
+        if (arg instanceof Error) {
+          const {message, stack} = arg;
+          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
+        }
+        if (typeof arg === 'object' && arg !== null) {
+          try {
+            return JSON.stringify(arg);
+          } catch (error) {
+            return '[Circular Object]';
+          }
+        } else {
+          return String(arg);
+        }
+      })
+      .join(' ');
+  }
+
+  console.log = function(...args) {
+    const logString = stringifyArgs(args);
+    window.parent.postMessage({ type: 'log', message: logString }, '*');
+    originalConsoleLog.apply(console, args);
+  };
+
+  console.error = function(...args) {
+    let errorData;
+    if (args.length > 0 && args[0] instanceof Error) {
+      const err = args[0];
+      // If the first arg is an Error, capture its details.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        ...getErrorObject(err),
+        rawArgsString: stringifyArgs(args.slice(1)),
+        timestamp: new Date().toISOString(),
+      };
+    } else {
+      // If not an Error object, treat all args as a general error message.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        message: stringifyArgs(args),
+        name: 'ConsoleLoggedError',
+        stack: null,
+        timestamp: new Date().toISOString(),
+      };
+    }
+    window.parent.postMessage(errorData, '*');
+    originalConsoleError.apply(console, args);
+  };
+
+  // Listen for global unhandled synchronous errors.
+  window.addEventListener('error', function(event) {
+    const errorDetails = event.error ? getErrorObject(event.error) : {
+      message: event.message,
+      name: 'GlobalError',
+      stack: null,
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno,
+    };
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'global',
+      ...errorDetails,
+      message: errorDetails.message || event.message,
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+  // Listen for unhandled promise rejections (asynchronous errors).
+  window.addEventListener('unhandledrejection', function(event) {
+    const errorDetails = getErrorObject(event.reason);
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'unhandledrejection',
+      ...errorDetails,
+      message: errorDetails.message || 'Unhandled Promise Rejection',
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengedar Seni - Minimalist Digital Assets</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            50: '#fafafa', 100: '#f4f4f5', 200: '#e4e4e7', 300: '#d4d4d8',
+                            400: '#a1a1aa', 500: '#71717a', 600: '#52525b', 700: '#3f3f46',
+                            800: '#27272a', 900: '#18181b', 950: '#09090b',
+                        },
+                        brand: { pink: '#fce7f3' }
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        kalipixel: ['Kalipixel', 'Orbitron', 'sans-serif'], 
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        /* ==========================================
+         * INTEGRASI FONT KALIPixel (FAMILY)
+         * Pastikan file woff ada di folder yg sama!
+         * ========================================== */
+        @font-face {
+            font-family: 'Kalipixel';
+            src: url('./fonts/kalipixel-webfont.woff') format('woff'),
+                 url('./fonts/Kalipixel.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        /* Language Logic */
+        body.lang-id [lang="en"] { display: none !important; }
+        body:not(.lang-id) [lang="id"] { display: none !important; }
+
+        /* SPA Page Views */
+        .page-view { display: none; opacity: 0; min-height: 80vh; }
+        .page-view.active { display: block; opacity: 1; animation: pageFadeIn 0.4s ease forwards; }
+
+        @keyframes pageFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Animasi Teks Headline */
+        .hero-text { animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+        .hero-text-1 { animation-delay: 0.1s; }
+        .hero-text-2 { animation-delay: 0.3s; }
+        .hero-text-3 { animation-delay: 0.5s; }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Scroll Animation */
+        .fade-up { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .fade-up.active { opacity: 1; transform: translateY(0); }
+
+        /* Product Cards */
+        .card-hover { transition: transform 0.4s ease; }
+        .card-hover:hover { transform: translateY(-6px); }
+        .card-hover img { transition: transform 0.8s ease, filter 0.5s ease; filter: grayscale(100%) opacity(0.9); }
+        .card-hover:hover img { transform: scale(1.05); filter: grayscale(0%) opacity(1); }
+
+        /* Dropdown */
+        .dropdown-menu {
+            visibility: hidden; opacity: 0; transform: translateY(10px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .group:hover .dropdown-menu { visibility: visible; opacity: 1; transform: translateY(0); }
+
+        /* Forms */
+        .checkout-input {
+            width: 100%; padding: 0.75rem 1rem; border-radius: 0.5rem; outline: none;
+            background-color: transparent; border: 1px solid #d4d4d8; transition: border-color 0.2s;
+        }
+        .dark .checkout-input { border-color: #3f3f46; }
+        .checkout-input:focus { border-color: #18181b; }
+        .dark .checkout-input:focus { border-color: #fafafa; }
+
+        /* Image Slider Dots */
+        .slider-dot { transition: all 0.3s; height: 8px; border-radius: 9999px; }
+        .slider-dot.active { width: 24px; background-color: #18181b; }
+        .dark .slider-dot.active { background-color: #fafafa; }
+        .slider-dot.inactive { width: 8px; background-color: #d4d4d8; cursor: pointer; }
+        .dark .slider-dot.inactive { background-color: #52525b; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #a1a1aa; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+        .dark ::-webkit-scrollbar-thumb { background: #52525b; }
+
+        #hero-canvas { position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;}
+
+        /* Marquee Animation untuk Logo Platform */
+        .marquee-container {
+            overflow-x: hidden;
+        }
+        .marquee-container:hover .marquee-track {
+            animation-play-state: paused;
+        }
+        .marquee-track {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; /* KUNCI PERBAIKAN: Mencegah wadah menyusut & bertumpuk */
+            min-width: 100%;
+            justify-content: space-around;
+            gap: 3rem; /* Jarak rapi antar logo di mobile */
+            padding: 1.5rem 1.5rem; /* Padding agar efek zoom tidak terpotong */
+            animation: scrollMarquee 40s linear infinite;
+        }
+        @media (min-width: 768px) {
+            .marquee-track {
+                gap: 5rem; /* Jarak rapi antar logo di desktop/tablet */
+            }
+        }
+        @keyframes scrollMarquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+        
+        /* Styling khusus logo teks agar berwarna abu di awal, lalu berwarna asli saat hover */
+        .platform-logo {
+            filter: grayscale(100%) opacity(0.5);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem; /* Ukuran teks mobile */
+            font-weight: 800; /* Extra bold untuk meniru ketebalan logo */
+            letter-spacing: -0.025em;
+        }
+        @media (min-width: 768px) {
+            .platform-logo {
+                font-size: 2.25rem; /* Ukuran teks desktop */
+            }
+        }
+        .platform-logo:hover {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.15);
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Space Grotesk, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.pointer-events-auto{pointer-events:auto}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.bottom-6{bottom:1.5rem}.left-0{left:0px}.left-6{left:1.5rem}.right-6{right:1.5rem}.top-0{top:0px}.z-20{z-index:20}.z-30{z-index:30}.z-50{z-index:50}.z-\[100\]{z-index:100}.z-\[90\]{z-index:90}.mx-auto{margin-left:auto;margin-right:auto}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-8{margin-top:2rem}.mt-auto{margin-top:auto}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.aspect-\[3\/2\]{aspect-ratio:3/2}.h-12{height:3rem}.h-8{height:2rem}.h-\[80vh\]{height:80vh}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-12{width:3rem}.w-48{width:12rem}.w-8{width:2rem}.w-auto{width:auto}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-5xl{max-width:64rem}.max-w-7xl{max-width:80rem}.max-w-xl{max-width:36rem}.flex-shrink-0{flex-shrink:0}.translate-y-20{--tw-translate-y:5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-col-reverse{flex-direction:column-reverse}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-5 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.25rem * var(--tw-space-x-reverse));margin-left:calc(1.25rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-6 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-12 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(3rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(3rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.scroll-smooth{scroll-behavior:smooth}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-y{border-top-width:1px;border-bottom-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-red-200{--tw-border-opacity:1;border-color:rgb(254 202 202 / var(--tw-border-opacity, 1))}.border-zinc-200{--tw-border-opacity:1;border-color:rgb(228 228 231 / var(--tw-border-opacity, 1))}.border-zinc-300{--tw-border-opacity:1;border-color:rgb(212 212 216 / var(--tw-border-opacity, 1))}.bg-\[\#FF001D\]{--tw-bg-opacity:1;background-color:rgb(255 0 29 / var(--tw-bg-opacity, 1))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-zinc-100{--tw-bg-opacity:1;background-color:rgb(244 244 245 / var(--tw-bg-opacity, 1))}.bg-zinc-200{--tw-bg-opacity:1;background-color:rgb(228 228 231 / var(--tw-bg-opacity, 1))}.bg-zinc-50{--tw-bg-opacity:1;background-color:rgb(250 250 250 / var(--tw-bg-opacity, 1))}.bg-zinc-50\/90{background-color:rgb(250 250 250 / 0.9)}.bg-zinc-900{--tw-bg-opacity:1;background-color:rgb(24 24 27 / var(--tw-bg-opacity, 1))}.fill-zinc-900{fill:#18181b}.object-cover{object-fit:cover}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-10{padding-bottom:2.5rem}.pb-24{padding-bottom:6rem}.pb-6{padding-bottom:1.5rem}.pb-8{padding-bottom:2rem}.pl-5{padding-left:1.25rem}.pt-16{padding-top:4rem}.pt-20{padding-top:5rem}.pt-32{padding-top:8rem}.text-left{text-align:left}.text-center{text-align:center}.font-kalipixel{font-family:Kalipixel, Orbitron, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.tracking-widest{letter-spacing:0.1em}.text-\[\#FF001D\]{--tw-text-opacity:1;color:rgb(255 0 29 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-zinc-400{--tw-text-opacity:1;color:rgb(161 161 170 / var(--tw-text-opacity, 1))}.text-zinc-500{--tw-text-opacity:1;color:rgb(113 113 122 / var(--tw-text-opacity, 1))}.text-zinc-600{--tw-text-opacity:1;color:rgb(82 82 91 / var(--tw-text-opacity, 1))}.text-zinc-700{--tw-text-opacity:1;color:rgb(63 63 70 / var(--tw-text-opacity, 1))}.text-zinc-900{--tw-text-opacity:1;color:rgb(24 24 27 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-0{opacity:0}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.grayscale{--tw-grayscale:grayscale(100%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-700{transition-duration:700ms}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-\[\#FF001D\]:hover{--tw-border-opacity:1;border-color:rgb(255 0 29 / var(--tw-border-opacity, 1))}.hover\:bg-\[\#FF001D\]:hover{--tw-bg-opacity:1;background-color:rgb(255 0 29 / var(--tw-bg-opacity, 1))}.hover\:bg-red-700:hover{--tw-bg-opacity:1;background-color:rgb(185 28 28 / var(--tw-bg-opacity, 1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.hover\:bg-zinc-100:hover{--tw-bg-opacity:1;background-color:rgb(244 244 245 / var(--tw-bg-opacity, 1))}.hover\:bg-zinc-200:hover{--tw-bg-opacity:1;background-color:rgb(228 228 231 / var(--tw-bg-opacity, 1))}.hover\:text-\[\#FF001D\]:hover{--tw-text-opacity:1;color:rgb(255 0 29 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.focus\:border-zinc-900:focus{--tw-border-opacity:1;border-color:rgb(24 24 27 / var(--tw-border-opacity, 1))}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:fill-\[\#FF001D\]{fill:#FF001D}.dark\:block:is(.dark *){display:block}.dark\:hidden:is(.dark *){display:none}.dark\:border-red-900:is(.dark *){--tw-border-opacity:1;border-color:rgb(127 29 29 / var(--tw-border-opacity, 1))}.dark\:border-zinc-700:is(.dark *){--tw-border-opacity:1;border-color:rgb(63 63 70 / var(--tw-border-opacity, 1))}.dark\:border-zinc-800:is(.dark *){--tw-border-opacity:1;border-color:rgb(39 39 42 / var(--tw-border-opacity, 1))}.dark\:bg-red-950\/30:is(.dark *){background-color:rgb(69 10 10 / 0.3)}.dark\:bg-zinc-50:is(.dark *){--tw-bg-opacity:1;background-color:rgb(250 250 250 / var(--tw-bg-opacity, 1))}.dark\:bg-zinc-800:is(.dark *){--tw-bg-opacity:1;background-color:rgb(39 39 42 / var(--tw-bg-opacity, 1))}.dark\:bg-zinc-900:is(.dark *){--tw-bg-opacity:1;background-color:rgb(24 24 27 / var(--tw-bg-opacity, 1))}.dark\:bg-zinc-950:is(.dark *){--tw-bg-opacity:1;background-color:rgb(9 9 11 / var(--tw-bg-opacity, 1))}.dark\:bg-zinc-950\/90:is(.dark *){background-color:rgb(9 9 11 / 0.9)}.dark\:fill-zinc-50:is(.dark *){fill:#fafafa}.dark\:text-red-400:is(.dark *){--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.dark\:text-zinc-100:is(.dark *){--tw-text-opacity:1;color:rgb(244 244 245 / var(--tw-text-opacity, 1))}.dark\:text-zinc-300:is(.dark *){--tw-text-opacity:1;color:rgb(212 212 216 / var(--tw-text-opacity, 1))}.dark\:text-zinc-400:is(.dark *){--tw-text-opacity:1;color:rgb(161 161 170 / var(--tw-text-opacity, 1))}.dark\:text-zinc-50:is(.dark *){--tw-text-opacity:1;color:rgb(250 250 250 / var(--tw-text-opacity, 1))}.dark\:text-zinc-900:is(.dark *){--tw-text-opacity:1;color:rgb(24 24 27 / var(--tw-text-opacity, 1))}.dark\:hover\:border-\[\#FF001D\]:hover:is(.dark *){--tw-border-opacity:1;border-color:rgb(255 0 29 / var(--tw-border-opacity, 1))}.dark\:hover\:bg-\[\#FF001D\]:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(255 0 29 / var(--tw-bg-opacity, 1))}.dark\:hover\:bg-white:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.dark\:hover\:bg-zinc-800:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(39 39 42 / var(--tw-bg-opacity, 1))}.dark\:hover\:text-\[\#FF001D\]:hover:is(.dark *){--tw-text-opacity:1;color:rgb(255 0 29 / var(--tw-text-opacity, 1))}.dark\:hover\:text-white:hover:is(.dark *){--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.group:hover .dark\:group-hover\:fill-\[\#FF001D\]:is(.dark *){fill:#FF001D}@media (min-width: 640px){.sm\:block{display:block}.sm\:flex-row{flex-direction:row}}@media (min-width: 768px){.md\:col-span-2{grid-column:span 2 / span 2}.md\:mt-0{margin-top:0px}.md\:w-auto{width:auto}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-end{align-items:flex-end}.md\:border-0{border-width:0px}.md\:bg-transparent{background-color:transparent}.md\:p-0{padding:0px}.md\:text-left{text-align:left}.md\:text-6xl{font-size:3.75rem;line-height:1}.md\:text-xs{font-size:0.75rem;line-height:1rem}}@media (min-width: 1024px){.lg\:flex{display:flex}.lg\:text-7xl{font-size:4.5rem;line-height:1}}</style></head>
+<body class="antialiased bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
+
+    <button onclick="downloadHTML()" class="fixed bottom-6 left-6 z-[100] bg-[#FF001D] text-white px-4 py-3 rounded-full font-bold shadow-2xl flex items-center gap-2 transform hover:scale-105 hover:bg-red-700 transition-all cursor-pointer" style="display: none;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+        <span>Download HTML</span>
+    </button>
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full top-0 z-50 bg-zinc-50/90 dark:bg-zinc-950/90 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" onclick="navigate('home')" class="flex items-center gap-3 z-50 group">
+                <svg version="1.1" viewBox="0 0 219 161" class="h-8 w-auto fill-zinc-900 dark:fill-zinc-50 group-hover:fill-[#FF001D] dark:group-hover:fill-[#FF001D] group-hover:scale-105 transition-all duration-300">
+                    <path d="M97.022,160.93c-12.228-9.281-22.188-21.204-29.133-34.874c-6.945-13.67-10.694-28.731-10.965-44.053L61.9,83.96c10.586,4.334,29.653,2.028,34.561,12.304l1.052,2.307c0-6.991,3.576-53.55-18.507-74.733C56.923,2.656,0,0,0,0s17.175,7.69,18.858,20.973c1.682,13.283,0.981,28.872,33.369,36.632c0,0-9.814-20.553-7.431-33.976c18.016,40.337,36.944,1.118,35.402,56.975L22.293,60.96c4.862,5.794,8.616,12.429,11.076,19.574c1.682,8.249,5.678,67.042,63.653,80.465V160.93z"></path>
+                    <path d="M121.908,160.93c12.243-9.267,22.214-21.187,29.161-34.86s10.686-28.741,10.937-44.067l-4.977,1.957c-10.585,4.334-29.653,2.028-34.56,12.304l-1.052,2.307c0-6.991-3.575-53.55,18.507-74.733C162.006,2.656,218.93,0,218.93,0s-17.176,7.69-18.858,20.973c-1.683,13.283-0.981,28.872-33.369,36.632c0,0,9.815-20.553,7.431-33.976c-18.016,40.337-36.874,1.118-35.402,56.975l57.905-19.644c-4.888,5.776-8.645,12.416-11.076,19.574c-1.753,8.249-5.749,67.042-63.723,80.465L121.908,160.93z"></path>
+                </svg>
+                <span class="text-xl font-bold tracking-tight hidden sm:block text-zinc-900 dark:text-zinc-50 transition-colors duration-300">Pengedar Seni.</span>
+            </a>
+            
+            <div class="hidden lg:flex space-x-6 text-sm font-medium text-zinc-600 dark:text-zinc-400 items-center">
+                <!-- Dropdown Shop -->
+                <div class="relative group py-2">
+                    <button class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors flex items-center gap-1">
+                        <span lang="en">Shop</span><span lang="id">Toko</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-xl overflow-hidden py-2">
+                        <a href="https://pengedarseni.shop" target="_blank" rel="noopener noreferrer" class="w-full text-left block px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Payhip</a>
+                        <a href="https://pengedarseni.myr.id/" target="_blank" rel="noopener noreferrer" class="w-full text-left block px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Mayar.id</a>
+                    </div>
+                </div>
+                
+                <button onclick="navigate('services')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">
+                    <span lang="en">Services</span><span lang="id">Layanan</span>
+                </button>
+                <button onclick="navigate('licenses')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Licenses/EULA</button>
+                <button onclick="navigate('about')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">
+                    <span lang="en">About Us</span><span lang="id">Tentang</span>
+                </button>
+                <button onclick="navigate('contact')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">
+                    <span lang="en">Contact</span><span lang="id">Kontak</span>
+                </button>
+            </div>
+
+            <div class="flex items-center space-x-4 z-50">
+                <button onclick="toggleTheme()" class="text-zinc-500 hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">
+                    <svg class="dark:hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg class="hidden dark:block" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+                <button onclick="toggleLanguage()" class="text-xs font-bold px-2 py-1 border border-zinc-300 dark:border-zinc-700 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">
+                    <span lang="en">EN</span><span lang="id">ID</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         PAGE: HOME
+    =========================================== -->
+    <main id="view-home" class="page-view active">
+        <div id="canvas-trigger-area" class="absolute top-0 left-0 w-full h-[80vh] z-20" onmouseenter="isHovering=true" onmouseleave="isHovering=false"></div>
+        
+        <header id="home-header" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+            <canvas id="hero-canvas" width="1174" height="827"></canvas>
+            
+            <div class="relative z-30 text-center px-6 max-w-4xl mx-auto pointer-events-none">
+                <h1 class="font-kalipixel uppercase text-4xl md:text-6xl lg:text-7xl font-bold tracking-widest leading-tight mb-6 text-zinc-900 dark:text-zinc-50">
+                    <div class="hero-text hero-text-1" lang="en">Small touches.</div>
+                    <div class="hero-text hero-text-2" lang="en">Huge impact.</div>
+                    <div class="hero-text hero-text-1" lang="id">Sentuhan kecil.</div>
+                    <div class="hero-text hero-text-2" lang="id">Dampak besar.</div>
+                </h1>
+                <p class="hero-text hero-text-3 text-lg text-zinc-500 dark:text-zinc-400 mb-10 max-w-2xl mx-auto">
+                    <span lang="en">High-Quality Digital Assets Curated for Visionary Designers. Fonts, Templates, and Scripts Crafted with Precision.</span>
+                    <span lang="id">Aset Digital Berkualitas Tinggi Dikurasi untuk Desainer Visioner. Font, Template, dan Script yang Dirancang dengan Presisi.</span>
+                </p>
+                <div class="hero-text hero-text-3 flex flex-col sm:flex-row justify-center gap-4 pointer-events-auto">
+                    <a href="https://pengedarseni.shop" target="_blank" rel="noopener noreferrer" class="bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 px-8 py-4 rounded-full text-sm font-semibold hover:bg-[#FF001D] hover:text-white dark:hover:bg-[#FF001D] dark:hover:text-white transition-all transform hover:scale-105 shadow-lg flex items-center justify-center">
+                        Payhip
+                    </a>
+                    <a href="https://pengedarseni.myr.id/" target="_blank" rel="noopener noreferrer" class="bg-white text-zinc-900 border border-zinc-200 px-8 py-4 rounded-full text-sm font-semibold hover:bg-white hover:text-[#FF001D] hover:border-[#FF001D] dark:bg-zinc-900 dark:text-zinc-50 dark:border-zinc-700 dark:hover:bg-white dark:hover:text-[#FF001D] dark:hover:border-[#FF001D] transition-all transform hover:scale-105 shadow-lg flex items-center justify-center">
+                        Mayar.id
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- ==========================================
+             AVAILABLE ON PLATFORM SECTION
+        =========================================== -->
+        <section class="py-8 border-y border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 relative z-30 fade-up active">
+            <div class="max-w-7xl mx-auto px-6 mb-4 text-center">
+                <h3 class="text-sm font-bold tracking-widest uppercase text-zinc-500">
+                    <span lang="en">Available On Your Favorite Platform</span>
+                    <span lang="id">Tersedia Di Platform Favorit Anda</span>
+                </h3>
+            </div>
+            
+            <div class="flex w-full marquee-container cursor-pointer">
+                <!-- Track 1 -->
+                <div class="marquee-track" aria-hidden="true">
+                    <a href="https://stock.adobe.com/" target="_blank" rel="noopener noreferrer" title="Adobe Stock" class="platform-logo" style="color: #ED2224;">Adobe Stock</a>
+                    <a href="https://behance.net/pengedarseni" target="_blank" rel="noopener noreferrer" title="Behance" class="platform-logo" style="color: #1769ff;">Behance</a>
+                    <a href="https://canva.com/pengedarseni" target="_blank" rel="noopener noreferrer" title="Canva" class="platform-logo" style="color: #00C4CC; font-family: cursive;">Canva</a>
+                    <a href="https://creativemarket.com/pengedarseni" target="_blank" rel="noopener noreferrer" title="Creative Market" class="platform-logo" style="color: #8ba753; font-family: serif;">Creative Market</a>
+                    <a href="https://elements.envato.com/" target="_blank" rel="noopener noreferrer" title="Envato Elements" class="platform-logo" style="color: #81B441;">Envato Elements</a>
+                    <a href="https://figma.com/@pengedarseni" target="_blank" rel="noopener noreferrer" title="Figma" class="platform-logo" style="color: #F24E1E;">Figma</a>
+                    <a href="https://freepik.com/" target="_blank" rel="noopener noreferrer" title="Freepik" class="platform-logo" style="color: #1273EB;">Freepik</a>
+                    <a href="https://iconscout.com/contributors/pengedarseni" target="_blank" rel="noopener noreferrer" title="Iconscout" class="platform-logo" style="color: #0040E5;">Iconscout</a>
+                    <a href="https://pengedarseni.mayar.link/" target="_blank" rel="noopener noreferrer" title="Mayar" class="platform-logo" style="color: #00A550;">Mayar</a>
+                    <a href="https://monotype.com/" target="_blank" rel="noopener noreferrer" title="Monotype" class="platform-logo text-zinc-900 dark:text-zinc-50">Monotype</a>
+                    <a href="https://myfonts.com/" target="_blank" rel="noopener noreferrer" title="MyFonts" class="platform-logo" style="color: #0076D6;">MyFonts</a>
+                    <a href="https://shutterstock.com/" target="_blank" rel="noopener noreferrer" title="Shutterstock" class="platform-logo" style="color: #EE3124; text-transform: lowercase;">shutterstock</a>
+                    <a href="https://ui8.net/pengedarseni" target="_blank" rel="noopener noreferrer" title="UI8" class="platform-logo" style="color: #00E5FF; font-weight: 900;">UI8</a>
+                    <a href="https://vecteezy.com/members/pengedarseni" target="_blank" rel="noopener noreferrer" title="Vecteezy" class="platform-logo" style="color: #FF7900;">Vecteezy</a>
+                </div>
+                
+                <!-- Track 2 (Clone untuk Seamless Loop) -->
+                <div class="marquee-track" aria-hidden="true">
+                    <a href="https://stock.adobe.com/" target="_blank" rel="noopener noreferrer" title="Adobe Stock" class="platform-logo" style="color: #ED2224;">Adobe Stock</a>
+                    <a href="https://behance.net/pengedarseni" target="_blank" rel="noopener noreferrer" title="Behance" class="platform-logo" style="color: #1769ff;">Behance</a>
+                    <a href="https://canva.com/pengedarseni" target="_blank" rel="noopener noreferrer" title="Canva" class="platform-logo" style="color: #00C4CC; font-family: cursive;">Canva</a>
+                    <a href="https://creativemarket.com/pengedarseni" target="_blank" rel="noopener noreferrer" title="Creative Market" class="platform-logo" style="color: #8ba753; font-family: serif;">Creative Market</a>
+                    <a href="https://elements.envato.com/" target="_blank" rel="noopener noreferrer" title="Envato Elements" class="platform-logo" style="color: #81B441;">Envato Elements</a>
+                    <a href="https://figma.com/@pengedarseni" target="_blank" rel="noopener noreferrer" title="Figma" class="platform-logo" style="color: #F24E1E;">Figma</a>
+                    <a href="https://freepik.com/" target="_blank" rel="noopener noreferrer" title="Freepik" class="platform-logo" style="color: #1273EB;">Freepik</a>
+                    <a href="https://iconscout.com/contributors/pengedarseni" target="_blank" rel="noopener noreferrer" title="Iconscout" class="platform-logo" style="color: #0040E5;">Iconscout</a>
+                    <a href="https://pengedarseni.mayar.link/" target="_blank" rel="noopener noreferrer" title="Mayar" class="platform-logo" style="color: #00A550;">Mayar</a>
+                    <a href="https://monotype.com/" target="_blank" rel="noopener noreferrer" title="Monotype" class="platform-logo text-zinc-900 dark:text-zinc-50">Monotype</a>
+                    <a href="https://myfonts.com/" target="_blank" rel="noopener noreferrer" title="MyFonts" class="platform-logo" style="color: #0076D6;">MyFonts</a>
+                    <a href="https://shutterstock.com/" target="_blank" rel="noopener noreferrer" title="Shutterstock" class="platform-logo" style="color: #EE3124; text-transform: lowercase;">shutterstock</a>
+                    <a href="https://ui8.net/pengedarseni" target="_blank" rel="noopener noreferrer" title="UI8" class="platform-logo" style="color: #00E5FF; font-weight: 900;">UI8</a>
+                    <a href="https://vecteezy.com/members/pengedarseni" target="_blank" rel="noopener noreferrer" title="Vecteezy" class="platform-logo" style="color: #FF7900;">Vecteezy</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         PAGE: LICENSES / EULA
+    =========================================== -->
+    <main id="view-licenses" class="page-view pt-32 pb-24 max-w-5xl mx-auto px-6">
+        <h2 class="text-4xl font-bold mb-10 border-b border-zinc-200 dark:border-zinc-800 pb-6 text-zinc-900 dark:text-zinc-50 fade-up active">Licenses &amp; EULA</h2>
+        
+        <div class="space-y-12 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed fade-up active">
+            
+            <section class="bg-zinc-100 dark:bg-zinc-900 p-8 rounded-3xl">
+                <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">Important Notes (Read Before Use)</h3>
+                <ul class="list-disc pl-5 space-y-2 mb-6">
+                    <li>If you are a designer, studio, agency, or consultant, the license must be owned by your client.</li>
+                    <li>Personal/Demo assets are strictly for non-commercial use only.</li>
+                    <li>Licenses are non-transferable. You cannot share, sublicense, or distribute the files to third parties outside your organization.</li>
+                    <li>Modifying, renaming, or reselling the source files (in any form) is strictly prohibited.</li>
+                    <li>We reserve the right to pursue fines (5–20x the license value) for license violations. No refunds.</li>
+                </ul>
+                <p class="font-bold text-red-500">Assets may not be used in: ❌ Violence, pornographic content ❌ Hate speech, racism, or religious defamation ❌ Illegal, misleading, or unethical projects.</p>
+            </section>
+
+            <section>
+                <h3 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">A. Font Licenses</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Personal License</h4><ul class="list-disc pl-5 space-y-1"><li>For personal, non-commercial use only</li><li>Not permitted for client projects</li></ul></div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Standard License</h4><ul class="list-disc pl-5 space-y-1"><li>Up to 1 User / Device</li><li>Commercial projects allowed</li><li>Not valid for brand logo</li></ul></div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Professional License</h4><ul class="list-disc pl-5 space-y-1"><li>Up to 5 Users / Devices</li><li>Commercial projects allowed</li><li>Not valid for brand logo</li></ul></div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Extended License</h4><ul class="list-disc pl-5 space-y-1"><li>Unlimited Users / Devices</li><li><span class="text-[#FF001D] font-semibold">Valid for Brand Logo / Wordmark</span></li><li>Unlimited products for sale</li></ul></div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Server/App/Game</h4><ul class="list-disc pl-5 space-y-1"><li>Font embedding for Mobile Apps \&amp; Games</li><li>Web server embedding allowed</li></ul></div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Broadcast License</h4><ul class="list-disc pl-5 space-y-1"><li>Valid for TV, Film, and Cinema</li><li>Streaming and Motion Graphics</li></ul></div>
+                    <div class="md:col-span-2 border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Corporate/Brand License</h4><ul class="list-disc pl-5 space-y-1"><li>Comprehensive license for large-scale enterprise usage</li><li>National and global campaigns</li><li>Unlimited digital and physical applications</li></ul></div>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">B. Template &amp; Graphic Licenses</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Personal</h4><ul class="list-disc pl-5 space-y-1"><li>For personal, non-commercial use</li><li>Valid for personal social media</li></ul></div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Commercial</h4><ul class="list-disc pl-5 space-y-1"><li>Up to 5,000 end products for sale</li><li>1 Business social media account</li></ul></div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Extended</h4><ul class="list-disc pl-5 space-y-1"><li>Up to 250,000 products for sale</li><li>Unlimited business social media</li></ul></div>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">C. Software, Script &amp; HTML Licenses</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Standard License</h4><ul class="list-disc pl-5 space-y-1"><li>1 User / Developer</li><li>Install on 1 website / domain</li><li>Cannot share or resell source code</li></ul></div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Extended License</h4><ul class="list-disc pl-5 space-y-1"><li>Up to 10 Users within an agency</li><li>Install on unlimited domains</li><li>Cannot share or resell source code</li></ul></div>
+                    <div class="md:col-span-2 border border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-950/30 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-2 text-red-600 dark:text-red-400">Strict SaaS &amp; API Restriction</h4>
+                        <p class="text-sm text-zinc-700 dark:text-zinc-300">
+                            You are <strong>strictly prohibited</strong> from wrapping our HTML/Scripts (especially AI API-connected tools) into a paid Software-as-a-Service (SaaS), White-label platform, or automated generator tool where end-users pay for access, unless you have obtained a custom <strong>Enterprise/OEM License</strong> from us.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ==========================================
+         PAGE: SERVICES
+    =========================================== -->
+    <main id="view-services" class="page-view pt-32 pb-24 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 fade-up active">
+            <h2 class="text-4xl font-bold mb-4 text-zinc-900 dark:text-zinc-50">Creative Services</h2>
+            <p class="text-zinc-500 max-w-xl mx-auto">Beyond digital assets, we provide bespoke design solutions.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div class="group cursor-pointer fade-up active">
+                <div class="overflow-hidden bg-zinc-200 dark:bg-zinc-800 aspect-[3/2] mb-4 rounded-2xl relative">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale">
+                </div>
+                <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-50">Web Design &amp; UI/UX</h3>
+            </div>
+            <div class="group cursor-pointer fade-up active" style="transition-delay: 100ms">
+                <div class="overflow-hidden bg-zinc-200 dark:bg-zinc-800 aspect-[3/2] mb-4 rounded-2xl relative">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale">
+                </div>
+                <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-50">Brand Identity &amp; Logo Design</h3>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==========================================
+         PAGE: ABOUT US
+    =========================================== -->
+    <main id="view-about" class="page-view pt-32 pb-24 max-w-3xl mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold mb-8 fade-up text-zinc-900 dark:text-zinc-50 active" lang="en">About Us</h2>
+        <h2 class="text-4xl font-bold mb-8 fade-up text-zinc-900 dark:text-zinc-50 active" lang="id">Tentang Kami</h2>
+        
+        <div class="space-y-6 text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed text-left fade-up active">
+            <p>
+                <span lang="en">We are <strong>Pengedar Seni</strong>, your trusted source for thoughtfully crafted digital design assets. Based in West Java, Indonesia, we are a creative studio and digital product vendor committed to providing high-quality fonts, templates, and visual assets for designers, brands, and creatives around the world.</span>
+                <span lang="id">Kami adalah <strong>Pengedar Seni</strong>, sumber terpercaya untuk aset desain digital yang dibuat dengan cermat. Berbasis di Jawa Barat, Indonesia, kami adalah studio kreatif dan vendor produk digital yang berkomitmen untuk menyediakan font, template, dan aset visual berkualitas tinggi untuk desainer, merek, dan pekerja kreatif di seluruh dunia.</span>
+            </p>
+            <p>
+                <span lang="en">With over 8 years of experience in the creative industry, our team has collaborated with global brands and creative professionals across various fields—from branding, social media content, and UI/UX design, to SEO/SEM strategy.</span>
+                <span lang="id">Dengan pengalaman lebih dari 8 tahun di industri kreatif, tim kami telah berkolaborasi dengan merek global dan profesional di berbagai bidang—mulai dari branding, konten media sosial, desain UI/UX, hingga strategi SEO/SEM.</span>
+            </p>
+            <p>
+                <span lang="en">Now, through Pengedar Seni’s digital store, we’re excited to offer downloadable products that help bring your ideas to life—whether you're designing a logo, building a brand, or simply looking to enhance your visual identity.</span>
+                <span lang="id">Kini, melalui toko digital Pengedar Seni, kami sangat antusias untuk menawarkan produk yang dapat diunduh untuk membantu mewujudkan ide-ide Anda—baik saat merancang logo, membangun identitas merek, atau sekadar mempercantik desain Anda.</span>
+            </p>
+            <p class="font-bold text-zinc-900 dark:text-zinc-100 mt-8 text-center text-xl">
+                <span lang="en">Thank you for supporting independent creators!</span>
+                <span lang="id">Terima kasih telah mendukung kreator independen!</span>
+            </p>
+        </div>
+    </main>
+
+    <!-- ==========================================
+         PAGE: CONTACT
+    =========================================== -->
+    <main id="view-contact" class="page-view pt-32 pb-24 max-w-3xl mx-auto px-6">
+        <div class="text-center mb-12 fade-up active">
+            <h2 class="text-4xl font-bold mb-4 text-zinc-900 dark:text-zinc-50">
+                <span lang="en">Contact Us</span><span lang="id">Hubungi Kami</span>
+            </h2>
+        </div>
+        <div class="bg-white dark:bg-zinc-900 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-sm fade-up active">
+            <form class="space-y-6">
+                <div>
+                    <label class="block text-sm font-semibold mb-2 text-zinc-900 dark:text-zinc-100">
+                        <span lang="en">Email</span><span lang="id">Email Anda</span>
+                    </label>
+                    <input type="email" id="contact-email" class="w-full bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-3 rounded-xl outline-none focus:border-zinc-900 dark:text-zinc-50">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-2 text-zinc-900 dark:text-zinc-100">
+                        <span lang="en">Message</span><span lang="id">Pesan</span>
+                    </label>
+                    <textarea id="contact-message" rows="4" class="w-full bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-3 rounded-xl outline-none focus:border-zinc-900 dark:text-zinc-50"></textarea>
+                </div>
+                <button type="button" onclick="sendWhatsApp()" class="w-full bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 py-4 rounded-xl font-bold hover:bg-[#FF001D] hover:text-white dark:hover:bg-[#FF001D] dark:hover:text-white transition-colors">
+                    <span lang="en">Send Message</span><span lang="id">Kirim Pesan</span>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-zinc-100 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800 pt-16 pb-8 px-6 mt-auto relative z-30">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-b border-zinc-200 dark:border-zinc-800 pb-10 mb-8 gap-8">
+            <div class="text-center md:text-left">
+                <h2 class="text-2xl font-bold tracking-tight mb-2 text-zinc-900 dark:text-zinc-50">Pengedar Seni.</h2>
+                <p class="text-zinc-500 dark:text-zinc-400 text-sm">support@pengedarseni.com</p>
+            </div>
+            
+            <div class="flex flex-col items-center md:items-end gap-6">
+                <div class="flex flex-wrap justify-center space-x-6 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                    <a href="https://pengedarseni.shop" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Payhip</a>
+                    <a href="https://pengedarseni.myr.id/" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Mayar.id</a>
+                    <button onclick="navigate('services')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Services</button>
+                    <button onclick="navigate('licenses')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Licenses</button>
+                </div>
+                
+                <!-- Social Media Icons -->
+                <div class="flex items-center space-x-5">
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/pengedarseni" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-[#FF001D] transition-colors transform hover:scale-110" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><rect x="32" y="32" width="192" height="192" rx="48"></rect><circle cx="128" cy="128" r="40"></circle><circle cx="180" cy="76" r="12" fill="currentColor" stroke="none"></circle></svg>
+                    </a>
+                    <!-- Behance -->
+                    <a href="https://behance.net/pengedarseni" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-[#FF001D] transition-colors transform hover:scale-110" aria-label="Behance">
+                        <svg width="24" height="24" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M104,116H40V64h64a26,26,0,0,1,0,52Z"></path><path d="M112,192H40V116h72a38,38,0,0,1,0,76Z"></path><line x1="40" y1="116" x2="104" y2="116"></line><line x1="168" y1="96" x2="216" y2="96"></line><path d="M224,148a40,40,0,0,0-80,0c0,22.09,17.91,44,40,44a41.37,41.37,0,0,0,32.32-15.11"></path><line x1="144" y1="148" x2="223.11" y2="148"></line></svg>
+                    </a>
+                    <!-- Dribbble -->
+                    <a href="https://dribbble.com/pengedarseni" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-[#FF001D] transition-colors transform hover:scale-110" aria-label="Dribbble">
+                        <svg width="24" height="24" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><circle cx="128" cy="128" r="96"></circle><path d="M60.16,128A112.24,112.24,0,0,1,168,80"></path><path d="M36.19,155.43C78.43,149.52,118.84,166,144,200"></path><path d="M222.84,145.41c-38.38-16.27-80-5.11-104,24"></path><path d="M102,40A104.14,104.14,0,0,1,136,112c32-18,59-53,60-55"></path></svg>
+                    </a>
+                    <!-- X / Twitter -->
+                    <a href="https://x.com/pengedarseni" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-[#FF001D] transition-colors transform hover:scale-110" aria-label="X (Twitter)">
+                        <svg width="24" height="24" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><polygon points="48 40 104 40 208 216 152 216 48 40"></polygon><line x1="104" y1="216" x2="68" y2="160"></line><line x1="144" y1="104" x2="208" y2="40"></line></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row justify-between items-center text-sm text-zinc-400 gap-6">
+            <p class="mt-4 md:mt-0 text-center">© 2015-<span id="current-year">2026</span> Pengedar Seni. All rights reserved.</p>
+            
+            <!-- SECURE PAYMENT LOGO (Shield) -->
+            <div class="flex items-center space-x-3 text-zinc-400 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-4 rounded-xl md:bg-transparent md:border-0 md:p-0 w-full md:w-auto justify-center">
+                <svg class="w-8 h-8 text-zinc-900 dark:text-zinc-100 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"></path>
+                </svg>
+                <div class="text-left">
+                    <p class="font-bold text-zinc-900 dark:text-zinc-100 text-sm"><span lang="en">Secure Payment</span><span lang="id">Pembayaran Aman</span></p>
+                    <p class="text-[10px] md:text-xs text-zinc-500 leading-tight"><span lang="en">All payments use RSA security encryption.</span><span lang="id">Semua pembayaran menggunakan enkripsi keamanan RSA.</span></p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button id="scrollToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 z-[90] bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 w-12 h-12 rounded-full shadow-2xl flex items-center justify-center transform transition-all duration-300 hover:scale-110 hover:bg-[#FF001D] dark:hover:bg-[#FF001D] hover:text-white dark:hover:text-white translate-y-20 opacity-0">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"></path></svg>
+    </button>
+
+    <!-- SCRIPTS -->
+    <script>
+        function downloadHTML() {
+            const btn = document.querySelector('button[onclick="downloadHTML()"]');
+            btn.style.display = 'none';
+            const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], {type: "text/html"});
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url; a.download = "pengedar-seni-website.html"; a.click();
+            window.URL.revokeObjectURL(url);
+            btn.style.display = 'flex';
+        }
+
+        function toggleTheme() { document.documentElement.classList.toggle('dark'); }
+        function toggleLanguage() { document.body.classList.toggle('lang-id'); }
+
+        function navigate(viewId) {
+            document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));
+            document.getElementById('view-' + viewId).classList.add('active');
+            window.scrollTo(0,0);
+            if(viewId === 'home') setTimeout(initParticles, 100);
+            setTimeout(reveal, 100);
+        }
+
+        function reveal() {
+            var reveals = document.querySelectorAll(".fade-up");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 50) reveals[i].classList.add("active");
+            }
+        }
+        
+        window.addEventListener("scroll", () => {
+            reveal();
+            const topBtn = document.getElementById('scrollToTopBtn');
+            if(topBtn) {
+                if (window.scrollY > 400) {
+                    topBtn.classList.remove('translate-y-20', 'opacity-0');
+                } else {
+                    topBtn.classList.add('translate-y-20', 'opacity-0');
+                }
+            }
+        });
+        
+        setTimeout(reveal, 200);
+
+        function sendWhatsApp() {
+            const email = document.getElementById('contact-email').value;
+            const message = document.getElementById('contact-message').value;
+            
+            if(!email || !message) {
+                alert("Please fill out both email and message fields.");
+                return;
+            }
+
+            const text = `Email : ${email}\nPesan : ${message}`;
+            const encodedText = encodeURIComponent(text);
+            const waUrl = `https://wa.me/6285156020119?text=${encodedText}`;
+            
+            window.open(waUrl, '_blank');
+        }
+
+        // --- BACKGROUND CANVAS LOGO PARTICLES ---
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = []; let isHovering = false; let logoPoints = [];
+        
+        function resizeCanvas() {
+            const header = document.getElementById('home-header');
+            if(header) { canvas.width = header.offsetWidth; canvas.height = header.offsetHeight; }
+            if(document.getElementById('view-home').classList.contains('active')) initParticles();
+        }
+        window.addEventListener('resize', resizeCanvas);
+
+        function extractLogoPoints() {
+            const p1 = "M97.022,160.93c-12.228-9.281-22.188-21.204-29.133-34.874c-6.945-13.67-10.694-28.731-10.965-44.053L61.9,83.96c10.586,4.334,29.653,2.028,34.561,12.304l1.052,2.307c0-6.991,3.576-53.55-18.507-74.733C56.923,2.656,0,0,0,0s17.175,7.69,18.858,20.973c1.682,13.283,0.981,28.872,33.369,36.632c0,0-9.814-20.553-7.431-33.976c18.016,40.337,36.944,1.118,35.402,56.975L22.293,60.96c4.862,5.794,8.616,12.429,11.076,19.574c1.682,8.249,5.678,67.042,63.653,80.465V160.93z";
+            const p2 = "M121.908,160.93c12.243-9.267,22.214-21.187,29.161-34.86s10.686-28.741,10.937-44.067l-4.977,1.957c-10.585,4.334-29.653,2.028-34.56,12.304l-1.052,2.307c0-6.991-3.575-53.55,18.507-74.733C162.006,2.656,218.93,0,218.93,0s-17.176,7.69-18.858,20.973c-1.683,13.283-0.981,28.872-33.369,36.632c0,0,9.815-20.553,7.431-33.976c-18.016,40.337-36.874,1.118-35.402,56.975l57.905-19.644c-4.888,5.776-8.645,12.416-11.076,19.574c-1.753,8.249-5.749,67.042-63.723,80.465L121.908,160.93z";
+            const logoPath = new Path2D(); logoPath.addPath(new Path2D(p1)); logoPath.addPath(new Path2D(p2));
+            logoPoints = [];
+            // Dikembalikan ke kerapatan awal (y+=3, x+=3) agar jumlah partikel berkurang & kinerja lebih ringan
+            for(let y = 0; y <= 161; y += 3) { 
+                for(let x = 0; x <= 219; x += 3) { 
+                    if(ctx.isPointInPath(logoPath, x, y)) { 
+                        logoPoints.push({ x: x - 109.5, y: y - 80.5 }); 
+                    } 
+                } 
+            }
+            initParticles();
+        }
+
+        class Particle {
+            constructor(targetX, targetY) {
+                this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height;
+                this.targetX = targetX; this.targetY = targetY;
+                // Dikembalikan ke ukuran asal yang lebih besar
+                this.size = Math.random() * 8 + 6; 
+                this.vx = (Math.random() - 0.5) * 1.5; this.vy = (Math.random() - 0.5) * 1.5;
+                this.text = Math.random() > 0.5 ? "1" : "0"; 
+            }
+            update() {
+                if (isHovering && logoPoints.length > 0) {
+                    this.x += (this.targetX - this.x) * 0.05; this.y += (this.targetY - this.y) * 0.05;
+                } else {
+                    this.x += this.vx; this.y += this.vy;
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1; if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                }
+                
+                if (Math.random() < 0.01) {
+                    this.text = this.text === "0" ? "1" : "0";
+                }
+            }
+            draw() {
+                ctx.fillStyle = document.documentElement.classList.contains('dark') ? 'rgba(212, 212, 216, 0.4)' : 'rgba(82, 82, 91, 0.4)';
+                ctx.font = `${this.size}px 'Space Grotesk', monospace`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(this.text, this.x, this.y);
+            }
+        }
+
+        function initParticles() {
+            particles = []; const centerX = canvas.width / 2; const centerY = canvas.height / 2; const scale = Math.min(canvas.width, canvas.height) > 600 ? 2 : 1.2;
+            if (logoPoints.length > 0) { for (let i = 0; i < logoPoints.length; i++) { particles.push(new Particle(centerX + logoPoints[i].x * scale, centerY + logoPoints[i].y * scale)); } } else { for (let i = 0; i < 150; i++) particles.push(new Particle(centerX, centerY)); }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate);
+        }
+
+        resizeCanvas(); extractLogoPoints(); animate();
+        
+        const triggerArea = document.getElementById('canvas-trigger-area');
+        if(triggerArea) {
+            triggerArea.addEventListener('touchstart', () => isHovering = true);
+            triggerArea.addEventListener('touchend', () => { setTimeout(() => isHovering = false, 3000) });
+        }
+        setTimeout(() => { isHovering = true; }, 500); setTimeout(() => { isHovering = false; }, 4000);
+
+        document.getElementById('current-year').innerText = new Date().getFullYear();
+    </script>
+
+</body></html>
