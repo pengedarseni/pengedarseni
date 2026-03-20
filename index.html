@@ -497,7 +497,7 @@
                 </div>
             </div>
             
-            <!-- History Button (Dark Mode removed as requested) -->
+            <!-- History Button -->
             <div class="flex items-center gap-3">
                 <button onclick="toggleHistory()" class="p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-300 transition-colors" title="Riwayat Generate">
                     <i class="fa-solid fa-clock-rotate-left"></i>
@@ -1051,7 +1051,7 @@
         }
 
         // ==========================================
-        // FREEBIES LOGIC (AI Tools)
+        // FREEBIES LOGIC (AI Tools) - FIXED API
         // ==========================================
         function showStatusMsg(elementId, message, isError = false) {
             const statusEl = document.getElementById(elementId);
@@ -1422,13 +1422,14 @@ Do NOT add conversational text or markdown blocks.`;
             }
         }
 
-        // --- CORE API FETCHER ---
+        // --- CORE API FETCHER (FIXED VERSION) ---
         async function fetchAIResponse(provider, apiKey, systemInstruction, userText, imageBase64, imageMimeType, temperature) {
             const numTemp = parseFloat(temperature);
             
             // --- GEMINI API ---
             if (provider === 'gemini') {
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+                // BUG FIX: Mengubah model dari versi preview ke versi stabil (gemini-1.5-flash)
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
                 const parts = [{ text: userText }];
                 if (imageBase64) {
                     parts.push({ inlineData: { mimeType: imageMimeType, data: imageBase64 } });
@@ -1443,7 +1444,10 @@ Do NOT add conversational text or markdown blocks.`;
                     })
                 });
                 
-                if (!response.ok) throw new Error(`API Gemini Error: ${response.status} ${response.statusText}`);
+                if (!response.ok) {
+                    const errData = await response.json().catch(()=>({}));
+                    throw new Error(errData.error?.message || `API Gemini Error: ${response.status} ${response.statusText}`);
+                }
                 const data = await response.json();
                 if (!data.candidates || data.candidates.length === 0 || !data.candidates[0].content) {
                     throw new Error("API tidak mengembalikan konten apa pun.");
@@ -1461,11 +1465,12 @@ Do NOT add conversational text or markdown blocks.`;
                 model = "gpt-4o-mini";
             } else if (provider === 'groq') {
                 endpoint = "https://api.groq.com/openai/v1/chat/completions";
+                // Mengupdate nama model agar sesuai dengan versi groq yang aktif saat ini
                 model = imageBase64 ? "llama-3.2-11b-vision-preview" : "llama-3.3-70b-versatile"; 
             } else if (provider === 'deepseek') {
                 endpoint = "https://api.deepseek.com/chat/completions";
                 model = "deepseek-chat";
-                if (imageBase64) throw new Error("DeepSeek saat ini belum mendukung gambar. Ganti ke Gemini/OpenAI/Groq.");
+                if (imageBase64) throw new Error("DeepSeek saat ini belum mendukung analisis gambar. Ganti ke Gemini/OpenAI/Groq.");
             }
 
             let userContent = userText;
@@ -1488,7 +1493,7 @@ Do NOT add conversational text or markdown blocks.`;
 
             if (!response.ok) {
                 const errData = await response.json().catch(()=>({}));
-                throw new Error(errData.error?.message || errData.error?.code || `HTTP Error ${response.status}`);
+                throw new Error(errData.error?.message || errData.error?.code || `HTTP Error ${response.status} ${response.statusText}`);
             }
             
             const data = await response.json();
@@ -1534,8 +1539,9 @@ Do NOT add conversational text or markdown blocks.`;
             } catch (error) {
                 resultBox.value = "";
                 let errorMsg = error.message;
+                // Bug fix: Menyampaikan error asli atau memberikan peringatan CORS yang lebih spesifik
                 if(errorMsg.includes("Failed to fetch") || errorMsg.includes("NetworkError")) {
-                    errorMsg = "Connection lost due to CORS! Please use Gemini API. / Koneksi terputus karena CORS! Coba gunakan Gemini API.";
+                    errorMsg = "Browser memblokir permintaan ini karena CORS (Biasanya terjadi pada OpenAI/DeepSeek jika dijalankan di file HTML lokal). Gunakan Gemini API.";
                 }
                 showStatusMsg('promptStatusMsg', errorMsg, true);
             } finally {
@@ -1583,8 +1589,9 @@ Do NOT add conversational text or markdown blocks.`;
             } catch (error) {
                 resultBox.value = "";
                 let errorMsg = error.message;
+                // Bug fix: Menangani pesan error fetch lokal
                 if(errorMsg.includes("Failed to fetch") || errorMsg.includes("NetworkError")) {
-                    errorMsg = "Connection lost due to CORS! Please use Gemini API. / Koneksi terputus karena CORS! Coba gunakan Gemini API.";
+                    errorMsg = "Browser memblokir permintaan ini karena CORS. Gunakan Gemini API jika dijalankan tanpa Server (Localhost).";
                 }
                 showStatusMsg('seoStatusMsg', errorMsg, true);
             } finally {
