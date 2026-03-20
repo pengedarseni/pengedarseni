@@ -5,21 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengedar Seni</title>
     
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Unbounded:wght@700;900&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
-    <!-- JSZip Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
-    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -42,7 +36,6 @@
         }
     </script>
 
-    <!-- Custom Styles -->
     <style>
         body {
             font-family: 'Space Grotesk', sans-serif;
@@ -100,13 +93,6 @@
         .checkout-input:focus { border-color: #18181b; }
         .dark .checkout-input:focus { border-color: #fafafa; }
 
-        /* Image Slider Dots */
-        .slider-dot { transition: all 0.3s; height: 8px; border-radius: 9999px; }
-        .slider-dot.active { width: 24px; background-color: #18181b; }
-        .dark .slider-dot.active { background-color: #fafafa; }
-        .slider-dot.inactive { width: 8px; background-color: #d4d4d8; cursor: pointer; }
-        .dark .slider-dot.inactive { background-color: #52525b; }
-
         /* Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -116,61 +102,26 @@
 
         #hero-canvas { position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;}
 
-        /* Marquee Animation untuk Logo Platform */
-        .marquee-container {
-            overflow-x: hidden;
-        }
-        .marquee-container:hover .marquee-track {
-            animation-play-state: paused;
-        }
+        /* Marquee Animation */
+        .marquee-container { overflow-x: hidden; }
+        .marquee-container:hover .marquee-track { animation-play-state: paused; }
         .marquee-track {
-            display: flex;
-            align-items: center;
-            flex-shrink: 0; 
-            min-width: 100%;
-            justify-content: space-around;
-            gap: 3rem; 
-            padding: 1.5rem 1.5rem; 
+            display: flex; align-items: center; flex-shrink: 0; min-width: 100%;
+            justify-content: space-around; gap: 3rem; padding: 1.5rem 1.5rem; 
             animation: scrollMarquee 40s linear infinite;
         }
-        @media (min-width: 768px) {
-            .marquee-track {
-                gap: 5rem; 
-            }
-        }
-        @keyframes scrollMarquee {
-            from { transform: translateX(0); }
-            to { transform: translateX(-100%); }
-        }
+        @media (min-width: 768px) { .marquee-track { gap: 5rem; } }
+        @keyframes scrollMarquee { from { transform: translateX(0); } to { transform: translateX(-100%); } }
         
-        /* Styling khusus logo teks agar berwarna abu di awal, lalu berwarna asli saat hover */
         .platform-logo {
-            filter: grayscale(100%) opacity(0.5);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            flex-shrink: 0; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem; 
-            font-weight: 800; 
-            letter-spacing: -0.025em;
-            height: 40px;
+            filter: grayscale(100%) opacity(0.5); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: 800; letter-spacing: -0.025em; height: 40px;
             font-family: 'Space Grotesk', sans-serif !important;
         }
-        @media (min-width: 768px) {
-            .platform-logo {
-                font-size: 2.25rem; 
-            }
-        }
-        .platform-logo:hover {
-            filter: grayscale(0%) opacity(1);
-            transform: scale(1.15);
-        }
-        .platform-logo svg {
-            height: 100%;
-            width: auto;
-            max-width: 100%;
-        }
+        @media (min-width: 768px) { .platform-logo { font-size: 2.25rem; } }
+        .platform-logo:hover { filter: grayscale(0%) opacity(1); transform: scale(1.15); }
+        .platform-logo svg { height: 100%; width: auto; max-width: 100%; }
 
         /* Tool Freebies Styles */
         textarea::-webkit-scrollbar { width: 8px; }
@@ -194,19 +145,17 @@
         <span>Download HTML</span>
     </button>
 
-    <!-- NAVIGATION -->
     <nav class="fixed w-full top-0 z-50 bg-zinc-50/90 dark:bg-zinc-950/90 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" onclick="navigate('home')" class="flex items-center gap-3 z-50 group">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative z-50">
+            <a href="#" onclick="navigate('home')" class="flex items-center gap-3 group">
                 <svg version="1.1" viewBox="0 0 219 161" class="h-8 w-auto fill-zinc-900 dark:fill-zinc-50 group-hover:fill-[#FF001D] dark:group-hover:fill-[#FF001D] group-hover:scale-105 transition-all duration-300">
                     <path d="M97.022,160.93c-12.228-9.281-22.188-21.204-29.133-34.874c-6.945-13.67-10.694-28.731-10.965-44.053L61.9,83.96c10.586,4.334,29.653,2.028,34.561,12.304l1.052,2.307c0-6.991,3.576-53.55-18.507-74.733C56.923,2.656,0,0,0,0s17.175,7.69,18.858,20.973c1.682,13.283,0.981,28.872,33.369,36.632c0,0-9.814-20.553-7.431-33.976c18.016,40.337,36.944,1.118,35.402,56.975L22.293,60.96c4.862,5.794,8.616,12.429,11.076,19.574c1.682,8.249,5.678,67.042,63.653,80.465V160.93z"></path>
                     <path d="M121.908,160.93c12.243-9.267,22.214-21.187,29.161-34.86s10.686-28.741,10.937-44.067l-4.977,1.957c-10.585,4.334-29.653,2.028-34.56,12.304l-1.052,2.307c0-6.991-3.575-53.55,18.507-74.733C162.006,2.656,218.93,0,218.93,0s-17.176,7.69-18.858,20.973c-1.683,13.283-0.981,28.872-33.369,36.632c0,0,9.815-20.553,7.431-33.976c-18.016,40.337-36.874,1.118-35.402,56.975l57.905-19.644c-4.888,5.776-8.645,12.416-11.076,19.574c-1.753,8.249-5.749,67.042-63.723,80.465L121.908,160.93z"></path>
                 </svg>
-                <span class="text-xl font-bold tracking-tight hidden sm:block text-zinc-900 dark:text-zinc-50 transition-colors duration-300">Pengedar Seni</span>
+                <span class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 transition-colors duration-300">Pengedar Seni.</span>
             </a>
             
             <div class="hidden lg:flex space-x-6 text-sm font-medium text-zinc-600 dark:text-zinc-400 items-center">
-                <!-- Dropdown Shop -->
                 <div class="relative group py-2">
                     <button class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors flex items-center gap-1">
                         <span lang="en">Shop</span><span lang="id">Toko</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
@@ -216,21 +165,14 @@
                         <a href="https://pengedarseni.myr.id/" target="_blank" rel="noopener noreferrer" class="w-full text-left block px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Mayar</a>
                     </div>
                 </div>
-                
-                <button onclick="navigate('services')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">
-                    <span lang="en">Services</span><span lang="id">Layanan</span>
-                </button>
+                <button onclick="navigate('services')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors"><span lang="en">Services</span><span lang="id">Layanan</span></button>
                 <button onclick="navigate('freebies')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Freebies</button>
                 <button onclick="navigate('licenses')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Licenses/EULA</button>
-                <button onclick="navigate('about')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">
-                    <span lang="en">About Us</span><span lang="id">Tentang</span>
-                </button>
-                <button onclick="navigate('contact')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">
-                    <span lang="en">Contact</span><span lang="id">Kontak</span>
-                </button>
+                <button onclick="navigate('about')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors"><span lang="en">About Us</span><span lang="id">Tentang</span></button>
+                <button onclick="navigate('contact')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors"><span lang="en">Contact</span><span lang="id">Kontak</span></button>
             </div>
 
-            <div class="flex items-center space-x-4 z-50">
+            <div class="flex items-center space-x-4">
                 <button onclick="toggleTheme()" class="text-zinc-500 hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">
                     <svg class="dark:hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                     <svg class="hidden dark:block" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
@@ -238,13 +180,37 @@
                 <button onclick="toggleLanguage()" class="text-xs font-bold px-2 py-1 border border-zinc-300 dark:border-zinc-700 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">
                     <span lang="en">EN</span><span lang="id">ID</span>
                 </button>
+                <button onclick="toggleMobileMenu()" class="lg:hidden text-zinc-500 hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors focus:outline-none ml-2">
+                    <i id="mobileMenuIcon" class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="fixed inset-0 top-[72px] bg-zinc-50/95 dark:bg-zinc-950/95 backdrop-blur-xl z-40 hidden flex-col px-6 py-10 space-y-6 opacity-0 transition-opacity duration-300 lg:hidden overflow-y-auto border-t border-zinc-200 dark:border-zinc-800">
+            <div class="flex flex-col space-y-6 text-xl font-bold text-zinc-900 dark:text-zinc-50">
+                <a href="#" onclick="navigate('home'); toggleMobileMenu()" class="hover:text-[#FF001D] transition-colors"><span lang="en">Home</span><span lang="id">Beranda</span></a>
+                
+                <div class="space-y-4">
+                    <span class="text-zinc-400 dark:text-zinc-600 text-sm uppercase tracking-widest"><span lang="en">Shop</span><span lang="id">Toko</span></span>
+                    <a href="https://payhip.com/PengedarSeni" target="_blank" rel="noopener noreferrer" class="block pl-4 hover:text-[#FF001D] transition-colors border-l-2 border-zinc-200 dark:border-zinc-800">Payhip</a>
+                    <a href="https://pengedarseni.myr.id/" target="_blank" rel="noopener noreferrer" class="block pl-4 hover:text-[#FF001D] transition-colors border-l-2 border-zinc-200 dark:border-zinc-800">Mayar</a>
+                </div>
+
+                <button onclick="navigate('services'); toggleMobileMenu()" class="text-left hover:text-[#FF001D] transition-colors"><span lang="en">Services</span><span lang="id">Layanan</span></button>
+                <button onclick="navigate('freebies'); toggleMobileMenu()" class="text-left hover:text-[#FF001D] transition-colors">Freebies (AI Tools)</button>
+                <button onclick="navigate('licenses'); toggleMobileMenu()" class="text-left hover:text-[#FF001D] transition-colors">Licenses / EULA</button>
+                <button onclick="navigate('about'); toggleMobileMenu()" class="text-left hover:text-[#FF001D] transition-colors"><span lang="en">About Us</span><span lang="id">Tentang Kami</span></button>
+                <button onclick="navigate('contact'); toggleMobileMenu()" class="text-left hover:text-[#FF001D] transition-colors"><span lang="en">Contact</span><span lang="id">Kontak</span></button>
+            </div>
+            
+            <div class="pt-8 mt-auto border-t border-zinc-200 dark:border-zinc-800 flex items-center gap-6 text-zinc-400">
+                <a href="https://instagram.com/pengedarseni" target="_blank" class="hover:text-[#FF001D] transition-colors"><i class="fa-brands fa-instagram text-2xl"></i></a>
+                <a href="https://behance.net/pengedarseni" target="_blank" class="hover:text-[#FF001D] transition-colors"><i class="fa-brands fa-behance text-2xl"></i></a>
+                <a href="https://dribbble.com/pengedarseni" target="_blank" class="hover:text-[#FF001D] transition-colors"><i class="fa-brands fa-dribbble text-2xl"></i></a>
             </div>
         </div>
     </nav>
 
-    <!-- ==========================================
-         PAGE: HOME
-    =========================================== -->
     <main id="view-home" class="page-view active">
         <div id="canvas-trigger-area" class="absolute top-0 left-0 w-full h-[80vh] z-20" onmouseenter="isHovering=true" onmouseleave="isHovering=false"></div>
         
@@ -273,9 +239,6 @@
             </div>
         </header>
 
-        <!-- ==========================================
-             AVAILABLE ON PLATFORM SECTION
-        =========================================== -->
         <section class="py-8 border-y border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 relative z-30 fade-up active">
             <div class="max-w-7xl mx-auto px-6 mb-4 text-center">
                 <h3 class="text-sm font-bold tracking-widest uppercase text-zinc-500">
@@ -285,7 +248,6 @@
             </div>
             
             <div class="flex w-full marquee-container cursor-pointer">
-                <!-- Track 1 -->
                 <div class="marquee-track" aria-hidden="true">
                     <a href="https://stock.adobe.com/" target="_blank" rel="noopener noreferrer" title="Adobe Stock" class="platform-logo" style="color: #ED2224;">Adobe Stock</a>
                     <a href="https://behance.net/pengedarseni" target="_blank" rel="noopener noreferrer" title="Behance" class="platform-logo" style="color: #1769ff;">Behance</a>
@@ -303,7 +265,6 @@
                     <a href="https://vecteezy.com/members/pengedarseni" target="_blank" rel="noopener noreferrer" title="Vecteezy" class="platform-logo" style="color: #FF7900;">Vecteezy</a>
                 </div>
                 
-                <!-- Track 2 (Clone untuk Seamless Loop) -->
                 <div class="marquee-track" aria-hidden="true">
                     <a href="https://stock.adobe.com/" target="_blank" rel="noopener noreferrer" title="Adobe Stock" class="platform-logo" style="color: #ED2224;">Adobe Stock</a>
                     <a href="https://behance.net/pengedarseni" target="_blank" rel="noopener noreferrer" title="Behance" class="platform-logo" style="color: #1769ff;">Behance</a>
@@ -325,9 +286,6 @@
 
     </main>
 
-    <!-- ==========================================
-         PAGE: LICENSES / EULA
-    =========================================== -->
     <main id="view-licenses" class="page-view pt-32 pb-24 max-w-5xl mx-auto px-6">
         <h2 class="text-4xl font-bold mb-10 border-b border-zinc-200 dark:border-zinc-800 pb-6 text-zinc-900 dark:text-zinc-50 fade-up active">Licenses &amp; EULA</h2>
         
@@ -383,9 +341,6 @@
         </div>
     </main>
 
-    <!-- ==========================================
-         PAGE: SERVICES
-    =========================================== -->
     <main id="view-services" class="page-view pt-32 pb-24 max-w-7xl mx-auto px-6">
         <div class="text-center mb-16 fade-up active">
             <h2 class="text-4xl font-bold mb-4 text-zinc-900 dark:text-zinc-50">Creative Services</h2>
@@ -407,9 +362,6 @@
         </div>
     </main>
 
-    <!-- ==========================================
-         PAGE: ABOUT US
-    =========================================== -->
     <main id="view-about" class="page-view pt-32 pb-24 max-w-3xl mx-auto px-6 text-center">
         <h2 class="text-4xl font-bold mb-8 fade-up text-zinc-900 dark:text-zinc-50 active" lang="en">About Us</h2>
         <h2 class="text-4xl font-bold mb-8 fade-up text-zinc-900 dark:text-zinc-50 active" lang="id">Tentang Kami</h2>
@@ -434,9 +386,6 @@
         </div>
     </main>
 
-    <!-- ==========================================
-         PAGE: CONTACT
-    =========================================== -->
     <main id="view-contact" class="page-view pt-32 pb-24 max-w-3xl mx-auto px-6">
         <div class="text-center mb-12 fade-up active">
             <h2 class="text-4xl font-bold mb-4 text-zinc-900 dark:text-zinc-50">
@@ -464,12 +413,8 @@
         </div>
     </main>
 
-    <!-- ==========================================
-         PAGE: FREEBIES
-    =========================================== -->
     <main id="view-freebies" class="page-view pt-32 pb-24 max-w-6xl mx-auto px-6">
         
-        <!-- Header Top: Title & Dark Mode -->
         <div class="flex justify-between items-start mb-6">
             <div class="flex items-center gap-3">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 219 161" class="w-12 h-auto text-zinc-800 dark:text-zinc-200 shrink-0">
@@ -484,7 +429,6 @@
                 </div>
             </div>
             
-            <!-- History Button -->
             <div class="flex items-center gap-3">
                 <button onclick="toggleHistory()" class="p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-300 transition-colors" title="Riwayat Generate">
                     <i class="fa-solid fa-clock-rotate-left"></i>
@@ -492,10 +436,8 @@
             </div>
         </div>
 
-        <!-- Settings Bar (API & Level) -->
         <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-4 rounded-xl shadow-sm mb-6 flex flex-col md:flex-row items-center gap-4">
             
-            <!-- API Selection & Tester -->
             <div class="w-full md:flex-1 flex gap-2">
                 <select id="apiProvider" onchange="handleProviderChange()" class="w-1/3 px-3 py-2 text-sm border border-zinc-300 dark:border-zinc-700 rounded-md bg-zinc-50 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 outline-none cursor-pointer focus:ring-2 focus:ring-zinc-500">
                     <option value="gemini">Gemini</option>
@@ -509,7 +451,6 @@
                             <input type="password" id="apiKey" oninput="saveApiKey()" class="w-full pl-9 pr-3 py-2 text-sm border border-zinc-300 dark:border-zinc-700 rounded-md bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 focus:ring-2 focus:ring-zinc-500 outline-none" placeholder="API Key...">
                             <i class="fa-solid fa-key absolute left-3 top-3 text-zinc-400 dark:text-zinc-500"></i>
                         </div>
-                        <!-- Tombol Cek API Dinamis -->
                         <button id="testApiBtn" onclick="testApiKey()" class="bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:hover:bg-indigo-800/50 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800/50 px-3 py-2 rounded-md transition-colors flex items-center justify-center shrink-0 w-[46px]" title="Cek Koneksi API">
                             <i class="fa-regular fa-circle-check"></i>
                         </button>
@@ -517,7 +458,6 @@
                 </div>
             </div>
 
-            <!-- Detail / Creativity Level -->
             <div class="w-full md:w-auto flex items-center gap-2 border-t md:border-t-0 md:border-l border-zinc-200 dark:border-zinc-700 pt-3 md:pt-0 md:pl-4">
                 <label class="text-sm font-semibold text-zinc-600 dark:text-zinc-400 whitespace-nowrap flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73.1 73.1" class="w-5 h-5 mr-1.5 text-zinc-500 dark:text-zinc-400">
@@ -536,10 +476,8 @@
             </div>
         </div>
 
-        <!-- Link Bantuan API -->
         <p id="apiKeyHelp" class="text-xs text-zinc-500 dark:text-zinc-400 w-full text-center md:text-left mb-4 -mt-4 px-1"></p>
 
-        <!-- Tabs Navigation -->
         <div class="flex border-b border-zinc-200 dark:border-zinc-800 mb-6 overflow-x-auto">
             <button onclick="switchTab('prompt')" id="btn-tab-prompt" class="tab-active px-6 py-3 transition-colors flex items-center gap-2 whitespace-nowrap rounded-t-lg bg-white dark:bg-zinc-900">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65.4 54.7" class="w-5 h-5"><path fill="currentColor" d="M15.6,49.8h-4.1V5.3h4.1c1.4,0,2.5-1.1,2.5-2.5s-1.1-2.5-2.5-2.5H2.5c-1.4,0-2.5,1.1-2.5,2.5s1.1,2.5,2.5,2.5h4.1v44.4H2.5c-1.4,0-2.5,1.1-2.5,2.5s1.1,2.5,2.5,2.5h13.2c1.4,0,2.5-1.1,2.5-2.5s-1.1-2.5-2.5-2.5Z"/><path fill="currentColor" d="M37,14.1c-4.2,12.4-7.6,15.8-20,20,12.4,4.2,15.8,7.6,20,20,4.2-12.4,7.6-15.8,20-20-12.4-4.2-15.8-7.6-20-20Z"/><path fill="currentColor" d="M54.3,0c-2.3,6.9-4.2,8.8-11.1,11.1,6.9,2.3,8.8,4.2,11.1,11.1,2.3-6.9,4.2-8.8,11.1-11.1-6.9-2.3-8.8-4.2-11.1-11.1Z"/></svg>
@@ -551,11 +489,8 @@
             </button>
         </div>
 
-        <!-- TAB 1: PROMPT GENERATOR -->
         <div id="tab-prompt" class="grid grid-cols-1 lg:grid-cols-12 gap-6 transition-opacity duration-300">
-            <!-- Panel Kiri: Form Input -->
             <div class="lg:col-span-5 bg-white dark:bg-zinc-900 p-6 rounded-2xl shadow-sm border border-zinc-100 dark:border-zinc-800">
-                <!-- Tipe Prompt -->
                 <div class="mb-5">
                     <label class="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
                         <span lang="en">Prompt Category</span><span lang="id">Kategori Prompt</span>
@@ -592,7 +527,6 @@
                     </div>
                 </div>
 
-                <!-- Tema Prompt -->
                 <div class="mb-5">
                     <label class="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
                         <span lang="en">Theme / Description</span><span lang="id">Tema / Deskripsi</span>
@@ -600,7 +534,6 @@
                     <textarea id="themeInput" rows="4" class="w-full p-3 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 focus:ring-2 focus:ring-zinc-500 resize-none transition-colors" placeholder="Example / Contoh: Cyberpunk City Skyline at night, hujan, neon..."></textarea>
                 </div>
 
-                <!-- Jumlah Output -->
                 <div class="mb-6">
                     <label class="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
                         <span lang="en">Prompt Count</span><span lang="id">Jumlah Prompt</span>
@@ -613,7 +546,6 @@
                     </div>
                 </div>
 
-                <!-- Tombol Start -->
                 <button id="generatePromptBtn" onclick="generatePrompts()" class="w-full bg-zinc-800 dark:bg-zinc-200 text-white dark:text-zinc-900 hover:bg-zinc-900 dark:hover:bg-white font-bold py-3 px-4 rounded-lg shadow-md transition-all flex justify-center items-center gap-2 mt-2">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.8 70.8" class="w-5 h-5"><path fill="currentColor" d="M55.3,53.1l-2-1.5c-1.1-.8-2.6-.6-3.5.5-.8,1.1-.6,2.6.5,3.5l2,1.5c.8.6,1.8,1.4,1.9,1.6,0,.1,0,.5,0,.6,0,.2-.8.7-1.6,1.3-12.1,8.3-28.4,6.8-38.8-3.6-6.8-6.8-10-16.2-8.6-25.8.2-1.4-.8-2.6-2.1-2.8-1.4-.2-2.6.8-2.8,2.1-1.6,11.1,2.1,22.1,10,30,6.9,6.8,15.9,10.4,25,10.4s14-2.1,20-6.2c1.6-1.1,2.7-1.9,3.4-3.4.5-1.3.6-3,0-4.2-.6-1.6-1.8-2.5-3.6-3.8h0Z"/><path fill="currentColor" d="M15.2,17.7l1.2,1c.5.4,1,.5,1.5.5s1.4-.3,1.9-.9c.9-1.1.7-2.6-.4-3.5l-1.2-1c-.8-.6-1.8-1.4-1.8-1.6,0-.1,0-.5,0-.6,0-.2.8-.7,1.6-1.3,9.2-6.4,21.1-7.2,31.1-2.2,1.2.6,2.7.1,3.3-1.1.6-1.2.1-2.7-1.1-3.3C39.7-2.1,25.9-1.1,15.2,6.3c-1.5,1.1-2.7,1.9-3.3,3.4-.5,1.3-.6,2.9-.1,4.2.6,1.6,1.7,2.5,3.4,3.9Z"/><path fill="currentColor" d="M67,19.5c-.6-1.2-2.1-1.7-3.3-1.1s-1.7,2.1-1.1,3.3c3.5,7,4.2,15.3,1.9,22.8-.4,1.3.3,2.7,1.6,3.1.2,0,.5.1.7.1,1.1,0,2-.7,2.3-1.7,2.7-8.7,1.9-18.4-2.2-26.5h0Z"/><path fill="currentColor" d="M21.8,34.8c8.4,2.8,10.8,5.2,13.6,13.6,2.8-8.4,5.2-10.8,13.6-13.6-8.4-2.9-10.8-5.2-13.6-13.6-2.8,8.4-5.2,10.8-13.6,13.6Z"/><path fill="currentColor" d="M58.4,6.3c-1.3,3.8-2.3,4.8-6.1,6.1,3.8,1.3,4.8,2.3,6.1,6.1,1.3-3.8,2.3-4.8,6.1-6.1-3.8-1.3-4.8-2.3-6.1-6.1Z"/></svg>
                     <span lang="en">Generate Prompts</span><span lang="id">Buat Prompt</span>
@@ -621,7 +553,6 @@
                 <p id="promptStatusMsg" class="text-sm text-center mt-3 hidden break-words"></p>
             </div>
 
-            <!-- Panel Kanan: Hasil Output Prompt -->
             <div class="lg:col-span-7 bg-white dark:bg-zinc-900 p-6 rounded-2xl shadow-sm border border-zinc-100 dark:border-zinc-800 flex flex-col relative">
                 <div class="flex justify-between items-center mb-4">
                     <label class="block text-lg font-semibold text-zinc-800 dark:text-zinc-200">
@@ -634,19 +565,15 @@
                 </div>
                 <textarea id="promptResultBox" oninput="updateWordCount('promptResultBox', 'promptWordCount')" class="w-full flex-grow p-4 border border-zinc-200 dark:border-zinc-700 rounded-xl bg-zinc-50 dark:bg-zinc-800 focus:ring-2 focus:ring-zinc-500 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed resize-none" readonly placeholder="..."></textarea>
                 
-                <!-- Word Counter -->
                 <div class="absolute bottom-8 right-8 text-xs text-zinc-400 bg-white/80 dark:bg-zinc-900/80 px-2 py-1 rounded-md backdrop-blur-sm hidden" id="promptWordCountContainer">
                     <span id="promptWordCount">0</span> <span lang="en">words</span><span lang="id">kata</span>
                 </div>
             </div>
         </div>
 
-        <!-- TAB 2: SEO & KEYWORDS GENERATOR -->
         <div id="tab-seo" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-6 transition-opacity duration-300">
-            <!-- Panel Kiri: Form Input -->
             <div class="lg:col-span-5 bg-white dark:bg-zinc-900 p-6 rounded-2xl shadow-sm border border-zinc-100 dark:border-zinc-800 flex flex-col gap-5">
                 
-                <!-- Input Deskripsi/Prompt -->
                 <div>
                     <label class="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
                         <span lang="en">Paste Prompt / Description</span><span lang="id">Paste Prompt / Deskripsi</span>
@@ -654,7 +581,6 @@
                     <textarea id="seoTextInput" rows="3" class="w-full p-3 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50 focus:ring-2 focus:ring-zinc-500 resize-none transition-colors" placeholder="..."></textarea>
                 </div>
 
-                <!-- Input Upload/Paste Gambar -->
                 <div>
                     <label class="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
                         <span lang="en">Upload / Paste Image (Optional)</span><span lang="id">Upload / Paste Gambar (Opsional)</span>
@@ -684,7 +610,6 @@
                     </p>
                 </div>
 
-                <!-- Pengaturan Tambahan SEO -->
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
@@ -713,7 +638,6 @@
                     <input type="number" id="seoKeywordCount" value="35" min="10" max="100" class="w-full p-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50 focus:ring-2 focus:ring-zinc-500">
                 </div>
 
-                <!-- Tombol Start SEO -->
                 <button id="generateSeoBtn" onclick="generateSEO()" class="w-full bg-zinc-800 dark:bg-zinc-200 text-white dark:text-zinc-900 hover:bg-zinc-900 dark:hover:bg-white font-bold py-3 px-4 rounded-lg shadow-md transition-all flex justify-center items-center gap-2 mt-2">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.8 70.8" class="w-5 h-5"><path fill="currentColor" d="M55.3,53.1l-2-1.5c-1.1-.8-2.6-.6-3.5.5-.8,1.1-.6,2.6.5,3.5l2,1.5c.8.6,1.8,1.4,1.9,1.6,0,.1,0,.5,0,.6,0,.2-.8.7-1.6,1.3-12.1,8.3-28.4,6.8-38.8-3.6-6.8-6.8-10-16.2-8.6-25.8.2-1.4-.8-2.6-2.1-2.8-1.4-.2-2.6.8-2.8,2.1-1.6,11.1,2.1,22.1,10,30,6.9,6.8,15.9,10.4,25,10.4s14-2.1,20-6.2c1.6-1.1,2.7-1.9,3.4-3.4.5-1.3.6-3,0-4.2-.6-1.6-1.8-2.5-3.6-3.8h0Z"/><path fill="currentColor" d="M15.2,17.7l1.2,1c.5.4,1,.5,1.5.5s1.4-.3,1.9-.9c.9-1.1.7-2.6-.4-3.5l-1.2-1c-.8-.6-1.8-1.4-1.8-1.6,0-.1,0-.5,0-.6,0-.2.8-.7,1.6-1.3,9.2-6.4,21.1-7.2,31.1-2.2,1.2.6,2.7.1,3.3-1.1.6-1.2.1-2.7-1.1-3.3C39.7-2.1,25.9-1.1,15.2,6.3c-1.5,1.1-2.7,1.9-3.3,3.4-.5,1.3-.6,2.9-.1,4.2.6,1.6,1.7,2.5,3.4,3.9Z"/><path fill="currentColor" d="M67,19.5c-.6-1.2-2.1-1.7-3.3-1.1s-1.7,2.1-1.1,3.3c3.5,7,4.2,15.3,1.9,22.8-.4,1.3.3,2.7,1.6,3.1.2,0,.5.1.7.1,1.1,0,2-.7,2.3-1.7,2.7-8.7,1.9-18.4-2.2-26.5h0Z"/><path fill="currentColor" d="M21.8,34.8c8.4,2.8,10.8,5.2,13.6,13.6,2.8-8.4,5.2-10.8,13.6-13.6-8.4-2.9-10.8-5.2-13.6-13.6-2.8,8.4-5.2,10.8-13.6,13.6Z"/><path fill="currentColor" d="M58.4,6.3c-1.3,3.8-2.3,4.8-6.1,6.1,3.8,1.3,4.8,2.3,6.1,6.1,1.3-3.8,2.3-4.8,6.1-6.1-3.8-1.3-4.8-2.3-6.1-6.1Z"/></svg>
                     <span lang="en">Generate Title & Keywords</span><span lang="id">Buat Title & Keywords</span>
@@ -722,7 +646,6 @@
 
             </div>
 
-            <!-- Panel Kanan: Hasil Output SEO -->
             <div class="lg:col-span-7 bg-white dark:bg-zinc-900 p-6 rounded-2xl shadow-sm border border-zinc-100 dark:border-zinc-800 flex flex-col relative">
                 <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center gap-3 mb-4">
                     <label class="block text-lg font-semibold text-zinc-800 dark:text-zinc-200">
@@ -741,14 +664,12 @@
                 </div>
                 <textarea id="seoResultBox" oninput="updateWordCount('seoResultBox', 'seoWordCount')" class="w-full flex-grow p-4 border border-zinc-200 dark:border-zinc-700 rounded-xl bg-zinc-50 dark:bg-zinc-800 focus:ring-2 focus:ring-zinc-500 resize-none text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed font-mono" readonly placeholder="1.&#10;TITLE: ...&#10;CATEGORY: ...&#10;KEYWORDS: ..."></textarea>
                 
-                <!-- Word Counter -->
                 <div class="absolute bottom-8 right-8 text-xs text-zinc-400 bg-white/80 dark:bg-zinc-900/80 px-2 py-1 rounded-md backdrop-blur-sm hidden" id="seoWordCountContainer">
                     <span id="seoWordCount">0</span> <span lang="en">words</span><span lang="id">kata</span>
                 </div>
             </div>
         </div>
 
-        <!-- MODAL HISTORY -->
         <div id="historyModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
             <div class="bg-white dark:bg-zinc-900 w-11/12 max-w-3xl max-h-[80vh] rounded-2xl shadow-2xl flex flex-col transform scale-95 transition-transform duration-300" id="historyModalContent">
                 <div class="p-5 border-b border-zinc-200 dark:border-zinc-800 flex justify-between items-center">
@@ -756,8 +677,7 @@
                     <button onclick="toggleHistory()" class="text-zinc-500 hover:text-red-500 transition-colors"><i class="fa-solid fa-xmark text-xl"></i></button>
                 </div>
                 <div class="p-5 overflow-y-auto flex-grow" id="historyList">
-                    <!-- List riwayat akan dirender di sini via JS -->
-                </div>
+                    </div>
                 <div class="p-4 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/50 rounded-b-2xl flex justify-between items-center">
                     <span class="text-xs text-zinc-500 dark:text-zinc-400">
                         <span lang="en">Automatically saves the last 50 results in local memory.</span><span lang="id">Menyimpan otomatis 50 hasil terakhir di memori lokal.</span>
@@ -771,11 +691,10 @@
 
     </main>
 
-    <!-- FOOTER -->
     <footer class="bg-zinc-100 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800 pt-16 pb-8 px-6 mt-auto relative z-30">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-b border-zinc-200 dark:border-zinc-800 pb-10 mb-8 gap-8">
             <div class="text-center md:text-left">
-                <h2 class="text-2xl font-bold tracking-tight mb-2 text-zinc-900 dark:text-zinc-50">Pengedar Seni</h2>
+                <h2 class="text-2xl font-bold tracking-tight mb-2 text-zinc-900 dark:text-zinc-50">Pengedar Seni.</h2>
                 <p class="text-zinc-500 dark:text-zinc-400 text-sm">support@pengedarseni.com</p>
             </div>
             
@@ -788,9 +707,7 @@
                     <button onclick="navigate('licenses')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Licenses</button>
                 </div>
                 
-                <!-- Social Media Icons -->
                 <div class="flex items-center space-x-5">
-                    <!-- Instagram -->
                     <a href="https://instagram.com/pengedarseni" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-[#FF001D] transition-colors transform hover:scale-110" aria-label="Instagram">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
@@ -798,7 +715,6 @@
                             <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
                         </svg>
                     </a>
-                    <!-- Behance -->
                     <a href="https://behance.net/pengedarseni" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-[#FF001D] transition-colors transform hover:scale-110" aria-label="Behance">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M3 18v-12h4.5a3 3 0 0 1 0 6a3 3 0 0 1 0 6h-4.5"></path>
@@ -807,7 +723,6 @@
                             <path d="M16 6l3 0"></path>
                         </svg>
                     </a>
-                    <!-- Dribbble -->
                     <a href="https://dribbble.com/pengedarseni" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-[#FF001D] transition-colors transform hover:scale-110" aria-label="Dribbble">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
@@ -816,7 +731,6 @@
                             <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72"></path>
                         </svg>
                     </a>
-                    <!-- X (Twitter) -->
                     <a href="https://x.com/pengedarseni" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-[#FF001D] transition-colors transform hover:scale-110" aria-label="X (Twitter)">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
@@ -829,7 +743,6 @@
         <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row justify-between items-center text-sm text-zinc-400 gap-6">
             <p class="mt-4 md:mt-0 text-center">© 2015-<span id="current-year">2026</span> Pengedar Seni. All rights reserved.</p>
             
-            <!-- SECURE PAYMENT LOGO (Shield) -->
             <div class="flex items-center space-x-3 text-zinc-400 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-4 rounded-xl md:bg-transparent md:border-0 md:p-0 w-full md:w-auto justify-center">
                 <svg class="w-8 h-8 text-zinc-900 dark:text-zinc-100 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"></path>
@@ -843,12 +756,10 @@
         </div>
     </footer>
 
-    <!-- SCROLL TO TOP BUTTON -->
     <button id="scrollToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 z-[90] bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 w-12 h-12 rounded-full shadow-2xl flex items-center justify-center transform transition-all duration-300 hover:scale-110 hover:bg-[#FF001D] dark:hover:bg-[#FF001D] hover:text-white dark:hover:text-white translate-y-20 opacity-0">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"></path></svg>
     </button>
 
-    <!-- MAIN SCRIPTS -->
     <script>
         // --- Navigation Logic ---
         function navigate(viewId) {
@@ -882,7 +793,6 @@
             }
         }
 
-        // Initialize theme based on preference
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
             const icon = document.getElementById('themeIcon');
@@ -891,6 +801,26 @@
 
         // --- Language Toggle Logic ---
         function toggleLanguage() { document.body.classList.toggle('lang-id'); }
+
+        // --- Mobile Menu Logic ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('mobileMenuIcon');
+            
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                setTimeout(() => menu.classList.remove('opacity-0'), 10);
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                menu.classList.add('opacity-0');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+                document.body.style.overflow = ''; 
+                setTimeout(() => menu.classList.add('hidden'), 300);
+            }
+        }
 
         // --- Scroll and Reveal Logic ---
         function reveal() {
@@ -1038,7 +968,7 @@
         }
 
         // ==========================================
-        // FREEBIES LOGIC (AI Tools) - FIXED API
+        // FREEBIES LOGIC (AI Tools)
         // ==========================================
         function showStatusMsg(elementId, message, isError = false) {
             const statusEl = document.getElementById(elementId);
@@ -1409,13 +1339,11 @@ Do NOT add conversational text or markdown blocks.`;
             }
         }
 
-        // --- CORE API FETCHER (FIXED VERSION) ---
+        // --- CORE API FETCHER ---
         async function fetchAIResponse(provider, apiKey, systemInstruction, userText, imageBase64, imageMimeType, temperature) {
             const numTemp = parseFloat(temperature);
             
-            // --- GEMINI API ---
             if (provider === 'gemini') {
-                // Menggunakan model gemini-2.5-flash sesuai dengan script asli yang berfungsi
                 const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
                 const parts = [{ text: userText }];
                 if (imageBase64) {
@@ -1442,7 +1370,6 @@ Do NOT add conversational text or markdown blocks.`;
                 return data.candidates[0].content.parts[0].text;
             }
 
-            // --- OPENAI, GROQ, DEEPSEEK ---
             let endpoint = "";
             let model = "";
             let headers = { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` };
@@ -1452,7 +1379,6 @@ Do NOT add conversational text or markdown blocks.`;
                 model = "gpt-4o-mini";
             } else if (provider === 'groq') {
                 endpoint = "https://api.groq.com/openai/v1/chat/completions";
-                // Mengupdate nama model agar sesuai dengan versi groq yang aktif saat ini
                 model = imageBase64 ? "llama-3.2-11b-vision-preview" : "llama-3.3-70b-versatile"; 
             } else if (provider === 'deepseek') {
                 endpoint = "https://api.deepseek.com/chat/completions";
@@ -1526,7 +1452,6 @@ Do NOT add conversational text or markdown blocks.`;
             } catch (error) {
                 resultBox.value = "";
                 let errorMsg = error.message;
-                // Bug fix: Menyampaikan error asli atau memberikan peringatan CORS yang lebih spesifik
                 if(errorMsg.includes("Failed to fetch") || errorMsg.includes("NetworkError")) {
                     errorMsg = "Browser memblokir permintaan ini karena CORS (Biasanya terjadi pada OpenAI/DeepSeek jika dijalankan di file HTML lokal). Gunakan Gemini API.";
                 }
@@ -1576,7 +1501,6 @@ Do NOT add conversational text or markdown blocks.`;
             } catch (error) {
                 resultBox.value = "";
                 let errorMsg = error.message;
-                // Bug fix: Menangani pesan error fetch lokal
                 if(errorMsg.includes("Failed to fetch") || errorMsg.includes("NetworkError")) {
                     errorMsg = "Browser memblokir permintaan ini karena CORS. Gunakan Gemini API jika dijalankan tanpa Server (Localhost).";
                 }
