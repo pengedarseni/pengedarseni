@@ -5,35 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan - Yusup & Tika</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#A0A493', // Sage Green
-                        secondary: '#D5C4A1', // Soft Gold/Beige
-                        dark: '#2C3E50',
-                        light: '#F9F8F6'
+                        primary: '#8A9A86', // Sage Green
+                        secondary: '#C2B28F', // Soft Gold/Beige
+                        dark: '#2C3E50', // Biru Navy Gelap
+                        light: '#FDFBF7' // Putih Gading hangat
                     },
                     fontFamily: {
                         serif: ['"Cormorant Garamond"', 'serif'],
                         sans: ['Montserrat', 'sans-serif'],
                         script: ['"Great Vibes"', 'cursive']
+                    },
+                    animation: {
+                        blob: "blob 7s infinite",
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" }
+                        }
                     }
                 }
             }
@@ -41,12 +47,15 @@
     </script>
 
     <style>
-        /* Custom Styles */
-        body { background-color: #F9F8F6; overflow-x: hidden; }
+        /* Custom Styles & Responsive Fix */
+        html, body { 
+            background-color: #FDFBF7; 
+            overflow-x: hidden;
+            width: 100%;
+        }
         
-        /* Cover Overlay */
         #cover-page {
-            transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.8s ease;
+            transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.8s ease;
         }
         .cover-open {
             transform: translateY(-100%);
@@ -54,399 +63,378 @@
             pointer-events: none;
         }
 
-        /* Prevent scroll before opening */
         .no-scroll { height: 100vh; overflow: hidden; }
 
-        /* Rotating Music Icon */
         .spin-slow { animation: spin 4s linear infinite; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        /* Glassmorphism */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        .pattern-bg {
+            background-image: radial-gradient(#8A9A86 1px, transparent 1px);
+            background-size: 24px 24px;
+            opacity: 0.12;
         }
 
-        /* Hero Background with Parallax effect */
-        .bg-hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('images/hero.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        /* TRUE Glassmorphism - Lebih transparan agar blur dan blob warnanya terlihat */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(138, 154, 134, 0.1);
         }
 
-        /* Custom Scrollbar */
+        .glass-dark-effect {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom Delay for Blobs */
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #A0A493; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #8a8e7d; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #8A9A86; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6b7a67; }
     </style>
 </head>
 <body class="font-sans text-dark no-scroll">
 
-    <!-- Audio Element (Hidden) -->
-    <!-- Using a beautiful piano instrumental as placeholder -->
-    <audio id="bgMusic" loop>
+    <audio id="bgMusic" loop class="hidden">
         <source src="storyofus.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Floating Music Controller -->
-    <button id="musicToggle" class="fixed bottom-6 right-6 z-50 bg-white/80 backdrop-blur p-4 rounded-full shadow-lg text-primary hover:bg-white transition-all duration-300 hidden items-center justify-center w-14 h-14 border border-primary/20">
+    <button id="musicToggle" class="fixed bottom-6 right-6 z-50 glass-effect p-4 rounded-full text-primary hover:bg-white transition-all duration-300 hidden items-center justify-center w-14 h-14">
         <i class="fas fa-compact-disc text-2xl spin-slow" id="musicIcon"></i>
     </button>
 
-    <!-- ================= COVER PAGE (OVERLAY) ================= -->
-    <section id="cover-page" class="fixed inset-0 z-[100] bg-hero flex flex-col items-center justify-center text-white text-center p-6">
-        <div class="glass-card p-8 md:p-12 rounded-3xl max-w-lg w-full transform transition-transform duration-500 hover:scale-[1.02]">
-            <p class="font-serif tracking-widest text-sm mb-4 uppercase text-secondary">The Wedding Of</p>
-            <h1 class="font-script text-6xl md:text-7xl mb-6 text-white drop-shadow-md">Yusup & Tika</h1>
-            <p class="font-sans font-light mb-8 text-sm md:text-base text-gray-200">
+    <section id="cover-page" class="fixed inset-0 z-[100] bg-light flex flex-col items-center justify-center text-center p-6 overflow-hidden">
+        <div class="absolute inset-0 pattern-bg"></div>
+        
+        <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-secondary/40 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div class="absolute top-1/3 right-1/4 w-72 h-72 bg-primary/40 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-72 h-72 bg-secondary/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+
+        <div class="glass-effect relative z-10 p-10 md:p-14 rounded-[2rem] max-w-lg w-full transform transition-transform duration-500 hover:scale-[1.02]">
+            <p class="font-sans tracking-[0.2em] font-bold text-xs mb-4 uppercase text-primary">The Wedding Of</p>
+            <h1 class="font-script text-6xl md:text-7xl mb-6 text-dark drop-shadow-sm">Yusup & Tika</h1>
+            
+            <div class="w-16 h-[1px] bg-secondary mx-auto mb-6"></div>
+            
+            <p class="font-sans font-medium mb-8 text-sm md:text-base text-gray-600">
                 Kepada Yth. Bapak/Ibu/Saudara/i<br>
-                <span class="font-semibold text-lg mt-2 block text-white">Tamu Undangan</span>
+                <span class="font-bold text-lg mt-2 block text-dark">Tamu Undangan</span>
             </p>
-            <button onclick="openInvitation()" class="group relative px-8 py-3 bg-secondary text-dark font-medium rounded-full overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <span class="relative z-10 flex items-center gap-2">
+            
+            <button onclick="openInvitation()" class="group relative px-8 py-3.5 bg-dark text-white font-medium rounded-full overflow-hidden transition-all duration-300 hover:bg-primary">
+                <span class="relative z-10 flex items-center gap-2 text-sm uppercase tracking-wider">
                     <i class="fas fa-envelope-open-text"></i> Buka Undangan
                 </span>
-                <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             </button>
         </div>
     </section>
 
-    <!-- ================= MAIN CONTENT ================= -->
-    <main id="main-content" class="opacity-0 transition-opacity duration-1000">
+    <main id="main-content" class="opacity-0 transition-opacity duration-1000 w-full overflow-hidden">
         
-        <!-- Hero Section -->
-        <section class="min-h-screen bg-hero flex flex-col items-center justify-center text-center p-6 relative">
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-light"></div>
-            <div class="relative z-10 space-y-4" data-aos="fade-up" data-aos-duration="1500">
-                <p class="font-serif italic text-xl text-secondary">Kami mengundang Anda untuk merayakan</p>
-                <h1 class="font-script text-7xl md:text-9xl text-white drop-shadow-lg py-4">Yusup & Tika</h1>
-                <p class="font-sans text-lg tracking-[0.3em] text-white uppercase border-y border-secondary py-2 mx-auto w-max">
-                    <span id="hero-date">28 Oktober 2026</span>
-                </p>
+        <section class="min-h-[100svh] bg-light flex flex-col items-center justify-center text-center p-6 relative overflow-hidden">
+            <div class="absolute inset-0 pattern-bg"></div>
+            
+            <div class="absolute top-10 right-10 w-80 h-80 bg-secondary/30 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+            <div class="absolute bottom-10 left-10 w-96 h-96 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+
+            <div class="relative z-10 space-y-4 max-w-3xl" data-aos="fade-up" data-aos-duration="1500">
+                <p class="font-serif italic text-xl md:text-2xl text-primary font-semibold">Kami mengundang Anda untuk merayakan</p>
+                <h1 class="font-script text-7xl md:text-[8rem] text-dark py-4">Yusup & Tika</h1>
+                
+                <div class="border-y border-primary/30 py-3 mx-auto mt-6 w-max px-8 glass-effect rounded-full">
+                    <p class="font-sans text-lg md:text-xl tracking-[0.2em] md:tracking-[0.3em] text-dark font-bold uppercase m-0">
+                        28 Oktober 2026
+                    </p>
+                </div>
             </div>
             
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-dark animate-bounce z-10">
-                <p class="text-xs tracking-widest uppercase mb-2 font-medium">Scroll</p>
+            <div class="absolute bottom-10 left-0 right-0 w-full flex flex-col items-center justify-center text-primary animate-bounce z-10">
+                <p class="text-[10px] tracking-[0.2em] uppercase mb-2 font-bold">Scroll</p>
                 <i class="fas fa-chevron-down"></i>
             </div>
         </section>
 
-        <!-- Quotes Section -->
-        <section class="py-20 px-6 bg-light text-center">
-            <div class="max-w-3xl mx-auto" data-aos="fade-up">
-                <i class="fas fa-quote-left text-4xl text-primary/30 mb-6"></i>
-                <p class="font-serif text-lg md:text-2xl leading-relaxed text-gray-700 italic mb-6">
+        <section class="py-24 px-6 bg-white text-center relative">
+            <div class="max-w-3xl mx-auto relative z-10" data-aos="fade-up">
+                <i class="fas fa-quote-left text-4xl text-secondary/40 mb-6"></i>
+                <p class="font-serif text-xl md:text-2xl leading-relaxed text-gray-700 font-medium italic mb-8 px-4">
                     "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir."
                 </p>
-                <p class="font-sans font-semibold text-primary tracking-widest uppercase text-sm">QS. Ar-Rum: 21</p>
+                <p class="font-sans font-bold text-primary tracking-[0.15em] uppercase text-sm">QS. Ar-Rum: 21</p>
             </div>
         </section>
 
-        <!-- Couple Section -->
-        <section class="py-20 px-6 bg-white relative overflow-hidden">
-            <!-- Decorative Element -->
-            <div class="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-            <div class="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+        <section class="py-24 px-6 bg-light relative overflow-hidden">
+            <div class="absolute inset-0 pattern-bg"></div>
+            <div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-secondary/20 rounded-full filter blur-[100px] translate-x-1/2"></div>
+            <div class="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-primary/20 rounded-full filter blur-[100px] -translate-x-1/2"></div>
 
             <div class="max-w-5xl mx-auto relative z-10">
                 <div class="text-center mb-16" data-aos="fade-up">
                     <h2 class="font-script text-5xl md:text-6xl text-primary mb-2">Mempelai</h2>
-                    <p class="font-serif text-gray-500">Dengan memohon rahmat dan ridho Allah SWT</p>
+                    <p class="font-sans font-medium text-sm uppercase tracking-widest text-gray-500">Dengan memohon rahmat Allah SWT</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-16 items-center">
-                    <!-- Groom -->
+                <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
                     <div class="text-center flex flex-col items-center" data-aos="fade-right">
-                        <div class="w-48 h-48 md:w-64 md:h-64 rounded-t-full rounded-b-[4rem] overflow-hidden border-4 border-secondary/30 mb-6 shadow-xl p-2">
-                            <img src="images/groom.jpg" alt="Muhamad Yusup" class="w-full h-full object-cover rounded-t-full rounded-b-[3.5rem]">
+                        <div class="w-56 h-56 md:w-72 md:h-72 rounded-t-full rounded-b-[4rem] overflow-hidden border-[4px] border-white shadow-sm mb-6 relative">
+                            <img src="images/groom.jpg" alt="Muhamad Yusup" class="w-full h-full object-cover">
                         </div>
-                        <h3 class="font-script text-4xl text-dark mb-2">Muhamad Yusup</h3>
-                        <p class="font-sans text-sm text-gray-500 leading-relaxed">
+                        <h3 class="font-script text-4xl md:text-5xl text-dark mb-3">Muhamad Yusup</h3>
+                        <p class="font-sans text-sm text-gray-600 leading-relaxed font-medium">
                             Putra Ke-1 dari<br>
-                            <span class="font-semibold text-gray-700">Bapak Ade Suhendi & Ibu Magfiroh</span>
+                            <span class="font-bold text-dark text-base">Bapak Ade Suhendi & Ibu Magfiroh</span>
                         </p>
                     </div>
 
-                    <!-- Bride -->
                     <div class="text-center flex flex-col items-center" data-aos="fade-left">
-                        <div class="w-48 h-48 md:w-64 md:h-64 rounded-t-full rounded-b-[4rem] overflow-hidden border-4 border-secondary/30 mb-6 shadow-xl p-2">
-                            <img src="images/bride.jpg" alt="Tika Octavia Heningsih" class="w-full h-full object-cover rounded-t-full rounded-b-[3.5rem]">
+                        <div class="w-56 h-56 md:w-72 md:h-72 rounded-t-full rounded-b-[4rem] overflow-hidden border-[4px] border-white shadow-sm mb-6 relative">
+                            <img src="images/bride.jpg" alt="Tika Octavia Heningsih" class="w-full h-full object-cover">
                         </div>
-                        <h3 class="font-script text-4xl text-dark mb-2">Tika Octavia Heningsih</h3>
-                        <p class="font-sans text-sm text-gray-500 leading-relaxed">
+                        <h3 class="font-script text-4xl md:text-5xl text-dark mb-3">Tika Octavia</h3>
+                        <p class="font-sans text-sm text-gray-600 leading-relaxed font-medium">
                             Putri Ke-2 dari<br>
-                            <span class="font-semibold text-gray-700">Bapak Dedi Syafrudin & Ibu Ida Ningsih</span>
+                            <span class="font-bold text-dark text-base">Bapak Dedi Syafrudin & Ibu Ida Ningsih</span>
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Gallery Section (Bento Grid Style) -->
-        <section class="py-24 px-6 bg-light relative overflow-hidden">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16" data-aos="fade-up">
+        <section class="py-24 px-6 bg-white relative">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12" data-aos="fade-up">
                     <h2 class="font-script text-5xl md:text-6xl text-primary mb-2">Galeri Cinta</h2>
-                    <p class="font-serif text-gray-500 text-lg">Momen bahagia yang kami abadikan</p>
-                    <div class="w-24 h-1 bg-secondary mx-auto mt-6 rounded-full"></div>
+                    <p class="font-sans font-medium text-sm uppercase tracking-widest text-gray-500">Momen bahagia kami</p>
                 </div>
 
-                <!-- Aesthetic Bento/Masonry Grid -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px]">
-                    <!-- Photo 1 (Besar Kiri) -->
-                    <div class="col-span-2 row-span-2 rounded-[2rem] overflow-hidden shadow-lg group relative" data-aos="fade-up" data-aos-delay="0">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                        <img src="images/gallery-1.jpg" alt="Gallery 1" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[160px] md:auto-rows-[220px]">
+                    <div class="col-span-2 row-span-2 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden group relative" data-aos="zoom-in" data-aos-delay="0">
+                        <div class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                        <img src="images/gallery-1.jpg" alt="Gallery 1" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                     </div>
                     
-                    <!-- Photo 2 (Atas Kanan) -->
-                    <div class="col-span-2 md:col-span-1 row-span-1 rounded-[2rem] md:rounded-[2rem] rounded-tr-[4rem] overflow-hidden shadow-lg group relative" data-aos="fade-up" data-aos-delay="100">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                        <img src="images/gallery-2.jpg" alt="Gallery 2" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="col-span-1 row-span-1 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden group relative" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                        <img src="images/gallery-2.jpg" alt="Gallery 2" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                     </div>
                     
-                    <!-- Photo 3 (Atas Ujung Kanan) -->
-                    <div class="col-span-2 md:col-span-1 row-span-1 rounded-[2rem] overflow-hidden shadow-lg group relative" data-aos="fade-up" data-aos-delay="200">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                        <img src="images/gallery-3.jpg" alt="Gallery 3" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="col-span-1 row-span-1 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden group relative" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                        <img src="images/gallery-3.jpg" alt="Gallery 3" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                     </div>
                     
-                    <!-- Photo 4 (Bawah Kanan Lebar) -->
-                    <div class="col-span-2 row-span-1 rounded-[2rem] md:rounded-[2rem] rounded-br-[4rem] overflow-hidden shadow-lg group relative" data-aos="fade-up" data-aos-delay="300">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                        <img src="images/gallery-4.jpg" alt="Gallery 4" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="col-span-2 row-span-1 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden group relative" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                        <img src="images/gallery-4.jpg" alt="Gallery 4" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                     </div>
                     
-                    <!-- Photo 5 (Bawah Kiri Lebar) -->
-                    <div class="col-span-2 md:col-span-2 row-span-1 rounded-[2rem] md:rounded-[2rem] rounded-bl-[4rem] overflow-hidden shadow-lg group relative" data-aos="fade-up" data-aos-delay="100">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                        <img src="images/gallery-5.jpg" alt="Gallery 5" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="col-span-2 row-span-1 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden group relative" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                        <img src="images/gallery-5.jpg" alt="Gallery 5" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                     </div>
 
-                    <!-- Photo 6 (Bawah Kanan Kotak) -->
-                    <div class="col-span-2 md:col-span-2 row-span-1 rounded-[2rem] overflow-hidden shadow-lg group relative" data-aos="fade-up" data-aos-delay="200">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                        <img src="images/gallery-6.jpg" alt="Gallery 6" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="col-span-2 row-span-1 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden group relative" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                        <img src="images/gallery-6.jpg" alt="Gallery 6" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Event & Countdown Section -->
-        <section class="py-20 px-6 bg-primary text-white text-center relative">
-            <div class="max-w-4xl mx-auto">
+        <section class="py-24 px-6 bg-primary text-white text-center relative overflow-hidden">
+            <div class="absolute inset-0 pattern-bg" style="opacity: 0.1;"></div>
+            
+            <div class="max-w-4xl mx-auto relative z-10">
                 <h2 class="font-script text-5xl md:text-6xl mb-12" data-aos="zoom-in">Waktu Menuju Bahagia</h2>
                 
-                <!-- Countdown -->
-                <div class="flex justify-center gap-4 md:gap-8 mb-16" data-aos="fade-up">
-                    <div class="bg-white/10 backdrop-blur rounded-2xl p-4 md:p-6 w-20 md:w-28 border border-white/20">
+                <div class="flex justify-center gap-3 md:gap-6 mb-16" data-aos="fade-up">
+                    <div class="glass-dark-effect rounded-2xl p-4 md:p-6 w-[70px] md:w-28">
                         <span id="days" class="block font-serif text-3xl md:text-5xl font-bold mb-1">00</span>
-                        <span class="text-xs md:text-sm uppercase tracking-wider">Hari</span>
+                        <span class="text-[10px] md:text-sm uppercase tracking-wider font-semibold">Hari</span>
                     </div>
-                    <div class="bg-white/10 backdrop-blur rounded-2xl p-4 md:p-6 w-20 md:w-28 border border-white/20">
+                    <div class="glass-dark-effect rounded-2xl p-4 md:p-6 w-[70px] md:w-28">
                         <span id="hours" class="block font-serif text-3xl md:text-5xl font-bold mb-1">00</span>
-                        <span class="text-xs md:text-sm uppercase tracking-wider">Jam</span>
+                        <span class="text-[10px] md:text-sm uppercase tracking-wider font-semibold">Jam</span>
                     </div>
-                    <div class="bg-white/10 backdrop-blur rounded-2xl p-4 md:p-6 w-20 md:w-28 border border-white/20">
+                    <div class="glass-dark-effect rounded-2xl p-4 md:p-6 w-[70px] md:w-28">
                         <span id="minutes" class="block font-serif text-3xl md:text-5xl font-bold mb-1">00</span>
-                        <span class="text-xs md:text-sm uppercase tracking-wider">Menit</span>
+                        <span class="text-[10px] md:text-sm uppercase tracking-wider font-semibold">Menit</span>
                     </div>
-                    <div class="bg-white/10 backdrop-blur rounded-2xl p-4 md:p-6 w-20 md:w-28 border border-white/20">
+                    <div class="glass-dark-effect rounded-2xl p-4 md:p-6 w-[70px] md:w-28">
                         <span id="seconds" class="block font-serif text-3xl md:text-5xl font-bold mb-1">00</span>
-                        <span class="text-xs md:text-sm uppercase tracking-wider">Detik</span>
+                        <span class="text-[10px] md:text-sm uppercase tracking-wider font-semibold">Detik</span>
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8" data-aos="fade-up" data-aos-delay="200">
-                    <div class="bg-white/5 backdrop-blur rounded-3xl p-8 border border-white/10">
-                        <i class="fas fa-ring text-4xl mb-4 text-secondary"></i>
-                        <h3 class="font-serif text-2xl font-semibold mb-2">Akad Nikah</h3>
-                        <p class="font-sans mb-1">Rabu, 28 Oktober 2026</p>
-                        <p class="font-sans text-sm text-gray-200">08.00 WIB - Selesai</p>
+                <div class="grid md:grid-cols-2 gap-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-effect text-dark rounded-3xl p-8">
+                        <i class="fas fa-ring text-4xl mb-4 text-primary"></i>
+                        <h3 class="font-serif text-3xl font-bold mb-2">Akad Nikah</h3>
+                        <p class="font-sans font-bold text-lg mb-1">Rabu, 28 Oktober 2026</p>
+                        <p class="font-sans text-sm text-gray-600 font-medium">08.00 WIB - Selesai</p>
                     </div>
-                    <div class="bg-white/5 backdrop-blur rounded-3xl p-8 border border-white/10">
-                        <i class="fas fa-glass-cheers text-4xl mb-4 text-secondary"></i>
-                        <h3 class="font-serif text-2xl font-semibold mb-2">Resepsi</h3>
-                        <p class="font-sans mb-1">Rabu, 28 Oktober 2026</p>
-                        <p class="font-sans text-sm text-gray-200">11.00 WIB - Selesai</p>
+                    <div class="glass-effect text-dark rounded-3xl p-8">
+                        <i class="fas fa-glass-cheers text-4xl mb-4 text-primary"></i>
+                        <h3 class="font-serif text-3xl font-bold mb-2">Resepsi</h3>
+                        <p class="font-sans font-bold text-lg mb-1">Rabu, 28 Oktober 2026</p>
+                        <p class="font-sans text-sm text-gray-600 font-medium">11.00 WIB - Selesai</p>
                     </div>
                 </div>
-
-                <!-- Add to Calendar Button -->
-                <a href="#" class="inline-block mt-12 px-8 py-3 bg-white text-primary font-semibold rounded-full hover:bg-secondary hover:text-white transition-colors duration-300 shadow-lg">
-                    <i class="far fa-calendar-alt mr-2"></i> Simpan ke Kalender
-                </a>
             </div>
         </section>
 
-        <!-- Location & Map Section -->
-        <section class="py-20 px-6 bg-light text-center">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="font-script text-5xl md:text-6xl text-primary mb-4" data-aos="fade-up">Lokasi Acara</h2>
-                <p class="font-serif text-gray-600 mb-12" data-aos="fade-up" data-aos-delay="100">Silakan klik tombol di bawah untuk membuka petunjuk arah via Google Maps.</p>
+        <section class="py-24 px-6 bg-light text-center relative overflow-hidden">
+            <div class="absolute inset-0 pattern-bg"></div>
+            
+            <div class="absolute top-0 right-10 w-[400px] h-[400px] bg-secondary/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
 
-                <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white mb-8" data-aos="zoom-in">
-                    <!-- PASTE KODE <iframe ...> DARI GOOGLE MAPS DI BAWAH INI UNTUK MENGGANTIKAN YANG LAMA -->
+            <div class="max-w-4xl mx-auto relative z-10">
+                <h2 class="font-script text-5xl md:text-6xl text-primary mb-4" data-aos="fade-up">Lokasi Acara</h2>
+                <p class="font-sans font-medium text-gray-600 mb-10 text-sm md:text-base px-4" data-aos="fade-up" data-aos-delay="100">Silakan klik tombol di bawah untuk membuka petunjuk arah presisi via aplikasi Google Maps Anda.</p>
+
+                <div class="rounded-3xl overflow-hidden glass-effect mb-8" data-aos="zoom-in">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6022883448417!2d106.82496411536965!3d-6.183401160589255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f436b8c94b07%3A0x6ea77169f143d22b!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1628135891396!5m2!1sid!2sid" 
+                        src="https://maps.google.com/maps?q=lokasi+pernikahan+tika+dan+yusup&t=&z=14&ie=UTF8&iwloc=&output=embed" 
                         width="100%" 
-                        height="400" 
+                        height="350" 
                         style="border:0;" 
                         allowfullscreen="" 
                         loading="lazy">
                     </iframe>
-                    <!-- BATAS KODE GOOGLE MAPS -->
                 </div>
 
-                <a href="https://maps.app.goo.gl/Uwbak7bsFxrJ2VLH9" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-3 bg-dark text-white font-medium rounded-full hover:bg-primary transition-colors duration-300 shadow-lg" data-aos="fade-up">
-                    <i class="fas fa-map-marked-alt mr-2"></i> Buka di Google Maps
+                <a href="https://maps.app.goo.gl/Uwbak7bsFxrJ2VLH9" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-4 bg-dark text-white font-bold tracking-wide text-sm uppercase rounded-full hover:bg-primary transition-colors duration-300" data-aos="fade-up">
+                    <i class="fas fa-map-marked-alt mr-2 text-secondary"></i> Buka Aplikasi Google Maps
                 </a>
             </div>
         </section>
 
-        <!-- Wedding Gift Section -->
-        <section class="py-20 px-6 bg-white text-center relative">
-            <div class="max-w-3xl mx-auto" data-aos="fade-up">
+        <section class="py-24 px-6 bg-white text-center relative overflow-hidden">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-80 animate-blob"></div>
+
+            <div class="max-w-3xl mx-auto relative z-10" data-aos="fade-up">
                 <h2 class="font-script text-5xl md:text-6xl text-primary mb-4">Wedding Gift</h2>
-                <p class="font-sans text-gray-500 mb-10 text-sm md:text-base">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun, jika Anda ingin memberikan tanda kasih, kami menyediakan fitur di bawah ini.</p>
+                <p class="font-sans text-gray-600 font-medium mb-10 text-sm md:text-base leading-relaxed px-4">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun, jika Anda ingin memberikan tanda kasih, kami menyediakan fitur di bawah ini.</p>
                 
-                <div class="bg-light rounded-3xl p-8 shadow-sm border border-gray-100 max-w-md mx-auto relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/20 rounded-bl-full"></div>
+                <div class="glass-effect rounded-[2rem] p-8 max-w-sm mx-auto relative overflow-hidden">
+                    <h3 class="font-sans text-xl font-bold text-dark mb-4 uppercase tracking-widest">Bank BCA</h3>
+                    <p class="text-3xl font-sans text-primary font-bold tracking-[0.1em] mb-2" id="rek-bca">4980175494</p>
+                    <p class="text-gray-500 font-medium mb-8 text-sm">a.n Muhamad Yusup</p>
                     
-                    <h3 class="font-serif text-2xl font-bold text-dark mb-6 relative z-10">Bank BCA</h3>
-                    <p class="text-3xl font-mono text-primary font-semibold tracking-widest mb-2 relative z-10" id="rek-bca">4980175494</p>
-                    <p class="text-gray-600 font-medium mb-6 relative z-10">a.n Muhamad Yusup</p>
-                    
-                    <button onclick="copyRekening('4980175494', this)" class="relative z-10 px-6 py-2 border-2 border-primary text-primary font-medium rounded-full hover:bg-primary hover:text-white transition-all duration-300">
+                    <button onclick="copyRekening('4980175494', this)" class="w-full py-3.5 border border-primary text-primary font-bold text-sm uppercase tracking-wide rounded-xl hover:bg-primary hover:text-white transition-all duration-300 bg-white/50 backdrop-blur-sm">
                         <i class="far fa-copy mr-2"></i> Salin No. Rekening
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- RSVP & Guestbook Section -->
-        <section class="py-20 px-6 bg-light">
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
-                <!-- Form -->
-                <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100" data-aos="fade-right">
-                    <h2 class="font-script text-4xl text-primary mb-2">Kirim Pesan</h2>
-                    <p class="font-sans text-sm text-gray-500 mb-6">Tinggalkan doa dan harapan untuk kedua mempelai.</p>
+        <section class="py-24 px-6 bg-light relative overflow-hidden">
+            <div class="absolute inset-0 pattern-bg"></div>
+            
+            <div class="absolute top-10 left-10 w-[400px] h-[400px] bg-primary/30 rounded-full mix-blend-multiply filter blur-[80px] opacity-70 animate-blob"></div>
+            <div class="absolute bottom-10 right-10 w-[400px] h-[400px] bg-secondary/30 rounded-full mix-blend-multiply filter blur-[80px] opacity-70 animate-blob animation-delay-2000"></div>
+            
+            <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 relative z-10">
+                <div class="glass-effect p-8 md:p-10 rounded-[2rem]" data-aos="fade-right">
+                    <h2 class="font-script text-5xl text-primary mb-2">Kirim Pesan</h2>
+                    <p class="font-sans text-sm text-gray-600 font-medium mb-8">Tinggalkan doa dan harapan untuk kedua mempelai.</p>
                     
-                    <form id="guestbookForm" class="space-y-4">
+                    <form id="guestbookForm" class="space-y-5">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
-                            <input type="text" id="guestName" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors bg-light/50">
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Nama Lengkap</label>
+                            <input type="text" id="guestName" required class="w-full px-5 py-3.5 rounded-xl border border-white/60 focus:outline-none focus:border-primary transition-colors bg-white/50 backdrop-blur-md font-medium text-dark">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Kota / Asal</label>
-                            <input type="text" id="guestCity" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors bg-light/50">
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Kota / Asal</label>
+                            <input type="text" id="guestCity" required class="w-full px-5 py-3.5 rounded-xl border border-white/60 focus:outline-none focus:border-primary transition-colors bg-white/50 backdrop-blur-md font-medium text-dark">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Pesan & Doa</label>
-                            <textarea id="guestMessage" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors bg-light/50 resize-none"></textarea>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Pesan & Doa</label>
+                            <textarea id="guestMessage" rows="4" required class="w-full px-5 py-3.5 rounded-xl border border-white/60 focus:outline-none focus:border-primary transition-colors bg-white/50 backdrop-blur-md font-medium text-dark resize-none"></textarea>
                         </div>
                         
-                        <div id="alertMsg" class="hidden p-3 rounded-lg text-sm bg-green-50 text-green-600 border border-green-200">
+                        <div id="alertMsg" class="hidden p-4 rounded-xl text-sm font-medium bg-green-50/90 backdrop-blur-md text-green-700 border border-green-200 text-center">
                             Pesan terkirim! Menunggu persetujuan admin.
                         </div>
 
-                        <button type="submit" class="w-full py-3 bg-primary text-white font-medium rounded-xl hover:bg-dark transition-colors shadow-md">
+                        <button type="submit" class="w-full py-4 bg-dark text-white font-bold text-sm uppercase tracking-widest rounded-xl hover:bg-primary transition-colors mt-2">
                             Kirim Pesan <i class="fas fa-paper-plane ml-2"></i>
                         </button>
-                        <p class="text-xs text-gray-400 text-center mt-2">*Pesan akan tampil setelah disetujui admin.</p>
                     </form>
                 </div>
 
-                <!-- Messages Display -->
-                <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 flex flex-col h-[500px]" data-aos="fade-left">
-                    <h2 class="font-script text-4xl text-primary mb-6 border-b pb-4">Buku Tamu</h2>
+                <div class="glass-effect p-8 md:p-10 rounded-[2rem] flex flex-col h-[550px]" data-aos="fade-left">
+                    <h2 class="font-script text-5xl text-primary mb-6 border-b border-gray-300/30 pb-4">Buku Tamu</h2>
                     
-                    <!-- Chat Container -->
-                    <div id="messagesContainer" class="flex-1 overflow-y-auto space-y-4 pr-2">
-                        <!-- Dummy Message 1 -->
-                        <div class="bg-light p-4 rounded-2xl rounded-tl-none border border-gray-100">
-                            <div class="flex items-center justify-between mb-1">
-                                <h4 class="font-semibold text-dark text-sm">Budi Santoso</h4>
-                                <span class="text-xs bg-secondary/20 text-secondary px-2 py-0.5 rounded-full">Bandung</span>
+                    <div id="messagesContainer" class="flex-1 overflow-y-auto space-y-4 pr-3 scroll-smooth">
+                        <div class="bg-white/60 backdrop-blur-md p-5 rounded-2xl rounded-tl-none border border-white/50">
+                            <div class="flex items-center justify-between mb-2">
+                                <h4 class="font-bold text-dark text-sm">Budi Santoso</h4>
+                                <span class="text-[10px] font-bold uppercase tracking-wider bg-secondary/30 text-dark px-3 py-1 rounded-full">Bandung</span>
                             </div>
-                            <p class="text-gray-600 text-sm">Selamat menempuh hidup baru Yusup dan Tika. Semoga menjadi keluarga yang sakinah, mawaddah, warahmah. Aamiin.</p>
+                            <p class="text-gray-700 text-sm leading-relaxed font-medium">Selamat menempuh hidup baru Yusup dan Tika. Semoga menjadi keluarga yang sakinah, mawaddah, warahmah. Aamiin.</p>
                         </div>
 
-                        <!-- Dummy Message 2 -->
-                        <div class="bg-light p-4 rounded-2xl rounded-tl-none border border-gray-100">
-                            <div class="flex items-center justify-between mb-1">
-                                <h4 class="font-semibold text-dark text-sm">Siti Aminah</h4>
-                                <span class="text-xs bg-secondary/20 text-secondary px-2 py-0.5 rounded-full">Jakarta</span>
+                        <div class="bg-white/60 backdrop-blur-md p-5 rounded-2xl rounded-tl-none border border-white/50">
+                            <div class="flex items-center justify-between mb-2">
+                                <h4 class="font-bold text-dark text-sm">Siti Aminah</h4>
+                                <span class="text-[10px] font-bold uppercase tracking-wider bg-secondary/30 text-dark px-3 py-1 rounded-full">Jakarta</span>
                             </div>
-                            <p class="text-gray-600 text-sm">Lancar sampai hari H ya Tika sayang. Bahagia selalu menyertai kalian berdua.</p>
+                            <p class="text-gray-700 text-sm leading-relaxed font-medium">Lancar sampai hari H ya Tika sayang. Bahagia selalu menyertai kalian berdua.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="bg-dark text-white py-10 text-center">
+        <footer class="bg-dark text-white py-12 text-center">
             <div class="max-w-xl mx-auto px-6">
-                <h2 class="font-script text-4xl mb-4 text-secondary">Yusup & Tika</h2>
-                <p class="font-sans text-sm text-gray-400 mb-6">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
-                <p class="font-sans text-xs text-gray-500">
-                    &copy; 2026 Yusup & Tika Wedding. All Rights Reserved.<br>
-                    Created with <i class="fas fa-heart text-red-500 mx-1"></i> for your special day.
+                <h2 class="font-script text-5xl mb-4 text-secondary">Yusup & Tika</h2>
+                <p class="font-sans text-sm text-gray-400 mb-8 font-medium leading-relaxed">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
+                <div class="w-24 h-[1px] bg-white/20 mx-auto mb-8"></div>
+                <p class="font-sans text-xs text-gray-500 font-medium tracking-wider uppercase">
+                    © 2026 Yusup & Tika Wedding.<br>
+                    <span class="block mt-3">Created with <i class="fas fa-heart text-red-500 mx-1"></i> for your special day.</span>
                 </p>
             </div>
         </footer>
 
     </main>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize Animate On Scroll
-        AOS.init({
-            once: true,
-            offset: 50,
-        });
+        AOS.init({ once: true, offset: 50 });
 
-        // Elements
         const bgMusic = document.getElementById('bgMusic');
         const musicToggle = document.getElementById('musicToggle');
         const musicIcon = document.getElementById('musicIcon');
         const coverPage = document.getElementById('cover-page');
         const mainContent = document.getElementById('main-content');
         
-        // Target Date for Countdown (Format: Oct 28, 2026 08:00:00)
-        // Adjust this to the actual wedding date
         const weddingDate = new Date("Oct 28, 2026 08:00:00").getTime();
 
-        // 1. Open Invitation Logic
         function openInvitation() {
-            // Hide Cover
             coverPage.classList.add('cover-open');
-            setTimeout(() => {
-                coverPage.style.display = 'none';
-            }, 1000);
-
-            // Show Main Content
+            setTimeout(() => { coverPage.style.display = 'none'; }, 1200);
             document.body.classList.remove('no-scroll');
             mainContent.classList.remove('opacity-0');
             
-            // Play Music
             playMusic();
-            
-            // Show Music Toggle Button
             musicToggle.classList.remove('hidden');
             musicToggle.classList.add('flex');
         }
 
-        // 2. Music Controller Logic
         function playMusic() {
-            bgMusic.play().catch(e => console.log("Audio autoplay prevented by browser"));
+            bgMusic.play().catch(e => console.log("Audio autoplay prevented."));
             musicIcon.classList.add('spin-slow');
             musicIcon.classList.remove('fa-pause');
             musicIcon.classList.add('fa-compact-disc');
@@ -460,34 +448,26 @@
         }
 
         musicToggle.addEventListener('click', () => {
-            if (bgMusic.paused) {
-                playMusic();
-            } else {
-                pauseMusic();
-            }
+            if (bgMusic.paused) playMusic();
+            else pauseMusic();
         });
 
-        // 3. Countdown Timer Logic
         const countdownInterval = setInterval(() => {
             const now = new Date().getTime();
             const distance = weddingDate - now;
 
-            // Calculations
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Display
             document.getElementById("days").innerText = days.toString().padStart(2, '0');
             document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
             document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
             document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
 
-            // If countdown is finished
             if (distance < 0) {
                 clearInterval(countdownInterval);
-                document.getElementById("hero-date").innerText = "Hari Bahagia Telah Tiba!";
                 document.getElementById("days").innerText = "00";
                 document.getElementById("hours").innerText = "00";
                 document.getElementById("minutes").innerText = "00";
@@ -495,34 +475,30 @@
             }
         }, 1000);
 
-        // 4. Copy to Clipboard Logic
         function copyRekening(text, btn) {
-            // Create temporary textarea
             const textarea = document.createElement('textarea');
             textarea.value = text;
             document.body.appendChild(textarea);
             textarea.select();
             
             try {
-                // Execute copy
                 document.execCommand('copy');
-                // UI Feedback
                 const originalText = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-check mr-2"></i> Berhasil Disalin!';
-                btn.classList.add('bg-primary', 'text-white');
+                btn.innerHTML = '<i class="fas fa-check mr-2"></i> Tersalin!';
+                btn.classList.replace('bg-white/50', 'bg-primary');
+                btn.classList.replace('text-primary', 'text-white');
                 
                 setTimeout(() => {
                     btn.innerHTML = originalText;
-                    btn.classList.remove('bg-primary', 'text-white');
+                    btn.classList.replace('bg-primary', 'bg-white/50');
+                    btn.classList.replace('text-white', 'text-primary');
                 }, 2000);
             } catch (err) {
                 console.error('Failed to copy', err);
             }
-            
             document.body.removeChild(textarea);
         }
 
-        // 5. Guestbook Form Logic (SPA Simulation)
         document.getElementById('guestbookForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -531,36 +507,24 @@
             const message = document.getElementById('guestMessage').value;
             const alertMsg = document.getElementById('alertMsg');
 
-            // In a real app with backend, you would send this to a database (like Firebase or Supabase)
-            // Here we simulate the approval process visually by showing the alert and temporarily appending it.
-
-            // Create new message element (simulating approved state locally for UX)
             const newMessageHtml = `
-                <div class="bg-green-50/50 p-4 rounded-2xl rounded-tl-none border border-green-100 animate-[fadeIn_0.5s_ease-out]">
-                    <div class="flex items-center justify-between mb-1">
-                        <h4 class="font-semibold text-dark text-sm">${name} <span class="text-[10px] text-green-600 font-normal italic ml-1">(Baru ditambahkan)</span></h4>
-                        <span class="text-xs bg-secondary/20 text-secondary px-2 py-0.5 rounded-full">${city}</span>
+                <div class="bg-white/60 backdrop-blur-md p-5 rounded-2xl rounded-tl-none border border-white/50 transition-all duration-500">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="font-bold text-dark text-sm">${name} <span class="text-[10px] text-green-600 font-bold uppercase ml-2 tracking-wider">(Baru)</span></h4>
+                        <span class="text-[10px] font-bold uppercase tracking-wider bg-secondary/30 text-dark px-3 py-1 rounded-full">${city}</span>
                     </div>
-                    <p class="text-gray-600 text-sm">${message}</p>
+                    <p class="text-gray-700 text-sm leading-relaxed font-medium">${message}</p>
                 </div>
             `;
 
-            // Prepend to container
             const container = document.getElementById('messagesContainer');
             container.insertAdjacentHTML('afterbegin', newMessageHtml);
 
-            // Show success message
             alertMsg.classList.remove('hidden');
-            
-            // Reset form
             this.reset();
 
-            // Hide success message after 3 seconds
-            setTimeout(() => {
-                alertMsg.classList.add('hidden');
-            }, 3000);
+            setTimeout(() => { alertMsg.classList.add('hidden'); }, 4000);
         });
-
     </script>
 </body>
 </html>
