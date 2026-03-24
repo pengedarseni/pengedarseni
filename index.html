@@ -1190,19 +1190,22 @@
             icon: `# Perfect Pixel Microstock Icon Prompt (Pixel-Precision Version)\nRole: You are an expert AI Image Prompt Engineer specializing in precision-based microstock icon generation optimized for perfect alignment, consistent sizing, and clean Image Trace in Adobe Illustrator.\nTask: When I input a theme, object, or concept, generate {COUNT} unique and highly detailed prompts. Prompt Construction Rules: Canvas 3000x3000 px, 3x3 grid layout, flat vector style, solid colors or limited palette, pure white background, designed for Adobe Illustrator Image Trace. Strict Exclusions: No text, no shading, no 3D effects. Mandatory Suffix: "3000x3000 px canvas, perfect 3x3 grid layout, equal spacing, consistent icon scale, centered in each cell, flat vector style, solid colors, bold clean lines, isolated on pure white background, no text, no shading, high contrast, pixel-perfect, ready for vector trace." Format: Provide prompts in a numbered list, single flowing paragraph each.`
         };
 
-        const seoSystemPrompt = `You are an expert in creating titles and researching keywords for SEO purposes.
+        // ... kode sebelumnya ...
+
+const seoSystemPrompt = `You are an expert in creating titles and researching keywords for SEO purposes.
 When I input a sentence, prompt, specific description, or provide an IMAGE, you must generate:
 * An engaging TITLE that accurately summarizes the item and is optimized for SEO.
 * A list of EXACTLY {KEYWORD_COUNT} keywords based on the input.
   * Keywords must be single words only (up to 5 two-word keywords allowed).
   * Prioritize highly searched, relevant keywords. No duplicates.
   * Comma-separated paragraph format.
-* Assign a single category from this list: [Animal, Building Architecture, Business, Drinks, The Environment, States of Mind, Food, Graphic Resources, Hobbies and Leisure, Industry, Landscape, Lifestyle, People, Plant and Flower, Culture and Region, Science, Social Issues, Sports, Technology, Transport, Travel].
+* Assign a single category from this list: [Animal, Building Architecture, Business, Drinks, The Environment, States of Mind, Food, Graphic Resources, Hobbies and Leisure, Industry, Landscape, Lifestyle, People, Plant and Flower, Culture and Region, Science]
 
-CRITICAL INSTRUCTION FOR MULTIPLE ITEMS:
-If the user provides an IMAGE with a grid of items, OR if the user pastes TEXT containing MULTIPLE prompts (e.g., Prompt 1, Prompt 2, or a list), you MUST thoroughly read ALL the text and process EACH item/prompt individually.
-Do NOT summarize all prompts into one single output.
-For EACH separate item or prompt you find in the input, you MUST output its own numbered block.
+CRITICAL INSTRUCTION FOR MULTIPLE ITEMS AND IMAGES (DO NOT IGNORE):
+1. IF TEXT INPUT: If the user pastes text containing MULTIPLE items or a list, process EACH item individually.
+2. IF IMAGE INPUT: If the uploaded image contains a grid, a sprite sheet, or multiple distinct objects/icons, YOU MUST VISUALLY SEGMENT THE IMAGE AND IDENTIFY EVERY SINGLE DISTINCT OBJECT.
+DO NOT summarize the entire image into one output. DO NOT group items together.
+You must output a separate, distinct numbered block for EVERY single object you detect in the image. For example, if there are 20 icons in the grid, you MUST output 20 numbered blocks.
 
 OUTPUT FORMAT MUST BE EXACTLY THIS (Strictly follow the capitalization and line breaks):
 
@@ -1216,6 +1219,8 @@ TITLE: [Your Title Here]
 ...and so on for EVERY item you detect.
 
 Do NOT add conversational text or markdown blocks.`;
+
+// ... kode setelahnya ...
 
         const apiLinks = {
             gemini: { name: 'Google AI Studio', url: 'https://aistudio.google.com/app/apikey' },
