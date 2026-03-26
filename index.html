@@ -1181,16 +1181,43 @@
         }
 
         // --- SYSTEM PROMPTS & CONFIG ---
-        const generateBtnSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.8 70.8" class="w-5 h-5"><path fill="currentColor" d="M55.3,53.1l-2-1.5c-1.1-.8-2.6-.6-3.5.5-.8,1.1-.6,2.6.5,3.5l2,1.5c.8.6,1.8,1.4,1.9,1.6,0,.1,0,.5,0,.6,0,.2-.8.7-1.6,1.3-12.1,8.3-28.4,6.8-38.8-3.6-6.8-6.8-10-16.2-8.6-25.8.2-1.4-.8-2.6-2.1-2.8-1.4-.2-2.6.8-2.8,2.1-1.6,11.1,2.1,22.1,10,30,6.9,6.8,15.9,10.4,25,10.4s14-2.1,20-6.2c1.6-1.1,2.7-1.9,3.4-3.4.5-1.3.6-3,0-4.2-.6-1.6-1.8-2.5-3.6-3.8h0Z"/><path fill="currentColor" d="M15.2,17.7l1.2,1c.5.4,1,.5,1.5.5s1.4-.3,1.9-.9c.9-1.1.7-2.6-.4-3.5l-1.2-1c-.8-.6-1.8-1.4-1.8-1.6,0-.1,0-.5,0-.6,0-.2.8-.7,1.6-1.3,9.2-6.4,21.1-7.2,31.1-2.2,1.2.6,2.7.1,3.3-1.1.6-1.2.1-2.7-1.1-3.3C39.7-2.1,25.9-1.1,15.2,6.3c-1.5,1.1-2.7,1.9-3.3,3.4-.5,1.3-.6,2.9-.1,4.2.6,1.6,1.7,2.5,3.4,3.9Z"/><path fill="currentColor" d="M67,19.5c-.6-1.2-2.1-1.7-3.3-1.1s-1.7,2.1-1.1,3.3c3.5,7,4.2,15.3,1.9,22.8-.4,1.3.3,2.7,1.6,3.1.2,0,.5.1.7.1,1.1,0,2-.7,2.3-1.7,2.7-8.7,1.9-18.4-2.2-26.5h0Z"/><path fill="currentColor" d="M21.8,34.8c8.4,2.8,10.8,5.2,13.6,13.6,2.8-8.4,5.2-10.8,13.6-13.6-8.4-2.9-10.8-5.2-13.6-13.6-2.8,8.4-5.2,10.8-13.6,13.6Z"/><path fill="currentColor" d="M58.4,6.3c-1.3,3.8-2.3,4.8-6.1,6.1,3.8,1.3,4.8,2.3,6.1,6.1,1.3-3.8,2.3-4.8,6.1-6.1-3.8-1.3-4.8-2.3-6.1-6.1Z"/></svg>`;
+const generateBtnSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.8 70.8" class="w-5 h-5"><path fill="currentColor" d="M55.3,53.1l-2-1.5c-1.1-.8-2.6-.6-3.5.5-.8,1.1-.6,2.6.5,3.5l2,1.5c.8.6,1.8,1.4,1.9,1.6,0,.1,0,.5,0,.6,0,.2-.8.7-1.6,1.3-12.1,8.3-28.4,6.8-38.8-3.6-6.8-6.8-10-16.2-8.6-25.8.2-1.4-.8-2.6-2.1-2.8-1.4-.2-2.6.8-2.8,2.1-1.6,11.1,2.1,22.1,10,30,6.9,6.8,15.9,10.4,25,10.4s14-2.1,20-6.2c1.6-1.1,2.7-1.9,3.4-3.4.5-1.3.6-3,0-4.2-.6-1.6-1.8-2.5-3.6-3.8h0Z"/><path fill="currentColor" d="M15.2,17.7l1.2,1c.5.4,1,.5,1.5.5s1.4-.3,1.9-.9c.9-1.1.7-2.6-.4-3.5l-1.2-1c-.8-.6-1.8-1.4-1.8-1.6,0-.1,0-.5,0-.6,0-.2.8-.7,1.6-1.3,9.2-6.4,21.1-7.2,31.1-2.2,1.2.6,2.7.1,3.3-1.1.6-1.2.1-2.7-1.1-3.3C39.7-2.1,25.9-1.1,15.2,6.3c-1.5,1.1-2.7,1.9-3.3,3.4-.5,1.3-.6,2.9-.1,4.2.6,1.6,1.7,2.5,3.4,3.9Z"/><path fill="currentColor" d="M67,19.5c-.6-1.2-2.1-1.7-3.3-1.1s-1.7,2.1-1.1,3.3c3.5,7,4.2,15.3,1.9,22.8-.4,1.3.3,2.7,1.6,3.1.2,0,.5.1.7.1,1.1,0,2-.7,2.3-1.7,2.7-8.7,1.9-18.4-2.2-26.5h0Z"/><path fill="currentColor" d="M21.8,34.8c8.4,2.8,10.8,5.2,13.6,13.6,2.8-8.4,5.2-10.8,13.6-13.6-8.4-2.9-10.8-5.2-13.6-13.6-2.8,8.4-5.2,10.8-13.6,13.6Z"/><path fill="currentColor" d="M58.4,6.3c-1.3,3.8-2.3,4.8-6.1,6.1,3.8,1.3,4.8,2.3,6.1,6.1,1.3-3.8,2.3-4.8,6.1-6.1-3.8-1.3-4.8-2.3-6.1-6.1Z"/></svg>`;
 
-        const systemPrompts = {
-            video: `You are an expert in creating cinematic 4K video prompts for high-quality stock footage generation using AI video tools such as Google Veo, GPT-Sora, Runway, and Pika.\nWhen I input a theme, sentence, or description, you must generate: {COUNT} unique cinematic video prompts per input, each written in natural English as a single compact paragraph. Each prompt must include: A clear main subject and environment with vivid descriptive details, Camera movement, Lighting and mood, Color palette, Visual style, Texture and environmental details, State whether it is loopable or a non-loop cinematic shot. Always end with: No text, no people, no branding. Rules: All prompts must be different. Avoid brand logos. Just output the prompts directly, separated by double line breaks.`,
-            photo: `You are an expert in creating cinematic 4K photo prompts for high-quality stock image generation using AI image tools.\nWhen I input a theme, sentence, or description, you must generate: {COUNT} unique cinematic photo prompts per input, each written in natural English as a single compact paragraph. Each prompt must include: A clear main subject and environment, Professional photographic composition, Lens type and perspective, Lighting style and mood, Color palette or atmosphere, Realistic texture details, Visual style. Always end each prompt with: No text, no people, no branding. Rules: All prompts must be different. Just output the prompts directly, separated by double line breaks.`,
-            vector: `You are an expert in creating simplified watercolor-style vector illustration prompts optimized specifically for clean tracing in Adobe Illustrator.\nWhen I input a theme, sentence, or description, generate {COUNT} unique watercolor vector illustration prompts. Each prompt must: Feature one clear main subject only, Use simplified watercolor wash effect, Use limited harmonious color palette, Ensure high contrast, Keep composition minimal, Emphasize scalable SVG-ready vector look. Always end each prompt with: Soft simplified watercolor vector style, clean edges, smooth color separation, white background, isolated subject, no text, no people, no branding. Rules: Just output the prompts directly, separated by double line breaks.`,
-            icon: `# Perfect Pixel Microstock Icon Prompt (Pixel-Precision Version)\nRole: You are an expert AI Image Prompt Engineer specializing in precision-based microstock icon generation optimized for perfect alignment, consistent sizing, and clean Image Trace in Adobe Illustrator.\nTask: When I input a theme, object, or concept, generate {COUNT} unique and highly detailed prompts. Prompt Construction Rules: Canvas 3000x3000 px, 3x3 grid layout, flat vector style, solid colors or limited palette, pure white background, designed for Adobe Illustrator Image Trace. Strict Exclusions: No text, no shading, no 3D effects. Mandatory Suffix: "3000x3000 px canvas, perfect 3x3 grid layout, equal spacing, consistent icon scale, centered in each cell, flat vector style, solid colors, bold clean lines, isolated on pure white background, no text, no shading, high contrast, pixel-perfect, ready for vector trace." Format: Provide prompts in a numbered list, single flowing paragraph each.`
-        };
+const systemPrompts = {
+    video: `You are a professional stock footage prompt engineer specializing in creating ultra-high quality 4K full-frame video prompts for advanced AI video generation systems (Google Veo, OpenAI Sora, Runway Gen-3, Pika, and Seedance 2.0).
 
-        // ... kode sebelumnya ...
+TASK:
+When a user provides a theme, concept, or description, generate {COUNT} unique cinematic-quality stock footage prompts optimized for commercial licensing.
+
+GENERAL PROMPT RULES:
+- Language: Natural professional English (cinematographer’s style).
+- Format: One continuous paragraph per prompt.
+- Style: Photorealistic, clean stock footage, balanced composition, and smooth camera movement.
+- Diversity: All {COUNT} prompts must vary in subject, location, lighting, and camera movement.
+
+MANDATORY CONTENT STRUCTURE:
+1. Main Subject & Action
+2. Setting/Environment
+3. Lighting/Time of Day
+4. Color Palette/Atmosphere
+5. Camera Shot & Movement
+6. Environmental Texture (dust, water reflections, etc.)
+7. Cinematic Details (motion blur, shallow depth of field)
+
+CRITICAL TECHNICAL RULES:
+- Frame Ratio: Include "full-frame 16:9 video, no black bars, no letterbox".
+- Audio: Include "no music, only natural ambient sound if audio is generated".
+- Looping: Specify "loopable seamless sequence" OR "non-loop cinematic shot".
+- Ending: End exactly with "No text, no branding."
+
+Just output the prompts directly, separated by double line breaks.`,
+
+    photo: `You are an expert in creating cinematic 4K photo prompts for high-quality stock image generation using AI image tools.\nWhen I input a theme, sentence, or description, you must generate: {COUNT} unique cinematic photo prompts per input, each written in natural English as a single compact paragraph. Each prompt must include: A clear main subject and environment, Professional photographic composition, Lens type and perspective, Lighting style and mood, Color palette or atmosphere, Realistic texture details, Visual style. Always end each prompt with: No text, no people, no branding. Rules: All prompts must be different. Just output the prompts directly, separated by double line breaks.`,
+    
+    vector: `You are an expert in creating simplified watercolor-style vector illustration prompts optimized specifically for clean tracing in Adobe Illustrator.\nWhen I input a theme, sentence, or description, generate {COUNT} unique watercolor vector illustration prompts. Each prompt must: Feature one clear main subject only, Use simplified watercolor wash effect, Use limited harmonious color palette, Ensure high contrast, Keep composition minimal, Emphasize scalable SVG-ready vector look. Always end each prompt with: Soft simplified watercolor vector style, clean edges, smooth color separation, white background, isolated subject, no text, no people, no branding. Rules: Just output the prompts directly, separated by double line breaks.`,
+    
+    icon: `# Perfect Pixel Microstock Icon Prompt (Pixel-Precision Version)\nRole: You are an expert AI Image Prompt Engineer specializing in precision-based microstock icon generation optimized for perfect alignment, consistent sizing, and clean Image Trace in Adobe Illustrator.\nTask: When I input a theme, object, or concept, generate {COUNT} unique and highly detailed prompts. Prompt Construction Rules: Canvas 3000x3000 px, 3x3 grid layout, flat vector style, solid colors or limited palette, pure white background, designed for Adobe Illustrator Image Trace. Strict Exclusions: No text, no shading, no 3D effects. Mandatory Suffix: "3000x3000 px canvas, perfect 3x3 grid layout, equal spacing, consistent icon scale, centered in each cell, flat vector style, solid colors, bold clean lines, isolated on pure white background, no text, no shading, high contrast, pixel-perfect, ready for vector trace." Format: Provide prompts in a numbered list, single flowing paragraph each.`
+};
 
 const seoSystemPrompt = `You are an expert in creating titles and researching keywords for SEO purposes.
 When I input a sentence, prompt, specific description, or provide an IMAGE, you must generate:
@@ -1201,24 +1228,24 @@ When I input a sentence, prompt, specific description, or provide an IMAGE, you 
   * Comma-separated paragraph format.
 * Assign a single category from this list: [Animal, Building Architecture, Business, Drinks, The Environment, States of Mind, Food, Graphic Resources, Hobbies and Leisure, Industry, Landscape, Lifestyle, People, Plant and Flower, Culture and Region, Science]
 
-CRITICAL INSTRUCTION FOR MULTIPLE ITEMS AND IMAGES (DO NOT IGNORE):
-1. IF TEXT INPUT: If the user pastes text containing MULTIPLE items or a list, process EACH item individually.
-2. IF IMAGE INPUT: If the uploaded image contains a grid, a sprite sheet, or multiple distinct objects/icons, YOU MUST VISUALLY SEGMENT THE IMAGE AND IDENTIFY EVERY SINGLE DISTINCT OBJECT.
-DO NOT summarize the entire image into one output. DO NOT group items together.
-You must output a separate, distinct numbered block for EVERY single object you detect in the image. For example, if there are 20 icons in the grid, you MUST output 20 numbered blocks.
+CRITICAL INSTRUCTION FOR MULTIPLE ITEMS AND IMAGES:
+1. IF TEXT INPUT: If the user pastes text containing MULTIPLE items, process EACH individually.
+2. IF IMAGE INPUT: If the image contains a grid or multiple objects, YOU MUST VISUALLY SEGMENT THE IMAGE AND IDENTIFY EVERY SINGLE DISTINCT OBJECT.
+DO NOT summarize the entire image into one output.
+You must output a separate, distinct numbered block for EVERY single object you detect.
 
-OUTPUT FORMAT MUST BE EXACTLY THIS (Strictly follow the capitalization and line breaks):
+OUTPUT FORMAT MUST BE EXACTLY THIS:
 
 1.
 TITLE: [Your Title Here]
 CATEGORY: [Your Category Here]
-KEYWORDS: [comma, separated, list, of, keywords, here]
+KEYWORDS: [comma, separated, list]
 
 2.
 TITLE: [Your Title Here]
-...and so on for EVERY item you detect.
+...and so on.
 
-Do NOT add conversational text or markdown blocks.`;
+Do NOT add conversational text.`;
 
 // ... kode setelahnya ...
 
