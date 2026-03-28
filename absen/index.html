@@ -4,8 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absensi Karyawan</title>
-    <!-- Menggunakan Tailwind CSS untuk styling -->
+    
+    <!-- Import Google Fonts: Inter & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Konfigurasi Font Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body class="min-h-screen bg-slate-50 flex items-center justify-center p-4 font-sans text-slate-700">
 
@@ -13,7 +33,7 @@
         
         <!-- Header -->
         <div class="bg-[#09090b] p-6 text-white text-center">
-            <h1 class="text-2xl font-bold mb-1">Absensi & Laporan</h1>
+            <h1 class="text-2xl font-bold mb-1 font-display tracking-tight">Absensi & Laporan</h1>
             <p class="text-zinc-400 text-sm">Input progres harian kamu disini</p>
         </div>
 
@@ -45,27 +65,72 @@
                     </div>
                 </div>
 
-                <!-- Input Qty -->
+                <!-- Dropdown Status (Custom dengan SVG Icon) -->
                 <div>
-                    <label class="block text-sm font-medium mb-1 text-slate-600">Qty (Tugas Selesai)</label>
+                    <label class="block text-sm font-medium mb-1 text-slate-600">Status Kehadiran</label>
                     <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path></svg>
+                        <!-- Hidden input untuk disubmit oleh form -->
+                        <input type="hidden" id="status" name="status" value="Hadir">
+                        
+                        <!-- Tombol Dropdown -->
+                        <button type="button" id="statusDropdownBtn" class="w-full flex items-center justify-between pl-3 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-zinc-800 focus:border-zinc-800 outline-none transition-all bg-white text-left">
+                            <span id="selectedStatusContent" class="flex items-center gap-2 text-slate-700">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Hadir</span>
+                            </span>
+                            <svg class="h-4 w-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+
+                        <!-- Menu Dropdown -->
+                        <div id="statusDropdownMenu" class="hidden absolute z-10 w-full mt-1 bg-white border border-slate-200 rounded-lg shadow-lg overflow-hidden">
+                            <!-- Hadir -->
+                            <div class="status-option px-3 py-2 cursor-pointer hover:bg-slate-50 flex items-center gap-2 transition-colors" data-value="Hadir">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Hadir</span>
+                            </div>
+                            <!-- Sakit -->
+                            <div class="status-option px-3 py-2 cursor-pointer hover:bg-slate-50 flex items-center gap-2 transition-colors border-t border-slate-100" data-value="Sakit">
+                                <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Sakit</span>
+                            </div>
+                            <!-- Izin -->
+                            <div class="status-option px-3 py-2 cursor-pointer hover:bg-slate-50 flex items-center gap-2 transition-colors border-t border-slate-100" data-value="Izin">
+                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                <span>Izin</span>
+                            </div>
+                            <!-- Libur -->
+                            <div class="status-option px-3 py-2 cursor-pointer hover:bg-slate-50 flex items-center gap-2 transition-colors border-t border-slate-100" data-value="Libur">
+                                <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                                <span>Libur</span>
+                            </div>
                         </div>
-                        <input type="number" id="qty" name="qty" min="0" required placeholder="Contoh: 20"
-                            class="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-zinc-800 focus:border-zinc-800 outline-none transition-all">
                     </div>
                 </div>
 
-                <!-- Input Theme -->
-                <div>
-                    <label class="block text-sm font-medium mb-1 text-slate-600">Theme / Pekerjaan</label>
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <!-- Section Tugas (Hanya Muncul jika Hadir) -->
+                <div id="taskSection" class="space-y-4">
+                    <!-- Input Qty -->
+                    <div>
+                        <label class="block text-sm font-medium mb-1 text-slate-600">Qty (Tugas Selesai)</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path></svg>
+                            </div>
+                            <input type="number" id="qty" name="qty" min="0" required placeholder="Contoh: 20"
+                                class="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-zinc-800 focus:border-zinc-800 outline-none transition-all">
                         </div>
-                        <input type="text" id="theme" name="theme" required placeholder="Contoh: World Ocean Day"
-                            class="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-zinc-800 focus:border-zinc-800 outline-none transition-all">
+                    </div>
+
+                    <!-- Input Theme -->
+                    <div>
+                        <label class="block text-sm font-medium mb-1 text-slate-600">Theme / Pekerjaan</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <input type="text" id="theme" name="theme" required placeholder="Contoh: World Ocean Day"
+                                class="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-zinc-800 focus:border-zinc-800 outline-none transition-all">
+                        </div>
                     </div>
                 </div>
 
@@ -81,7 +146,7 @@
                 </div>
 
                 <!-- Submit Button -->
-                <button type="submit" id="submitBtn" class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-medium text-white transition-all bg-[#09090b] hover:bg-zinc-800 active:transform active:scale-95">
+                <button type="submit" id="submitBtn" class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-medium font-display tracking-wide text-white transition-all bg-[#09090b] hover:bg-zinc-800 active:transform active:scale-95">
                     <span id="btnText" class="flex items-center gap-2">
                         <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
                         Kirim Absen
@@ -103,12 +168,68 @@
         // Set tanggal hari ini sebagai default
         document.getElementById('date').valueAsDate = new Date();
 
+        // Ambil elemen DOM
         const form = document.getElementById('absenForm');
+        
+        // Element untuk Custom Dropdown Status
+        const statusInput = document.getElementById('status');
+        const statusBtn = document.getElementById('statusDropdownBtn');
+        const statusMenu = document.getElementById('statusDropdownMenu');
+        const selectedStatusContent = document.getElementById('selectedStatusContent');
+        const statusOptions = document.querySelectorAll('.status-option');
+
+        const taskSection = document.getElementById('taskSection');
+        const qtyInput = document.getElementById('qty');
+        const themeInput = document.getElementById('theme');
+        
         const submitBtn = document.getElementById('submitBtn');
         const btnText = document.getElementById('btnText');
         const btnLoading = document.getElementById('btnLoading');
         const successMessage = document.getElementById('successMessage');
         const errorMessage = document.getElementById('errorMessage');
+
+        // Toggle dropdown menu saat tombol diklik
+        statusBtn.addEventListener('click', () => {
+            statusMenu.classList.toggle('hidden');
+        });
+
+        // Menutup dropdown jika klik di luar elemen dropdown
+        document.addEventListener('click', (e) => {
+            if (!statusBtn.contains(e.target) && !statusMenu.contains(e.target)) {
+                statusMenu.classList.add('hidden');
+            }
+        });
+
+        // Logika memilih status & menyembunyikan input tugas
+        statusOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const value = option.dataset.value;
+                
+                // Update tampilan tombol (Ganti isi button dengan isi option yang dipilih)
+                selectedStatusContent.innerHTML = option.innerHTML;
+                
+                // Set value ke hidden input agar terbaca saat form disubmit
+                statusInput.value = value;
+                
+                // Sembunyikan menu dropdown
+                statusMenu.classList.add('hidden');
+
+                // Tampilkan atau sembunyikan tugas
+                if (value === 'Hadir') {
+                    taskSection.classList.remove('hidden');
+                    taskSection.classList.add('block');
+                    qtyInput.required = true;
+                    themeInput.required = true;
+                } else {
+                    taskSection.classList.remove('block');
+                    taskSection.classList.add('hidden');
+                    qtyInput.required = false;
+                    themeInput.required = false;
+                    qtyInput.value = '';
+                    themeInput.value = '';
+                }
+            });
+        });
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -126,18 +247,15 @@
             btnLoading.classList.remove('hidden');
             btnLoading.classList.add('flex');
 
-            // =========================================================================
-            // LOKASI MEMASUKKAN URL APPS SCRIPT
-            // =========================================================================
-            // Ganti URL di bawah ini dengan URL "Aplikasi Web" milikmu dari Langkah 4
+            // URL dari user sudah diimplementasikan di sini
             const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz4o1QdIobK9rIRQqCzQVsJafLdo1izc5fRbUwK0DpjJs5JvcWDx-fkbQtI964dZIsK/exec';
-            // =========================================================================
 
             const formData = {
                 name: document.getElementById('name').value,
                 date: document.getElementById('date').value,
-                qty: document.getElementById('qty').value,
-                theme: document.getElementById('theme').value
+                status: document.getElementById('status').value, // Menambahkan status dari hidden input
+                qty: qtyInput.value,
+                theme: themeInput.value
             };
 
             try {
@@ -155,8 +273,18 @@
                 successMessage.classList.add('flex');
                 
                 // Kosongkan form Qty dan Theme saja
-                document.getElementById('qty').value = '';
-                document.getElementById('theme').value = '';
+                qtyInput.value = '';
+                themeInput.value = '';
+                
+                // Kembalikan status ke Hadir
+                statusInput.value = 'Hadir';
+                selectedStatusContent.innerHTML = document.querySelector('.status-option[data-value="Hadir"]').innerHTML;
+                
+                // Pastikan task section muncul
+                taskSection.classList.remove('hidden');
+                taskSection.classList.add('block');
+                qtyInput.required = true;
+                themeInput.required = true;
 
                 setTimeout(() => {
                     successMessage.classList.add('hidden');
