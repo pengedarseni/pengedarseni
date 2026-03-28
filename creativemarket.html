@@ -1,0 +1,985 @@
+ok. hasilnya jadi begini ya? coba tampilkan previewnya 
+
+<!DOCTYPE html>
+
+<html lang="en" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 🚀 OPTIMASI SEO MULAI DI SINI 🚀 -->
+
+    <title>Creative Market | Pengedar Seni</title>
+
+    <meta name="description" content="Explore our premium collection of fonts, templates, and graphic assets available on Creative Market.">
+
+    <meta name="keywords" content="creative market, pengedarseni, premium fonts, design templates, graphic assets">
+
+    <meta name="author" content="Pengedar Seni">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://pengedarseni.com/creativemarket.html" />
+
+
+
+    <!-- Open Graph / Facebook / WhatsApp Preview -->
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:url" content="https://pengedarseni.com/creativemarket.html">
+
+    <meta property="og:title" content="Creative Market | Pengedar Seni">
+
+    <meta property="og:description" content="Explore our premium collection of fonts, templates, and graphic assets.">
+
+    <meta property="og:image" content="https://pengedarseni.com/preview-image.jpg">
+
+
+
+    <!-- Twitter Card -->
+
+    <meta property="twitter:card" content="summary_large_image">
+
+    <meta property="twitter:url" content="https://pengedarseni.com/creativemarket.html">
+
+    <meta property="twitter:title" content="Creative Market | Pengedar Seni">
+
+    <meta property="twitter:description" content="Explore our premium collection of fonts, templates, and graphic assets.">
+
+    <meta property="twitter:image" content="https://pengedarseni.com/preview-image.jpg">
+
+    <!-- 🚀 OPTIMASI SEO SELESAI 🚀 -->
+
+    
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1.2">
+
+    
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Unbounded:wght@700;900&display=swap" rel="stylesheet">
+
+    
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+
+
+    <script>
+
+        tailwind.config = {
+
+            darkMode: 'class',
+
+            theme: {
+
+                extend: {
+
+                    colors: {
+
+                        zinc: {
+
+                            50: '#fafafa', 100: '#f4f4f5', 200: '#e4e4e7', 300: '#d4d4d8',
+
+                            400: '#a1a1aa', 500: '#71717a', 600: '#52525b', 700: '#3f3f46',
+
+                            800: '#27272a', 900: '#18181b', 950: '#09090b',
+
+                        },
+
+                        brand: { pink: '#fce7f3' }
+
+                    },
+
+                    fontFamily: {
+
+                        sans: ['Space Grotesk', 'sans-serif'],
+
+                        headline: ['Unbounded', 'sans-serif'], 
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+
+
+    <style>
+
+        body {
+
+            font-family: 'Space Grotesk', sans-serif;
+
+            transition: background-color 0.3s ease, color 0.3s ease;
+
+            overflow-x: hidden;
+
+        }
+
+
+
+        /* Language Logic */
+
+        body.lang-id [lang="en"] { display: none !important; }
+
+        body:not(.lang-id) [lang="id"] { display: none !important; }
+
+
+
+        /* Page Entry Animation */
+
+        .page-transition { animation: pageFadeIn 0.4s ease forwards; }
+
+        @keyframes pageFadeIn {
+
+            from { opacity: 0; transform: translateY(10px); }
+
+            to { opacity: 1; transform: translateY(0); }
+
+        }
+
+
+
+        /* Scroll Animation */
+
+        .fade-up { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+
+        .fade-up.active { opacity: 1; transform: translateY(0); }
+
+
+
+        /* Dropdown */
+
+        .dropdown-menu {
+
+            visibility: hidden; opacity: 0; transform: translateY(10px);
+
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+        }
+
+        .group:hover .dropdown-menu { visibility: visible; opacity: 1; transform: translateY(0); }
+
+
+
+        /* Scrollbar */
+
+        ::-webkit-scrollbar { width: 8px; }
+
+        ::-webkit-scrollbar-track { background: transparent; }
+
+        ::-webkit-scrollbar-thumb { background: #a1a1aa; border-radius: 4px; }
+
+        ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+
+        .dark ::-webkit-scrollbar-thumb { background: #52525b; }
+
+
+
+        /* Filter active state */
+
+        .filter-btn.active {
+
+            background-color: #FF001D;
+
+            color: white;
+
+            border-color: #FF001D;
+
+        }
+
+    </style>
+
+</head>
+
+<body class="antialiased bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
+
+
+
+    <!-- Navigasi -->
+
+    <nav class="fixed w-full top-0 z-50 bg-zinc-50/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-50">
+
+            <div class="flex justify-between items-center h-[72px]">
+
+                
+
+                <!-- Logo -->
+
+                <div class="flex-shrink-0 flex items-center">
+
+                    <a href="#" class="flex items-center gap-3 group">
+
+                        <svg version="1.1" viewBox="0 0 219 161" class="h-8 w-auto fill-zinc-900 dark:fill-zinc-50 group-hover:fill-[#FF001D] dark:group-hover:fill-[#FF001D] group-hover:scale-105 transition-all duration-300">
+
+                            <path d="M97.022,160.93c-12.228-9.281-22.188-21.204-29.133-34.874c-6.945-13.67-10.694-28.731-10.965-44.053L61.9,83.96c10.586,4.334,29.653,2.028,34.561,12.304l1.052,2.307c0-6.991,3.576-53.55-18.507-74.733C56.923,2.656,0,0,0,0s17.175,7.69,18.858,20.973c1.682,13.283,0.981,28.872,33.369,36.632c0,0-9.814-20.553-7.431-33.976c18.016,40.337,36.944,1.118,35.402,56.975L22.293,60.96c4.862,5.794,8.616,12.429,11.076,19.574c1.682,8.249,5.678,67.042,63.653,80.465V160.93z"></path>
+
+                            <path d="M121.908,160.93c12.243-9.267,22.214-21.187,29.161-34.86s10.686-28.741,10.937-44.067l-4.977,1.957c-10.585,4.334-29.653,2.028-34.56,12.304l-1.052,2.307c0-6.991-3.575-53.55,18.507-74.733C162.006,2.656,218.93,0,218.93,0s-17.176,7.69-18.858,20.973c-1.683,13.283-0.981,28.872-33.369,36.632c0,0,9.815-20.553,7.431-33.976c-18.016,40.337-36.874,1.118-35.402,56.975l57.905-19.644c-4.888,5.776-8.645,12.416-11.076,19.574c-1.753,8.249-5.749,67.042-63.723,80.465L121.908,160.93z"></path>
+
+                        </svg>
+
+                        <span class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 transition-colors duration-300">Pengedar Seni</span>
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- Menu Desktop -->
+
+                <div class="hidden lg:flex space-x-6 text-sm font-medium text-zinc-600 dark:text-zinc-400 items-center">
+
+                    <div class="relative group py-2">
+
+                        <button class="text-[#FF001D] transition-colors flex items-center gap-1">
+
+                            <span lang="en">Shop</span><span lang="id">Toko</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+
+                        </button>
+
+                        <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-xl overflow-hidden py-2">
+
+                            <a href="#" class="w-full text-left block px-4 py-2 bg-zinc-100 dark:bg-zinc-800 text-[#FF001D] font-bold transition-colors">Creative Market</a>
+
+                            <a href="https://payhip.com/PengedarSeni" target="_blank" rel="noopener noreferrer" class="w-full text-left block px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Payhip</a>
+
+                            <a href="https://pengedarseni.myr.id/" target="_blank" rel="noopener noreferrer" class="w-full text-left block px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Mayar</a>
+
+                        </div>
+
+                    </div>
+
+                    <a href="#" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors"><span lang="en">Services</span><span lang="id">Layanan</span></a>
+
+                    <a href="#" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Freebies</a>
+
+                    <a href="#" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Licenses/EULA</a>
+
+                    <a href="#" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors"><span lang="en">About Us</span><span lang="id">Tentang</span></a>
+
+                    <a href="#" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors"><span lang="en">Contact</span><span lang="id">Kontak</span></a>
+
+                </div>
+
+
+
+                <!-- Right Side Actions -->
+
+                <div class="flex items-center space-x-4">
+
+                    <button onclick="toggleTheme()" class="text-zinc-500 hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">
+
+                        <svg class="dark:hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+
+                        <svg class="hidden dark:block" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+
+                    </button>
+
+                    <button onclick="toggleLanguage()" class="text-xs font-bold px-2 py-1 border border-zinc-300 dark:border-zinc-700 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">
+
+                        <span lang="en">EN</span><span lang="id">ID</span>
+
+                    </button>
+
+                    
+
+                    <!-- Tombol Hamburger -->
+
+                    <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="lg:hidden text-zinc-500 hover:text-[#FF001D] dark:hover:text-[#FF001D] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-zinc-500 dark:focus:ring-zinc-400 p-2 rounded-md transition-colors">
+
+                        <span class="sr-only">Buka menu utama</span>
+
+                        <svg id="icon-menu" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+
+                        </svg>
+
+                        <svg id="icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Menu Mobile (Dropdown) -->
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 absolute w-full shadow-xl">
+
+            <div class="px-4 pt-2 pb-6 space-y-1 sm:px-6">
+
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150"><span lang="en">Home</span><span lang="id">Beranda</span></a>
+
+                
+
+                <!-- Sub-menu Shop -->
+
+                <div class="px-3 py-2">
+
+                    <span class="block text-xs font-semibold text-[#FF001D] uppercase tracking-wider mb-1"><span lang="en">Shop</span><span lang="id">Toko</span></span>
+
+                    <div class="space-y-1 pl-3 border-l-2 border-[#FF001D]/30">
+
+                        <a href="#" class="block px-3 py-2 rounded-md text-base font-bold text-[#FF001D] bg-zinc-100 dark:bg-zinc-900 transition duration-150">Creative Market</a>
+
+                        <a href="https://payhip.com/PengedarSeni" target="_blank" rel="noopener noreferrer" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-600 dark:text-zinc-400 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150">Payhip</a>
+
+                        <a href="https://pengedarseni.myr.id/" target="_blank" rel="noopener noreferrer" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-600 dark:text-zinc-400 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150">Mayar</a>
+
+                    </div>
+
+                </div>
+
+
+
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150"><span lang="en">Services</span><span lang="id">Layanan</span></a>
+
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150">Freebies</a>
+
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150">Licenses / EULA</a>
+
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150"><span lang="en">About Us</span><span lang="id">Tentang Kami</span></a>
+
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150"><span lang="en">Contact</span><span lang="id">Kontak</span></a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- CONTENT CREATIVE MARKET -->
+
+    <main class="pt-32 pb-24 max-w-7xl mx-auto px-6 min-h-screen page-transition">
+
+        
+
+        <div class="text-center mb-10 fade-up">
+
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#8ba753]/10 text-[#8ba753] mb-4">
+
+                <i class="fa-solid fa-store text-3xl"></i>
+
+            </div>
+
+            <h2 class="text-4xl font-bold mb-4 text-zinc-900 dark:text-zinc-50">Creative Market</h2>
+
+            <p class="text-zinc-500 max-w-xl mx-auto text-sm md:text-base">
+
+                <span lang="en">Discover our premium digital assets collection directly available on Creative Market. High quality fonts, templates, and graphic illustrations.</span>
+
+                <span lang="id">Temukan koleksi aset digital premium kami yang tersedia di Creative Market. Font, template, dan ilustrasi grafis berkualitas tinggi.</span>
+
+            </p>
+
+        </div>
+
+
+
+        <!-- Filter Categories -->
+
+        <div class="flex flex-wrap justify-center gap-3 mb-10 fade-up">
+
+            <button onclick="filterProducts('all')" id="btn-all" class="filter-btn active px-5 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 text-sm font-semibold hover:border-[#FF001D] dark:hover:border-[#FF001D] transition-colors">
+
+                <span lang="en">All Products</span><span lang="id">Semua Produk</span>
+
+            </button>
+
+            <button onclick="filterProducts('font')" id="btn-font" class="filter-btn px-5 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 text-sm font-semibold hover:border-[#FF001D] dark:hover:border-[#FF001D] transition-colors">
+
+                Fonts
+
+            </button>
+
+            <button onclick="filterProducts('template')" id="btn-template" class="filter-btn px-5 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 text-sm font-semibold hover:border-[#FF001D] dark:hover:border-[#FF001D] transition-colors">
+
+                Templates
+
+            </button>
+
+            <button onclick="filterProducts('graphic')" id="btn-graphic" class="filter-btn px-5 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 text-sm font-semibold hover:border-[#FF001D] dark:hover:border-[#FF001D] transition-colors">
+
+                Graphics
+
+            </button>
+
+	    <button onclick="filterProducts('3d')" id="btn-3d" class="filter-btn px-5 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 text-sm font-semibold hover:border-[#FF001D] dark:hover:border-[#FF001D] transition-colors">
+
+    3D Graphics
+
+	   </button>
+
+        </div>
+
+
+
+        <!-- Product Grid Container -->
+
+        <!-- Mobile: 2 produk per baris (grid-cols-2), Tablet: 3 baris, Desktop: 4 baris -->
+
+        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-12 fade-up">
+
+            <!-- Products will be injected here by JavaScript -->
+
+        </div>
+
+
+
+        <!-- Load More Button -->
+
+        <div id="load-more-container" class="text-center hidden fade-up">
+
+            <button onclick="loadMore()" class="bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 px-8 py-3 rounded-full text-sm font-semibold hover:bg-[#FF001D] hover:text-white dark:hover:bg-[#FF001D] dark:hover:text-white transition-all shadow-md">
+
+                <span lang="en">Load More</span><span lang="id">Lihat Lainnya</span>
+
+            </button>
+
+        </div>
+
+
+
+    </main>
+
+
+
+    <footer class="bg-zinc-100 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800 pt-16 pb-8 px-6 mt-auto relative z-30">
+
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-b border-zinc-200 dark:border-zinc-800 pb-10 mb-8 gap-8">
+
+            <div class="text-center md:text-left">
+
+                <h2 class="text-2xl font-bold tracking-tight mb-2 text-zinc-900 dark:text-zinc-50">Pengedar Seni</h2>
+
+                <p class="text-zinc-500 dark:text-zinc-400 text-sm">support@pengedarseni.com</p>
+
+            </div>
+
+            
+
+            <div class="flex flex-col items-center md:items-end gap-6">
+
+                <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+
+                    <a href="#" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Creative Market</a>
+
+                    <a href="https://payhip.com/PengedarSeni" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Payhip</a>
+
+                    <a href="https://pengedarseni.myr.id/" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Mayar</a>
+
+                    <a href="#" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Services</a>
+
+                    <a href="#" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Freebies</a>
+
+                    <a href="#" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Licenses</a>
+
+                </div>
+
+                
+
+                <div class="flex items-center space-x-5">
+
+                    <a href="https://instagram.com/pengedarseni" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-[#FF001D] transition-colors transform hover:scale-110" aria-label="Instagram">
+
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+
+                    </a>
+
+                    <a href="https://behance.net/pengedarseni" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-[#FF001D] transition-colors transform hover:scale-110" aria-label="Behance">
+
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-12h4.5a3 3 0 0 1 0 6a3 3 0 0 1 0 6h-4.5"></path><path d="M3 12l4.5 0"></path><path d="M14 13h7a3.5 3.5 0 0 0 -7 0v2a3.5 3.5 0 0 0 6.64 1"></path><path d="M16 6l3 0"></path></svg>
+
+                    </a>
+
+                    <a href="https://dribbble.com/pengedarseni" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-[#FF001D] transition-colors transform hover:scale-110" aria-label="Dribbble">
+
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"></path><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"></path><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72"></path></svg>
+
+                    </a>
+
+                    <a href="https://x.com/pengedarseni" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-[#FF001D] transition-colors transform hover:scale-110" aria-label="X (Twitter)">
+
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row justify-between items-center text-sm text-zinc-400 gap-6">
+
+            <p class="mt-4 md:mt-0 text-center">© 2015-<span id="current-year">2026</span> Pengedar Seni. All rights reserved.</p>
+
+            <div class="flex items-center space-x-3 text-zinc-400 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-4 rounded-xl md:bg-transparent md:border-0 md:p-0 w-full md:w-auto justify-center">
+
+                <svg class="w-8 h-8 text-zinc-900 dark:text-zinc-100 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"></path></svg>
+
+                <div class="text-left">
+
+                    <p class="font-bold text-zinc-900 dark:text-zinc-100 text-sm"><span lang="en">Secure Payment</span><span lang="id">Pembayaran Aman</span></p>
+
+                    <p class="text-[10px] md:text-xs text-zinc-500 leading-tight"><span lang="en">All payments use RSA security encryption.</span><span lang="id">Semua pembayaran menggunakan enkripsi keamanan RSA.</span></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <button id="scrollToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 z-[90] bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 w-12 h-12 rounded-full shadow-2xl flex items-center justify-center transform transition-all duration-300 hover:scale-110 hover:bg-[#FF001D] dark:hover:bg-[#FF001D] hover:text-white dark:hover:text-white translate-y-20 opacity-0">
+
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"></path></svg>
+
+    </button>
+
+
+
+    <script>
+
+        // --- Theme Initialization ---
+
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+
+            document.documentElement.classList.add('dark');
+
+        }
+
+
+
+        function toggleTheme() {
+
+            const html = document.documentElement;
+
+            html.classList.toggle('dark');
+
+            
+
+            if (html.classList.contains('dark')) {
+
+                localStorage.setItem('theme', 'dark');
+
+            } else {
+
+                localStorage.setItem('theme', 'light');
+
+            }
+
+        }
+
+
+
+        // --- Language Initialization & Logic ---
+
+        if (localStorage.getItem('lang') === 'id') {
+
+            document.body.classList.add('lang-id');
+
+        }
+
+
+
+        function toggleLanguage() { 
+
+            document.body.classList.toggle('lang-id'); 
+
+            if (document.body.classList.contains('lang-id')) {
+
+                localStorage.setItem('lang', 'id');
+
+            } else {
+
+                localStorage.setItem('lang', 'en');
+
+            }
+
+            // Re-render products to update language tags inside cards
+
+            renderProducts();
+
+        }
+
+
+
+        // --- Mobile Menu Logic ---
+
+        function toggleMobileMenu() {
+
+            const menu = document.getElementById('mobile-menu');
+
+            const iconMenu = document.getElementById('icon-menu');
+
+            const iconClose = document.getElementById('icon-close');
+
+            
+
+            menu.classList.toggle('hidden');
+
+            iconMenu.classList.toggle('hidden');
+
+            iconClose.classList.toggle('hidden');
+
+        }
+
+
+
+        // --- Scroll and Reveal Logic ---
+
+        function reveal() {
+
+            var reveals = document.querySelectorAll(".fade-up");
+
+            for (var i = 0; i < reveals.length; i++) {
+
+                var windowHeight = window.innerHeight;
+
+                var elementTop = reveals[i].getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 50) reveals[i].classList.add("active");
+
+            }
+
+        }
+
+        window.addEventListener("scroll", () => {
+
+            reveal();
+
+            const topBtn = document.getElementById('scrollToTopBtn');
+
+            if(topBtn) {
+
+                if (window.scrollY > 400) topBtn.classList.remove('translate-y-20', 'opacity-0');
+
+                else topBtn.classList.add('translate-y-20', 'opacity-0');
+
+            }
+
+        });
+
+        setTimeout(reveal, 200);
+
+
+
+        if(document.getElementById('current-year')) {
+
+            document.getElementById('current-year').innerText = new Date().getFullYear();
+
+        }
+
+
+
+
+
+        // ==========================================
+
+        // --- CREATIVE MARKET PRODUCTS LOGIC ---
+
+        // ==========================================
+
+        
+
+        // 1. Data Produk 
+
+        // ⬇️⬇️ INPUT PRODUK BARU KAMU DI SINI ⬇️⬇️
+
+        const productsData = [
+
+  // Font
+
+  { id: 1, title: "MAKHLUX 119 – Futuristic Typeface", category: "font", labelEn: "Font", labelId: "Font", img: "https://tint.creativemarket.com/2ZI1DNENuP4VgitP6EOGj6JYJTtnGbrfJyoW-V77cp8/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzUzNjMvNTM2MzgvNTM2Mzg0NDEvbWFraGx1eC0xMTktZnV0dXJpc3RpYy10eXBlZmFjZS0lMjgxJTI5LW8ucG5nIzE3NTQzOTQ2ODU?1754394685", url: "https://crmrkt.com/rmRjEx" },
+
+  { id: 2, title: "Lamunsaga – Psychedelic Typeface", category: "font", labelEn: "Font", labelId: "Font", img: "https://tint.creativemarket.com/06JHzUVO2evlpJ7dbp52tqIlnF-mri1ygRkLfLRUTQA/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzUzNTUvNTM1NTcvNTM1NTc1NDUvbGFtdW5zYWdhLSVFMiU4MCU5My1wc3ljaGVkZWxpYy1kaXNwbGF5LXR5cGVmYWNlLSUyODElMjktby5wbmcjMTc0ODIzNDYxMQ?1748234611", url: "https://crmrkt.com/m3BpE1" },
+
+  { id: 3, title: "Oceria – Playful Kids Typeface", category: "font", labelEn: "Font", labelId: "Font", img: "https://tint.creativemarket.com/Kp1U0Ix1-ZPovbFiZrryuBEjQNmtAinETnEAgjK9Ezo/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzUzMDkvNTMwOTYvNTMwOTY5MDcvY20tMS1vLnBuZyMxNzQyODQ0ODEw?1742844810", url: "https://crmrkt.com/NDdjmw" },
+
+  { id: 4, title: "Oklean - Elegant Sans Serif Typeface", category: "font", labelEn: "Font", labelId: "Font", img: "https://tint.creativemarket.com/4XzNIBOpaxnMFBuSE5JNnWEvVVaeo4pU657akEpO2LU/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzUzMDQvNTMwNDkvNTMwNDk4ODgvY20tMS1vLmpwZyMxNzQyMjQ0ODQw?1742244840", url: "https://crmrkt.com/dwyoEg" },
+
+  { id: 5, title: "Boloho – Retro Display Typeface", category: "font", labelEn: "Font", labelId: "Font", img: "https://tint.creativemarket.com/y6dyfRENl2Zs2ZyQPG5jXaKf98eeR0Ll37kzQNDkpRE/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzUzMDIvNTMwMjIvNTMwMjI1ODAvY20tMS1vLnBuZyMxNzQxOTQxMzQ3?1741941347", url: "https://crmrkt.com/ldzgEG" },
+
+  { id: 6, title: "Kalipixel – Futuristic Typeface", category: "font", labelEn: "Font", labelId: "Font", img: "https://tint.creativemarket.com/ABi1ZF2U-LswMCbU6w0mJTFER7JZ6Kc6aLEFWnGnR8E/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzUzMDAvNTMwMDQvNTMwMDQ2MzUvY20tMS1vLmpwZyMxNzQxNzc1OTgz?1741775983", url: "https://crmrkt.com/MD70oP" },
+
+  { id: 7, title: "Remuria – Futuristic Font", category: "font", labelEn: "Font", labelId: "Font", img: "https://tint.creativemarket.com/abCATOxKQRitmqdmVmg-UNhRu9vwA56O9l_H_DEGNWw/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5NDYvNDk0NjQvNDk0NjQ4MDgvY20tMS1vLmpwZw?1700869573", url: "https://crmrkt.com/RDdQVP" },
+
+  { id: 8, title: "Kotakuda – Bold Display Typeface", category: "font", labelEn: "Font", labelId: "Font", img: "https://tint.creativemarket.com/Ax9jfuDSuZvMl2zR7pW58fabiWcXJ0UtLz4iYIXPn6A/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzI2MDAvMjYwMDgvMjYwMDgwMDMvY20tMS1vLmpwZw?1686276677", url: "https://crmrkt.com/q30V1P" },
+
+  { id: 9, title: "Heuras - Condensed Bold Sans", category: "font", labelEn: "Font", labelId: "Font", img: "https://tint.creativemarket.com/R-H-mqoO2_K25WSIPkvHm9Q6jRtuOrmntSxBGj64Poo/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzIxMTQvMjExNDQvMjExNDQxNDcvY20tMS1vLmpwZw?1682022425", url: "https://crmrkt.com/w3WP0b" },
+
+  { id: 10, title: "Oklean - Elegant Sans Serif", category: "font", labelEn: "Font", labelId: "Font", img: "https://tint.creativemarket.com/gqmnOqI-NwDqIX-O9r5Dtxhlkoe10LvDwPakXuHQ3fs/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzUzMDQvNTMwNDkvNTMwNDk2NDgvY20tMS1vLmpwZyMxNzQyMjQxNzMx?1742241731", url: "https://crmrkt.com/40wrbm" },
+
+  { id: 11, title: "Naon - Brush Typeface", category: "font", labelEn: "Font", labelId: "Font", img: "https://tint.creativemarket.com/iDEivvJVkPnkEEQylGCe-AEFSy3qI3TK5Ed94mhyQHQ/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzIxMTIvMjExMjkvMjExMjk4ODcvY20tMS1vLmpwZw?1681814426", url: "https://crmrkt.com/35wPoJ" },
+
+
+
+  // Templates
+
+  { id: 12, title: "PeSen | Minimalist Proposal Figma", category: "template", labelEn: "Templates", labelId: "Templat", img: "https://tint.creativemarket.com/NdVNRcXYY7UOsCUTCYfV2lZMnoZ8J1cao_y51bqCk_k/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzUzMTkvNTMxOTgvNTMxOTgzMjAvdHNob3djYXNlLTEtby5wbmcjMTc0NDEzNzc3Mw?1744137773", url: "https://crmrkt.com/j3qy7P" },
+
+  { id: 13, title: "PeSen | Clean Proposal for Figma", category: "template", labelEn: "Templates", labelId: "Templat", img: "https://tint.creativemarket.com/rEPs4htuwSyM7qCAUiXzq1Ar-XAeUGYDNZJ6P-xibmM/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzUzMTcvNTMxNzgvNTMxNzg4OTgvdHNob3djYXNlLTEtby5wbmcjMTc0Mzk3MTc4MA?1743971780", url: "https://crmrkt.com/KDr1M3" },
+
+
+
+  // 3D
+
+  { id: 14, title: "3D Optical Sight Crosshair", category: "3d", labelEn: "3D", labelId: "3D", img: "https://tint.creativemarket.com/GYEMF1a0raxB7O1zLfVqPtBhQsRLoJ7TuWfxdD1b-Ic/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODkvNDk4OTUvNDk4OTUyMTUvb3BzLTEtby5qcGc?1705251448", url: "https://crmrkt.com/0Dxklb" },
+
+  { id: 15, title: "3D File Format Icons", category: "3d", labelEn: "3D", labelId: "3D", img: "https://tint.creativemarket.com/rL5kPMzQX09zTlPvYlHzIH2468kNPKvH7LoPkwd33M0/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODgvNDk4ODYvNDk4ODYyMTcvZmlsZWZvcm1hdC0xLW8uanBn?1705082049", url: "https://crmrkt.com/RDdGEx" },
+
+  { id: 16, title: "3D Bitcoin Illustration", category: "3d", labelEn: "3D", labelId: "3D", img: "https://tint.creativemarket.com/CMgZQOU74cHKBHnseifWdf3AEj3QMiMpFbrwy2bCgV0/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODgvNDk4ODUvNDk4ODUyNzYvYnRjLTEtby5qcGc?1705067178", url: "https://crmrkt.com/q30zdq" },
+
+  { id: 17, title: "3D USD Money Illustration", category: "3d", labelEn: "3D", labelId: "3D", img: "https://tint.creativemarket.com/kGkS-QHe5f5Wrzyk5kQuBIrW-pKNqsk5Xxsi8Gx4kF8/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODcvNDk4NzEvNDk4NzE3NTAvdXNkLTEtby5qcGc?1704893333", url: "https://crmrkt.com/v3BQdo" },
+
+  { id: 18, title: "3D Euro Money", category: "3d", labelEn: "3D", labelId: "3D", img: "https://tint.creativemarket.com/XqHPKIgfEA1DXSMIzm7B292mRsH8dPxJ6L_6b_6wAWA/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODcvNDk4NzAvNDk4NzA0MTMvZXVyLTEtby5qcGc?1704886330", url: "https://crmrkt.com/z9wldx" },
+
+  { id: 19, title: "3D Indian Rupee Money", category: "3d", labelEn: "3D", labelId: "3D", img: "https://tint.creativemarket.com/PUir4Es_EMqzychwyl3VTqxgdyeYv-V4MK75gqwboiA/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODYvNDk4NjYvNDk4NjY2NTkvaW5yLTEtby5qcGc?1704832355", url: "https://crmrkt.com/BjyPEw" },
+
+  { id: 20, title: "3D Indonesian Rupiah Money", category: "3d", labelEn: "3D", labelId: "3D", img: "https://tint.creativemarket.com/IStpcUJN5Nj89l5q5oRUSv2_qHWR6VpARvCXmd6wqPk/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODYvNDk4NjQvNDk4NjQ2ODEvaWRyLTEtby5qcGc?1704811408", url: "https://crmrkt.com/WD54EG" },
+
+  { id: 21, title: "3D Icons Periodic Table", category: "3d", labelEn: "3D", labelId: "3D", img: "https://tint.creativemarket.com/ktv1lF7igZd0dd09H6H8shcyyHoSFZlCyadqCEeho14/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODUvNDk4NTgvNDk4NTg2MDAvcGVyaW9kaWMtdGFibGUtby5qcGc?1704738051", url: "https://crmrkt.com/JXdlER" },
+
+  { id: 22, title: "Weatheryx - Weather Forecasts Icons", category: "3d", labelEn: "3D", labelId: "3D", img: "https://tint.creativemarket.com/Q6ASau7C5j0ehmqhgdiyzOPbk2otuCGV2hpdcfn8jNc/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODQvNDk4NDgvNDk4NDgyNjAvY20tMS1vLmpwZw?1704589839", url: "https://crmrkt.com/ODdwEk" },
+
+
+
+  // Graphics
+
+  { id: 23, title: "Modern Contemporary Art Print", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/eCpSkZZZX-0PaU6v9nuMXc-7IIXnIYK3DVaAkWBsxlw/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzUzNDYvNTM0NjYvNTM0NjY0ODEvbW9kZXJuLWNvbnRlbXBvcmFyeS1hcnQtcHJpbnQtJTI4MSUyOS1vLnBuZyMxNzQ3MjM3MTE4?1747237118", url: "https://crmrkt.com/y3OxqW" },
+
+  { id: 24, title: "Paper Texture Bundle", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/doi7dzdeyBizUS7MMU6_6g3O5t1dm0vuK1YoI1wGbGc/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzUzNDUvNTM0NTIvNTM0NTIyMjgvdHNob3djYXNlLTEtby5wbmcjMTc0NzA4MDM2Ng?1747080366", url: "https://crmrkt.com/6qDjb6" },
+
+  { id: 25, title: "Surrrealm Creature Art Print", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/ZjPx-BaSvMVPatA3qVPhLH137WdJycrTTwPEN27AfdI/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzUzNDQvNTM0NDcvNTM0NDcyMzEvc3VycnJlYWxtLWNyZWF0dXJlLWFydC1wcmludC0lMjgxJTI5LW8ucG5nIzE3NDcwNDQ2ODQ?1747044684", url: "https://crmrkt.com/e4aKBk" },
+
+  { id: 26, title: "The Holy Pixel – Pixel Art Prints", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/I_Ayb6mK8S2K-E36xtuHBLneqFHQnsca89Fy1fNFIG0/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzUzNDQvNTM0NDMvNTM0NDM3NDEvdGhlLWhvbHktcGl4ZWwtcGl4ZWwtY2hyaXN0aWFuLWFydC1mb3Itd2FsbC13ZWFyLSUyODElMjktby5wbmcjMTc0Njk5OTg0Ng?1746999846", url: "https://crmrkt.com/gK3GJW" },
+
+  { id: 27, title: "3D Login Interface", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/jD-A4ouDw-Pw8dW2wSPdcsuXK3ruJDfy-1SBvRVwzqU/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5OTIvNDk5MjUvNDk5MjU1OTMvbG91LTEtby5qcGc?1705526967", url: "https://crmrkt.com/p3Ovd6" },
+
+  { id: 28, title: "3D Logistic Illustration", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/sQoXAQwtePE-__u9ZhyfLraqw1ZCDkGIq2g6wQZf8vI/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5OTIvNDk5MjUvNDk5MjUzMjQvbG9naXN0aWMtMS1vLmpwZw?1705524891", url: "https://crmrkt.com/7vK5Eq" },
+
+  { id: 29, title: "3D Birthday Candle", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/hgQMeli-cWjWNcMFGlizR4J263JvJVP1R1RJ5DKZFts/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5OTEvNDk5MTUvNDk5MTU3ODkvYmMtMS1vLmpwZw?1705461628", url: "https://crmrkt.com/GDrzE4" },
+
+  { id: 30, title: "3D Email Icons", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/KUDWKE9RfB3Tur4Ges3v3WIlUQ2XZvkKQPE98Xise_0/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5OTEvNDk5MTUvNDk5MTU0NjYvbWFpbC0xLW8uanBn?1705457874", url: "https://crmrkt.com/w3WrGq" },
+
+  { id: 31, title: "Pink Balloon Letters Inflate", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/w5lW3nkR2m6e8W8Rmk3UUq2QBnLEmSqn6gIjz_OrR4c/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5OTEvNDk5MTUvNDk5MTUyMDIvcGluay0xLW8uanBn?1705453619", url: "https://crmrkt.com/VAjzMG" },
+
+  { id: 32, title: "Golden Balloon Letters Inflate", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/md8Y7EIBxf3ToY85dIvfcVQubskuzg2gM3xcM-Ztimc/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5OTEvNDk5MTUvNDk5MTUxNjEvZ29sZGVuLWJhbGxvb24tbGV0dGVycy1pbmZsYXRlZC0xLW8uanBn?1705450097", url: "https://crmrkt.com/QDdkM4" },
+
+  { id: 33, title: "3D Light Blub", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/cAEK4WmOSEHRSXjyTRBcCZLiTH2QJjriVUa65a4fIkE/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5OTEvNDk5MTEvNDk5MTE1NTkvbGItMS1vLmpwZw?1705409107", url: "https://crmrkt.com/40wN5r" },
+
+  { id: 34, title: "3D Calendar Dates", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/o7ICoHFW2UsQ4y8-4i6L9WOHi9cPgMoZ-ngk8-mbdGE/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODgvNDk4ODcsNDk4ODcxOTQvY2FsZW5kYXJkYXRlcy0xLW8uanBn?1705094807", url: "https://crmrkt.com/j3q4a8" },
+
+  { id: 35, title: "3D Calendar Months", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/FrBGIADXWLhyC8B8aPWAGh-BEh0vyS770hkBT32geCI/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODgvNDk4ODYvNDk4ODY5NjUvY2FsZW5kYXJtb250aHMtMS1vLmpwZw?1705089390", url: "https://crmrkt.com/KDrlAG" },
+
+  { id: 36, title: "3D Calendar Days", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/LdqrUIwMSyua0IeCoe_zYVVlmN-CC9bHM-MI-98brK4/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODgvNDk4ODYvNDk4ODY4NjUvY2FsZW5kYXJkYXlzLTEtby5qcGc?1705088232", url: "https://crmrkt.com/x3JMw0" },
+
+  { id: 37, title: "3D Comic Bubble Sticker", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/xKFIAQ6s_Zwj-B6MvNW-1_zvP6FKJjyobLO_o-GQucs/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODgvNDk4ODUvNDk4ODUzODYvY29taWNzLTEtby5qcGc?1705068766", url: "https://crmrkt.com/2Dr7AR" },
+
+  { id: 38, title: "3D Web Illustration", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/Ly40q_i0zdqsFwRHNy0ns5sOEynB7MOxxK38hFM39AI/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODcvNDk4NzMvNDk4NzM0NTIvd2ViLTEtby5qcGc?1704905501", url: "https://crmrkt.com/zlo81x" },
+
+  { id: 39, title: "3D Battery Indicator", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/jcDq9J2p9DM9ivRv9pIuKzdSAahfBPFI1rUxJCQIvq4/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODcvNDk4NzMvNDk4NzMyNjUvYmF0dGVyeS0xLW8uanBn?1704902505", url: "https://crmrkt.com/QDdeqp" },
+
+  { id: 40, title: "3D Stationery Illustration Pack", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/bpxOhPuOsNwQDJjVaTpSIlL3YrQXKvrqH_3ylJZGe9U/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODcvNDk4NzIvNDk4NzIzMjcvc3RhdGlvbmVyeS0xLW8uanBn?1704897535", url: "https://crmrkt.com/VAj5J5" },
+
+  { id: 41, title: "Abstract Shape Lava Rock", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/7atKLVuzXnBREUgHig0EcSvUCbOYSvEDWz0pH1AGnE4/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODUvNDk4NTkvNDk4NTk1OTcvYWJzLXYyLTEtby5qcGc?1704755303", url: "https://crmrkt.com/y3OM46" },
+
+  { id: 42, title: "Abstract Shape Clear Ice", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/8dYOR3S1lz1GJz0e866tUOU5IEFCjdwJh86vH_rCbeo/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODUvNDk4NTkvNDk4NTk0MDIvYWJzLXYxLTEtby5qcGc?1704753866", url: "https://crmrkt.com/6qD5AD" },
+
+  { id: 43, title: "Green Lime Balloon Letters Inflate", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/aqCncDtJzFZwXyXL-iMPYcU4kgSZAnn9JixfhSUe5Jg/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODUvNDk4NTgvNDk4NTg4ODkvZ3JlZW4tbGltZS1iYWxsb29uLWxldHRlcnMtaW5mbGF0ZWQtMS1vLmpwZw?1704745882", url: "https://crmrkt.com/2DrybA" },
+
+  { id: 44, title: "Astrosea - Blue Zodiac Icons", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/MyhYzDP56m7F-vzK1zaTEgns1c5wsHd3yLIIWp18Zso/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODUvNDk4NTgvNDk4NTg0NjQvYXN0cm9zZWEtby5qcGc?1704736029", url: "https://crmrkt.com/e4a6eg" },
+
+  { id: 45, title: "GoZo - Golden Zodiac Icons", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/LFSWs1bSfRRS-BiFNXU_ijhGPxNPqg_1E4eoVOQ0KfM/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODUvNDk4NTgvNDk4NTg0NjMvZ296by1vLmpwZw?1704735977", url: "https://crmrkt.com/gK36ko" },
+
+  { id: 46, title: "3D Icons Social Media Notification", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/s7FYdtJOPJTWoZEdwCuz3jJ6x4g31EjAlXrQVbALnPw/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODUvNDk4NTgvNDk4NTgzODkvc29tZW5vLW8uanBn?1704735307", url: "https://crmrkt.com/kXv48M" },
+
+  { id: 47, title: "3D Icons Sport", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/DJOQWpMvrv1dkQrEgpW-iyPwLcdCq4MAwwRhGUWlfyo/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODUvNDk4NTkvNDk4NTk2MTgvc3BvcnRzLSUyODElMjktby5qcGc?1704757594", url: "https://crmrkt.com/1DN78z" },
+
+  { id: 48, title: "Foodarth - Food & Drink Icons", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/4aIwpsJWJyjQyaN4UC72MG7WJstTWNNItARwZnR6zGI/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODQvNDk4NDgvNDk4NDgyNTgvY20tMS1vLmpwZw?1704589015", url: "https://crmrkt.com/apdKQr" },
+
+  { id: 49, title: "3D Emoticon Icons Pack", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/BJYRgdBqVkPC7zt_DjhjKTorgrwXApYP9T89sWy6ziQ/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODUvNDk4NTgvNDk4NTgzNjkvZW1vY3V0ZS1vLmpwZw?1704734707", url: "https://crmrkt.com/8z35AD" },
+
+  { id: 50, title: "Chromantica - Chrome Alphabet", category: "graphic", labelEn: "Graphics", labelId: "Grafis", img: "https://tint.creativemarket.com/M8FxAg6Ar3HfS6Q8XHs6y4YUgslLZOCeEw1qIRb8Cno/width:1200/height:800/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzQ5ODUvNDk4NTgvNDk4NTg3MDMvY2hyb21hbnRpY2EtMS1vLmpwZw?1704741255", url: "https://crmrkt.com/x3JxRd" }
+
+];
+
+
+
+        let currentCategory = 'all';
+
+        let itemsToShow = 8; // Jumlah awal produk yang muncul
+
+        const itemsIncrement = 4; // Tambahan produk saat tombol Load More diklik
+
+
+
+        function renderProducts() {
+
+            const grid = document.getElementById('product-grid');
+
+            const loadMoreContainer = document.getElementById('load-more-container');
+
+            const isId = document.body.classList.contains('lang-id');
+
+            
+
+            // Filter products
+
+            const filteredProducts = currentCategory === 'all' 
+
+                ? productsData 
+
+                : productsData.filter(p => p.category === currentCategory);
+
+            
+
+            // Get slice to display
+
+            const productsToShow = filteredProducts.slice(0, itemsToShow);
+
+
+
+            // Generate HTML
+
+            grid.innerHTML = productsToShow.map(product => `
+
+                <a href="${product.url}" target="_blank" rel="noopener noreferrer" class="group flex flex-col bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden hover:border-[#FF001D] dark:hover:border-[#FF001D] transition-all duration-300 shadow-sm hover:shadow-xl transform hover:-translate-y-1">
+
+                    <div class="relative aspect-[4/3] w-full overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+
+                        <img src="${product.img}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+
+                        <div class="absolute top-3 right-3 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm px-2.5 py-1 rounded-md text-[10px] font-bold text-zinc-800 dark:text-zinc-200 uppercase tracking-wider border border-zinc-200 dark:border-zinc-700">
+
+                            ${isId ? product.labelId : product.labelEn}
+
+                        </div>
+
+                    </div>
+
+                    <div class="p-4 md:p-5 flex flex-col flex-grow justify-between">
+
+                        <h3 class="font-bold text-sm md:text-base text-zinc-900 dark:text-zinc-50 mb-2 leading-tight group-hover:text-[#FF001D] transition-colors">${product.title}</h3>
+
+                        <div class="flex items-center text-xs text-zinc-500 font-medium group-hover:text-[#FF001D] transition-colors mt-2">
+
+                            <span lang="en">View Details</span>
+
+                            <span lang="id">Lihat Detail</span>
+
+                            <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            `).join('');
+
+
+
+            // Show/Hide Load More Button
+
+            if (filteredProducts.length > itemsToShow) {
+
+                loadMoreContainer.classList.remove('hidden');
+
+            } else {
+
+                loadMoreContainer.classList.add('hidden');
+
+            }
+
+
+
+            // Trigger animation on new elements
+
+            setTimeout(reveal, 50);
+
+        }
+
+
+
+        function filterProducts(category) {
+
+            currentCategory = category;
+
+            itemsToShow = 8; // Reset load count saat filter berubah
+
+            
+
+            // Update Active Class on buttons
+
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+
+                btn.classList.remove('active');
+
+                btn.classList.replace('text-white', 'text-zinc-900'); // Reset text color
+
+            });
+
+            document.getElementById('btn-' + category).classList.add('active');
+
+
+
+            renderProducts();
+
+        }
+
+
+
+        function loadMore() {
+
+            itemsToShow += itemsIncrement;
+
+            renderProducts();
+
+        }
+
+
+
+        // Initialize Products on Load
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            renderProducts();
+
+        });
+
+    </script>
+
+</body>
+
+</html>
