@@ -67,7 +67,7 @@
         body.lang-id [lang="en"] { display: none !important; }
         body:not(.lang-id) [lang="id"] { display: none !important; }
 
-        /* SPA Page Views */
+        /* SPA Page Views - Dipertahankan untuk efek fade-in awal */
         .page-view { display: none; opacity: 0; min-height: 80vh; }
         .page-view.active { display: block; opacity: 1; animation: pageFadeIn 0.4s ease forwards; }
 
@@ -147,7 +147,7 @@
                 
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="#" onclick="navigate('home')" class="flex items-center gap-3 group">
+                    <a href="index.html" class="flex items-center gap-3 group">
                         <svg version="1.1" viewBox="0 0 219 161" class="h-8 w-auto fill-zinc-900 dark:fill-zinc-50 group-hover:fill-[#FF001D] dark:group-hover:fill-[#FF001D] group-hover:scale-105 transition-all duration-300">
                             <path d="M97.022,160.93c-12.228-9.281-22.188-21.204-29.133-34.874c-6.945-13.67-10.694-28.731-10.965-44.053L61.9,83.96c10.586,4.334,29.653,2.028,34.561,12.304l1.052,2.307c0-6.991,3.576-53.55-18.507-74.733C56.923,2.656,0,0,0,0s17.175,7.69,18.858,20.973c1.682,13.283,0.981,28.872,33.369,36.632c0,0-9.814-20.553-7.431-33.976c18.016,40.337,36.944,1.118,35.402,56.975L22.293,60.96c4.862,5.794,8.616,12.429,11.076,19.574c1.682,8.249,5.678,67.042,63.653,80.465V160.93z"></path>
                             <path d="M121.908,160.93c12.243-9.267,22.214-21.187,29.161-34.86s10.686-28.741,10.937-44.067l-4.977,1.957c-10.585,4.334-29.653,2.028-34.56,12.304l-1.052,2.307c0-6.991-3.575-53.55,18.507-74.733C162.006,2.656,218.93,0,218.93,0s-17.176,7.69-18.858,20.973c-1.683,13.283-0.981,28.872-33.369,36.632c0,0,9.815-20.553,7.431-33.976c-18.016,40.337-36.874,1.118-35.402,56.975l57.905-19.644c-4.888,5.776-8.645,12.416-11.076,19.574c-1.753,8.249-5.749,67.042-63.723,80.465L121.908,160.93z"></path>
@@ -163,15 +163,16 @@
                             <span lang="en">Shop</span><span lang="id">Toko</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
                         </button>
                         <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-xl overflow-hidden py-2">
+                            <a href="creativemarket.html" class="w-full text-left block px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Creative Market</a>
                             <a href="https://payhip.com/PengedarSeni" target="_blank" rel="noopener noreferrer" class="w-full text-left block px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Payhip</a>
                             <a href="https://pengedarseni.myr.id/" target="_blank" rel="noopener noreferrer" class="w-full text-left block px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Mayar</a>
                         </div>
                     </div>
-                    <button onclick="navigate('services')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors"><span lang="en">Services</span><span lang="id">Layanan</span></button>
-                    <button onclick="navigate('freebies')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Freebies</button>
-                    <button onclick="navigate('licenses')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Licenses/EULA</button>
-                    <button onclick="navigate('about')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors"><span lang="en">About Us</span><span lang="id">Tentang</span></button>
-                    <button onclick="navigate('contact')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors"><span lang="en">Contact</span><span lang="id">Kontak</span></button>
+                    <a href="services.html" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors"><span lang="en">Services</span><span lang="id">Layanan</span></a>
+                    <a href="freebies.html" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Freebies</a>
+                    <a href="licenses.html" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Licenses/EULA</a>
+                    <a href="about.html" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors"><span lang="en">About Us</span><span lang="id">Tentang</span></a>
+                    <a href="contact.html" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors"><span lang="en">Contact</span><span lang="id">Kontak</span></a>
                 </div>
 
                 <!-- Right Side Actions (Theme, Language, Mobile Toggle) -->
@@ -184,14 +185,12 @@
                         <span lang="en">EN</span><span lang="id">ID</span>
                     </button>
                     
-                    <!-- Tombol Hamburger (Hanya muncul di layar kecil) -->
+                    <!-- Tombol Hamburger -->
                     <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="lg:hidden text-zinc-500 hover:text-[#FF001D] dark:hover:text-[#FF001D] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-zinc-500 dark:focus:ring-zinc-400 p-2 rounded-md transition-colors">
                         <span class="sr-only">Buka menu utama</span>
-                        <!-- Ikon Hamburger -->
                         <svg id="icon-menu" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
-                        <!-- Ikon Close (Silang) -->
                         <svg id="icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
@@ -200,25 +199,26 @@
             </div>
         </div>
 
-        <!-- Menu Mobile (Dropdown absolute di bawah navbar) -->
+        <!-- Menu Mobile (Dropdown) -->
         <div id="mobile-menu" class="hidden lg:hidden bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 absolute w-full shadow-xl">
             <div class="px-4 pt-2 pb-6 space-y-1 sm:px-6">
-                <a href="#" onclick="navigate('home'); toggleMobileMenu(); return false;" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150"><span lang="en">Home</span><span lang="id">Beranda</span></a>
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150"><span lang="en">Home</span><span lang="id">Beranda</span></a>
                 
                 <!-- Sub-menu Shop -->
                 <div class="px-3 py-2">
                     <span class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1"><span lang="en">Shop</span><span lang="id">Toko</span></span>
                     <div class="space-y-1 pl-3 border-l-2 border-zinc-200 dark:border-zinc-800">
+                        <a href="creativemarket.html" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-600 dark:text-zinc-400 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150">Creative Market</a>
                         <a href="https://payhip.com/PengedarSeni" target="_blank" rel="noopener noreferrer" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-600 dark:text-zinc-400 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150">Payhip</a>
                         <a href="https://pengedarseni.myr.id/" target="_blank" rel="noopener noreferrer" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-600 dark:text-zinc-400 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150">Mayar</a>
                     </div>
                 </div>
 
-                <a href="#" onclick="navigate('services'); toggleMobileMenu(); return false;" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150"><span lang="en">Services</span><span lang="id">Layanan</span></a>
-                <a href="#" onclick="navigate('freebies'); toggleMobileMenu(); return false;" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150">Freebies</a>
-                <a href="#" onclick="navigate('licenses'); toggleMobileMenu(); return false;" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150">Licenses / EULA</a>
-                <a href="#" onclick="navigate('about'); toggleMobileMenu(); return false;" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150"><span lang="en">About Us</span><span lang="id">Tentang Kami</span></a>
-                <a href="#" onclick="navigate('contact'); toggleMobileMenu(); return false;" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150"><span lang="en">Contact</span><span lang="id">Kontak</span></a>
+                <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150"><span lang="en">Services</span><span lang="id">Layanan</span></a>
+                <a href="freebies.html" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150">Freebies</a>
+                <a href="licenses.html" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150">Licenses / EULA</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150"><span lang="en">About Us</span><span lang="id">Tentang Kami</span></a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150"><span lang="en">Contact</span><span lang="id">Kontak</span></a>
                 
             </div>
         </div>
@@ -242,12 +242,11 @@
                     <span lang="id">Aset Digital Berkualitas Tinggi Dikurasi untuk Desainer Visioner. Font, Template, dan Script yang Dirancang dengan Presisi.</span>
                 </p>
                 <div class="hero-text hero-text-3 flex flex-col sm:flex-row justify-center gap-4 pointer-events-auto">
-                    <a href="https://payhip.com/PengedarSeni" target="_blank" rel="noopener noreferrer" class="bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 px-8 py-4 rounded-full text-sm font-semibold hover:bg-[#FF001D] hover:text-white dark:hover:bg-[#FF001D] dark:hover:text-white transition-all transform hover:scale-105 shadow-lg flex items-center justify-center">
-                        Payhip
-                    </a>
-                    <a href="https://pengedarseni.myr.id/" target="_blank" rel="noopener noreferrer" class="bg-white text-zinc-900 border border-zinc-200 px-8 py-4 rounded-full text-sm font-semibold hover:bg-white hover:text-[#FF001D] hover:border-[#FF001D] dark:bg-zinc-900 dark:text-zinc-50 dark:border-zinc-700 dark:hover:bg-white dark:hover:text-[#FF001D] dark:hover:border-[#FF001D] transition-all transform hover:scale-105 shadow-lg flex items-center justify-center">
-                        Mayar
-                    </a>
+                    <button onclick="openShopModal()" type="button" class="bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 px-8 py-4 rounded-full text-sm font-semibold hover:bg-[#FF001D] hover:text-white dark:hover:bg-[#FF001D] dark:hover:text-white transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
+                        <span lang="en">Explore Shop</span>
+                        <span lang="id">Jelajahi Toko</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
                 </div>
             </div>
         </header>
@@ -302,338 +301,6 @@
                 </div>
             </div>
         </section>
-
-    </main>
-
-    <main id="view-licenses" class="page-view pt-32 pb-24 max-w-5xl mx-auto px-6">
-        <h2 class="text-4xl font-bold mb-10 border-b border-zinc-200 dark:border-zinc-800 pb-6 text-zinc-900 dark:text-zinc-50 fade-up active">Licenses &amp; EULA</h2>
-        
-        <div class="space-y-12 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed fade-up active">
-            
-            <section class="bg-zinc-100 dark:bg-zinc-900 p-8 rounded-3xl">
-                <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">Important Notes (Read Before Use)</h3>
-                <ul class="list-disc pl-5 space-y-2 mb-6">
-                    <li>If you are a designer, studio, agency, or consultant, the license must be owned by your client.</li>
-                    <li>Personal/Demo assets are strictly for non-commercial use only.</li>
-                    <li>Licenses are non-transferable. You cannot share, sublicense, or distribute the files to third parties outside your organization.</li>
-                    <li>Modifying, renaming, or reselling the source files (in any form) is strictly prohibited.</li>
-                    <li>We reserve the right to pursue fines (5–20x the license value) for license violations. No refunds.</li>
-                </ul>
-                <p class="font-bold text-red-500">Assets may not be used in: ❌ Violence, pornographic content ❌ Hate speech, racism, or religious defamation ❌ Illegal, misleading, or unethical projects.</p>
-            </section>
-
-            <section>
-                <h3 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">A. Font Licenses</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Personal License</h4><ul class="list-disc pl-5 space-y-1"><li>For personal, non-commercial use only</li><li>Not permitted for client projects</li></ul></div>
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Standard License</h4><ul class="list-disc pl-5 space-y-1"><li>Up to 1 User / Device</li><li>Commercial projects allowed</li><li>Not valid for brand logo</li></ul></div>
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Professional License</h4><ul class="list-disc pl-5 space-y-1"><li>Up to 5 Users / Devices</li><li>Commercial projects allowed</li><li>Not valid for brand logo</li></ul></div>
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Extended License</h4><ul class="list-disc pl-5 space-y-1"><li>Unlimited Users / Devices</li><li><span class="text-[#FF001D] font-semibold">Valid for Brand Logo / Wordmark</span></li><li>Unlimited products for sale</li></ul></div>
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Server/App/Game</h4><ul class="list-disc pl-5 space-y-1"><li>Font embedding for Mobile Apps \&amp; Games</li><li>Web server embedding allowed</li></ul></div>
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Broadcast License</h4><ul class="list-disc pl-5 space-y-1"><li>Valid for TV, Film, and Cinema</li><li>Streaming and Motion Graphics</li></ul></div>
-                    <div class="md:col-span-2 border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Corporate/Brand License</h4><ul class="list-disc pl-5 space-y-1"><li>Comprehensive license for large-scale enterprise usage</li><li>National and global campaigns</li><li>Unlimited digital and physical applications</li></ul></div>
-                </div>
-            </section>
-
-            <section>
-                <h3 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">B. Template &amp; Graphic Licenses</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Personal</h4><ul class="list-disc pl-5 space-y-1"><li>For personal, non-commercial use</li><li>Valid for personal social media</li></ul></div>
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Commercial</h4><ul class="list-disc pl-5 space-y-1"><li>Up to 5,000 end products for sale</li><li>1 Business social media account</li></ul></div>
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Extended</h4><ul class="list-disc pl-5 space-y-1"><li>Up to 250,000 products for sale</li><li>Unlimited business social media</li></ul></div>
-                </div>
-            </section>
-
-            <section>
-                <h3 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">C. Software, Script &amp; HTML Licenses</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Standard License</h4><ul class="list-disc pl-5 space-y-1"><li>1 User / Developer</li><li>Install on 1 website / domain</li><li>Cannot share or resell source code</li></ul></div>
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Extended License</h4><ul class="list-disc pl-5 space-y-1"><li>Up to 10 Users within an agency</li><li>Install on unlimited domains</li><li>Cannot share or resell source code</li></ul></div>
-                    <div class="md:col-span-2 border border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-950/30 p-6 rounded-2xl">
-                        <h4 class="font-bold text-lg mb-2 text-red-600 dark:text-red-400">Strict SaaS &amp; API Restriction</h4>
-                        <p class="text-sm text-zinc-700 dark:text-zinc-300">
-                            You are <strong>strictly prohibited</strong> from wrapping our HTML/Scripts (especially AI API-connected tools) into a paid Software-as-a-Service (SaaS), White-label platform, or automated generator tool where end-users pay for access, unless you have obtained a custom <strong>Enterprise/OEM License</strong> from us.
-                        </p>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <main id="view-services" class="page-view pt-32 pb-24 max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16 fade-up active">
-            <h2 class="text-4xl font-bold mb-4 text-zinc-900 dark:text-zinc-50">Creative Services</h2>
-            <p class="text-zinc-500 max-w-xl mx-auto">Beyond digital assets, we provide bespoke design solutions.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div class="group cursor-pointer fade-up active">
-                <div class="overflow-hidden bg-zinc-200 dark:bg-zinc-800 aspect-[3/2] mb-4 rounded-2xl relative">
-                    <img src="./images/swd-ylbhi.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-50">Web Design &amp; UI/UX</h3>
-            </div>
-            <div class="group cursor-pointer fade-up active" style="transition-delay: 100ms">
-                <div class="overflow-hidden bg-zinc-200 dark:bg-zinc-800 aspect-[3/2] mb-4 rounded-2xl relative">
-                    <img src="./images/sbi-medafil.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-50">Brand Identity &amp; Logo Design</h3>
-            </div>
-        </div>
-
-        <!-- KOLABORASI / KLIEN SECTION -->
-        <div class="mt-28 mb-10 fade-up active">
-            <div class="text-center mb-10 px-6">
-                <h2 class="text-3xl font-bold mb-3 text-zinc-900 dark:text-zinc-50">
-                    <span lang="en">Our Client</span><span lang="id">Klien Kami</span>
-                </h2>
-                <p class="text-zinc-500 max-w-xl mx-auto">
-                    <span lang="en">Trusted by growing companies and global brands.</span>
-                    <span lang="id">Dipercaya oleh berbagai perusahaan berkembang dan merek global.</span>
-                </p>
-            </div>
-            
-            <div class="w-full overflow-hidden py-8 border-y border-zinc-200 dark:border-zinc-800 bg-white/40 dark:bg-zinc-950/40">
-                <!-- Baris 1 -->
-                <div class="flex w-full marquee-container">
-                    <div class="marquee-text-track" aria-hidden="true">
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">AM & PARTNERS LAW FIRM CONSULTANT</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">TANGERANG</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">ANGGEL ELGI CREATIVE STUDIO</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BEKASI</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">AUTO PRIMA PROJECT</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CABIN NEAT</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CLARISSA MUSIC MASTERPIECE</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">TANGERANG</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CV. PULUNG MANUNGGAL INDONESIA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">KENDAL</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CV. RIA JAYA FARMER</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BLORA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CV. RIA JAYA WOOD</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BLORA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CV. TTS JAYA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">TANGERANG/BANTEN</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CV. TUNAS PRAJA MANDIRI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">CIREBON</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CV. UNIVERSAL PRIMA AGRO</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BOGOR</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CV. UTAMA SUKSES</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">PEKANBARU</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">DIGISOLF TECHNOLOGY CONSULTING</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">MEDAN</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">DONUTQ</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">KUNINGAN</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">EDOBI APP</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">EKA BERSAMA ABADI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BEKASI</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">HAHA HIHI FARM</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">KUNINGAN</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">KAGARA AGRO PERSADA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">LANGIT A TASTE OF MANADO</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">MEDAFILF PHARMACY</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">UNITED STATES OF AMERICA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. ADI CIPTA PUTRA GEMILANG</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">SUKOHARJO</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. ADHIGUNA GLOBAL MANDIRI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">DEPOK</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. ANAK ANINDITA ELEKTRINDO</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BOGOR</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. ANINDITA MAKMUR JAYA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BOGOR</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. AUTO VALVA INDONESIA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BATAM</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. BERKAT HIJAU MAKMURR ABADI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. BERKAT HIJAU MAKMURR BERSAMA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. DANES JAYA ABADI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. DERIA CAHAYA GEMILANG</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">DEPOK</span></div>
-                    </div>
-                    <!-- Duplicate for infinite scroll -->
-                    <div class="marquee-text-track" aria-hidden="true">
-                        <span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">AM & PARTNERS LAW FIRM CONSULTANT</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">TANGERANG</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">ANGGEL ELGI CREATIVE STUDIO</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BEKASI</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">AUTO PRIMA PROJECT</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CABIN NEAT</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CLARISSA MUSIC MASTERPIECE</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">TANGERANG</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CV. PULUNG MANUNGGAL INDONESIA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">KENDAL</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CV. RIA JAYA FARMER</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BLORA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CV. RIA JAYA WOOD</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BLORA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CV. TTS JAYA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">TANGERANG/BANTEN</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CV. TUNAS PRAJA MANDIRI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">CIREBON</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CV. UNIVERSAL PRIMA AGRO</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BOGOR</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">CV. UTAMA SUKSES</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">PEKANBARU</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">DIGISOLF TECHNOLOGY CONSULTING</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">MEDAN</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">DONUTQ</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">KUNINGAN</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">EDOBI APP</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">EKA BERSAMA ABADI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BEKASI</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">HAHA HIHI FARM</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">KUNINGAN</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">KAGARA AGRO PERSADA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">LANGIT A TASTE OF MANADO</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">MEDAFILF PHARMACY</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">UNITED STATES OF AMERICA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. ADI CIPTA PUTRA GEMILANG</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">SUKOHARJO</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. ADHIGUNA GLOBAL MANDIRI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">DEPOK</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. ANAK ANINDITA ELEKTRINDO</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BOGOR</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. ANINDITA MAKMUR JAYA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BOGOR</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. AUTO VALVA INDONESIA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BATAM</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. BERKAT HIJAU MAKMURR ABADI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. BERKAT HIJAU MAKMURR BERSAMA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. DANES JAYA ABADI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. DERIA CAHAYA GEMILANG</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">DEPOK</span></div>
-                    </div>
-                </div>
-
-                <!-- Baris 2 -->
-                <div class="flex w-full marquee-container mt-6">
-                    <div class="marquee-text-track slow" aria-hidden="true">
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. FASTEX INDO JAYA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">TANGERANG</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. GEMPITA BALI TRANSPORT</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BALI</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. GLOBAL NUTRI AGRINUSA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. HAGUN JAYA INDONESIA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">TANGERANG</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. IDEA MILENIA INDONESIA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. JAYA ABADI PERTAMINI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">KLATEN</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. KAGARA GLOBAL SINERGI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. KOPI WARGA NUSANTARA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BANDUNG</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. LAPAN LIMA LOGISTIC</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">TANGERANG</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. MAKMUR ENERGI SOLUSI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BOGOR</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. MEGA RYU PERKASA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. OCEANO GLOBAL MANDIRI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. OCEANO GLOBAL MANDIRI MARITIME</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. ORDER KUOTA EVOLUSI DIGITAL</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">MOJOKERTO</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. REERACOEN INDONESIA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. TEHNIK NUSANTARA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BALIKPAPAN</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. TETUKO ANUGERAH NUSANTARA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BEKASI</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. TRANS FLORES WISATA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">LABUAN BAJO NTT</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. TRI MITRA BORNEO</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">KALIMANTAN TIMUR</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. TRIJAYA MULTI SOLUSINDO</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. TRIYASA CIPTA MULTIMODA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. WELLMAGIC MEDIA DIGITAL</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">RAGAN V. ANTARIKSA & PARTNERS</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BEKASI</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">RUANG GADGET</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">KUNINGAN</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">SATACTMATHTUTOR</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">THAILAND</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">SUKSES KRISTAL ABADI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">TRÈS DÉLICIEUX</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">YLBHI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div>
-                    </div>
-                    <!-- Duplicate for infinite scroll -->
-                    <div class="marquee-text-track slow" aria-hidden="true">
-                        <span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. FASTEX INDO JAYA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">TANGERANG</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. GEMPITA BALI TRANSPORT</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BALI</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. GLOBAL NUTRI AGRINUSA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. HAGUN JAYA INDONESIA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">TANGERANG</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. IDEA MILENIA INDONESIA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. JAYA ABADI PERTAMINI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">KLATEN</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. KAGARA GLOBAL SINERGI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. KOPI WARGA NUSANTARA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BANDUNG</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. LAPAN LIMA LOGISTIC</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">TANGERANG</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. MAKMUR ENERGI SOLUSI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BOGOR</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. MEGA RYU PERKASA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. OCEANO GLOBAL MANDIRI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. OCEANO GLOBAL MANDIRI MARITIME</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. ORDER KUOTA EVOLUSI DIGITAL</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">MOJOKERTO</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. REERACOEN INDONESIA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. TEHNIK NUSANTARA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BALIKPAPAN</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. TETUKO ANUGERAH NUSANTARA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BEKASI</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. TRANS FLORES WISATA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">LABUAN BAJO NTT</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. TRI MITRA BORNEO</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">KALIMANTAN TIMUR</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. TRIJAYA MULTI SOLUSINDO</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. TRIYASA CIPTA MULTIMODA</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">PT. WELLMAGIC MEDIA DIGITAL</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">RAGAN V. ANTARIKSA & PARTNERS</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">BEKASI</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">RUANG GADGET</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">KUNINGAN</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">SATACTMATHTUTOR</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">THAILAND</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">SUKSES KRISTAL ABADI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">TRÈS DÉLICIEUX</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div><span class="text-[#FF001D] text-xl flex-shrink-0">✦</span>
-                        <div class="flex items-center gap-2.5 whitespace-nowrap"><span class="font-bold text-zinc-900 dark:text-zinc-50 uppercase tracking-wide text-lg">YLBHI</span><span class="font-light text-zinc-500 uppercase tracking-widest text-sm">JAKARTA</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <main id="view-about" class="page-view pt-32 pb-24 max-w-3xl mx-auto px-6 text-center">
-        <h2 class="text-4xl font-bold mb-8 fade-up text-zinc-900 dark:text-zinc-50 active" lang="en">About Us</h2>
-        <h2 class="text-4xl font-bold mb-8 fade-up text-zinc-900 dark:text-zinc-50 active" lang="id">Tentang Kami</h2>
-        
-        <div class="space-y-6 text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed text-left fade-up active">
-            <p>
-                <span lang="en">We are <strong>Pengedar Seni</strong>, your trusted source for thoughtfully crafted digital design assets. Based in West Java, Indonesia, we are a creative studio and digital product vendor committed to providing high-quality fonts, templates, and visual assets for designers, brands, and creatives around the world.</span>
-                <span lang="id">Kami adalah <strong>Pengedar Seni</strong>, sumber terpercaya untuk aset desain digital yang dibuat dengan cermat. Berbasis di Jawa Barat, Indonesia, kami adalah studio kreatif dan vendor produk digital yang berkomitmen untuk menyediakan font, template, dan aset visual berkualitas tinggi untuk desainer, merek, dan pekerja kreatif di seluruh dunia.</span>
-            </p>
-            <p>
-                <span lang="en">With over 8 years of experience in the creative industry, our team has collaborated with global brands and creative professionals across various fields—from branding, social media content, and UI/UX design, to SEO/SEM strategy.</span>
-                <span lang="id">Dengan pengalaman lebih dari 8 tahun di industri kreatif, tim kami telah berkolaborasi dengan merek global dan profesional di berbagai bidang—mulai dari branding, konten media sosial, desain UI/UX, hingga strategi SEO/SEM.</span>
-            </p>
-            <p>
-                <span lang="en">Now, through Pengedar Seni’s digital store, we’re excited to offer downloadable products that help bring your ideas to life—whether you're designing a logo, building a brand, or simply looking to enhance your visual identity.</span>
-                <span lang="id">Kini, melalui toko digital Pengedar Seni, kami sangat antusias untuk menawarkan produk yang dapat diunduh untuk membantu mewujudkan ide-ide Anda—baik saat merancang logo, membangun identitas merek, atau sekadar mempercantik desain Anda.</span>
-            </p>
-            <p class="font-bold text-zinc-900 dark:text-zinc-100 mt-8 text-center text-xl">
-                <span lang="en">Thank you for supporting independent creators!</span>
-                <span lang="id">Terima kasih telah mendukung kreator independen!</span>
-            </p>
-        </div>
-    </main>
-
-    <main id="view-contact" class="page-view pt-32 pb-24 max-w-3xl mx-auto px-6">
-        <div class="text-center mb-12 fade-up active">
-            <h2 class="text-4xl font-bold mb-4 text-zinc-900 dark:text-zinc-50">
-                <span lang="en">Contact Us</span><span lang="id">Hubungi Kami</span>
-            </h2>
-        </div>
-        <div class="bg-white dark:bg-zinc-900 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-sm fade-up active">
-            <form class="space-y-6">
-                <div>
-                    <label class="block text-sm font-semibold mb-2 text-zinc-900 dark:text-zinc-100">
-                        <span lang="en">Email</span><span lang="id">Email Anda</span>
-                    </label>
-                    <input type="email" id="contact-email" class="w-full bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-3 rounded-xl outline-none focus:border-zinc-900 dark:text-zinc-50">
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold mb-2 text-zinc-900 dark:text-zinc-100">
-                        <span lang="en">Message</span><span lang="id">Pesan</span>
-                    </label>
-                    <textarea id="contact-message" rows="4" class="w-full bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-3 rounded-xl outline-none focus:border-zinc-900 dark:text-zinc-50"></textarea>
-                </div>
-                <button type="button" onclick="sendWhatsApp()" class="w-full bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 py-4 rounded-xl font-bold hover:bg-[#FF001D] hover:text-white dark:hover:bg-[#FF001D] dark:hover:text-white transition-colors">
-                    <span lang="en">Send Message</span><span lang="id">Kirim Pesan</span>
-                </button>
-            </form>
-        </div>
-    </main>
-
-    <main id="view-freebies" class="page-view pt-32 pb-24 max-w-5xl mx-auto px-6">
-        <div class="text-center mb-12 fade-up active">
-            <h2 class="text-4xl font-bold mb-4 text-zinc-900 dark:text-zinc-50">Freebies</h2>
-            <p class="text-zinc-500 max-w-xl mx-auto">
-                <span lang="en">High-quality digital assets, completely free for your next project.</span>
-                <span lang="id">Aset digital berkualitas tinggi, sepenuhnya gratis untuk proyek Anda selanjutnya.</span>
-            </p>
-        </div>
-
-        <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-sm fade-up active">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                <!-- Product Image -->
-                <div class="bg-zinc-100 dark:bg-zinc-800/50 p-8 flex items-center justify-center relative group">
-                    <img src="https://payhip.com/cdn-cgi/image/format=auto/https://pe56d.s3.amazonaws.com/o_1hirf7843bhdd521k8e1al1ufhr.jpg" alt="Sosialistick V2.0" class="w-full h-auto object-cover rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-500">
-                </div>
-                
-                <!-- Product Details -->
-                <div class="p-8 md:p-10 flex flex-col justify-center">
-                    <div class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold rounded-full mb-4 w-max">
-                        100% FREE
-                    </div>
-                    <h3 class="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-zinc-50 mb-4 leading-tight">
-                        Sosialistick V2.0 - Social Media Icons 3D Illustration Pack
-                    </h3>
-                    <p class="text-zinc-600 dark:text-zinc-400 mb-6 text-sm leading-relaxed">
-                        Social Media Icons 3D illustration Pack for design need, animation, game, apps, Ui Design, web design, Presentation, flyer or poster, social media advertising, content creator, landing pages, apps, presentations and other projects.
-                    </p>
-                    
-                    <div class="mb-8">
-                        <h4 class="font-bold text-zinc-900 dark:text-zinc-100 mb-3 text-sm uppercase tracking-wider">What's inside:</h4>
-                        <ul class="space-y-2">
-                            <li class="flex items-center text-sm text-zinc-600 dark:text-zinc-400">
-                                <svg class="w-5 h-5 text-green-500 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                43 PNG Files 3000X3000 px
-                            </li>
-                            <li class="flex items-center text-sm text-zinc-600 dark:text-zinc-400">
-                                <svg class="w-5 h-5 text-green-500 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                43 Blender Files
-                            </li>
-                            <li class="flex items-center text-sm text-zinc-600 dark:text-zinc-400">
-                                <svg class="w-5 h-5 text-green-500 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                1 Figma File
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <a href="https://payhip.com/b/7alre" target="_blank" rel="noopener noreferrer" class="w-full bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 py-4 rounded-xl font-bold hover:bg-[#FF001D] hover:text-white dark:hover:bg-[#FF001D] dark:hover:text-white transition-all duration-300 flex items-center justify-center gap-2 shadow-lg transform hover:-translate-y-1">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                        <span lang="en">Download Now</span><span lang="id">Unduh Sekarang</span>
-                    </a>
-                </div>
-            </div>
-        </div>
     </main>
 
     <footer class="bg-zinc-100 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800 pt-16 pb-8 px-6 mt-auto relative z-30">
@@ -644,12 +311,13 @@
             </div>
             
             <div class="flex flex-col items-center md:items-end gap-6">
-                <div class="flex flex-wrap justify-center space-x-6 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                    <a href="creativemarket.html" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Creative Market</a>
                     <a href="https://payhip.com/PengedarSeni" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Payhip</a>
                     <a href="https://pengedarseni.myr.id/" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Mayar</a>
-                    <button onclick="navigate('services')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Services</button>
-                    <button onclick="navigate('freebies')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Freebies</button>
-                    <button onclick="navigate('licenses')" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Licenses</button>
+                    <a href="services.html" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Services</a>
+                    <a href="freebies.html" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Freebies</a>
+                    <a href="licenses.html" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Licenses</a>
                 </div>
                 
                 <div class="flex items-center space-x-5">
@@ -697,25 +365,84 @@
                     <p class="text-[10px] md:text-xs text-zinc-500 leading-tight"><span lang="en">All payments use RSA security encryption.</span><span lang="id">Semua pembayaran menggunakan enkripsi keamanan RSA.</span></p>
                 </div>
             </div>
-
         </div>
     </footer>
+
+    <!-- Shop Modal -->
+    <div id="shopModal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-zinc-900/40 dark:bg-zinc-950/80 backdrop-blur-sm transition-opacity opacity-0 duration-300" id="shopModalBackdrop" onclick="closeShopModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative w-full max-w-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl shadow-2xl p-6 transform scale-95 opacity-0 transition-all duration-300 mx-4" id="shopModalContent">
+            <button onclick="closeShopModal()" class="absolute top-4 right-4 p-2 text-zinc-400 hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full transition-colors focus:outline-none">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <h3 class="text-2xl font-bold text-zinc-900 dark:text-zinc-50 mb-2 mt-2">
+                <span lang="en">Choose Store</span>
+                <span lang="id">Pilih Toko</span>
+            </h3>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-6">
+                <span lang="en">Select a platform to explore our digital assets.</span>
+                <span lang="id">Pilih platform untuk menjelajahi aset digital kami.</span>
+            </p>
+            
+            <div class="space-y-3">
+                <a href="creativemarket.html" class="group flex items-center justify-between p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:border-[#FF001D] dark:hover:border-[#FF001D] bg-zinc-50 hover:bg-white dark:bg-zinc-950 dark:hover:bg-zinc-900 transition-all duration-300">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm text-[#8ba753]">
+                            <i class="fa-solid fa-store text-lg"></i>
+                        </div>
+                        <div class="text-left">
+                            <h4 class="font-bold text-zinc-900 dark:text-zinc-50 group-hover:text-[#FF001D] transition-colors">Creative Market</h4>
+                            <p class="text-xs text-zinc-500">Premium design assets</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-zinc-400 group-hover:text-[#FF001D] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+                
+                <a href="https://payhip.com/PengedarSeni" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:border-[#FF001D] dark:hover:border-[#FF001D] bg-zinc-50 hover:bg-white dark:bg-zinc-950 dark:hover:bg-zinc-900 transition-all duration-300">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm text-zinc-900 dark:text-white">
+                            <i class="fa-solid fa-bag-shopping text-lg"></i>
+                        </div>
+                        <div class="text-left">
+                            <h4 class="font-bold text-zinc-900 dark:text-zinc-50 group-hover:text-[#FF001D] transition-colors">Payhip</h4>
+                            <p class="text-xs text-zinc-500">Global secure payments</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-zinc-400 group-hover:text-[#FF001D] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+
+                <a href="https://pengedarseni.myr.id/" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:border-[#FF001D] dark:hover:border-[#FF001D] bg-zinc-50 hover:bg-white dark:bg-zinc-950 dark:hover:bg-zinc-900 transition-all duration-300">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm text-[#00A550]">
+                            <i class="fa-solid fa-wallet text-lg"></i>
+                        </div>
+                        <div class="text-left">
+                            <h4 class="font-bold text-zinc-900 dark:text-zinc-50 group-hover:text-[#FF001D] transition-colors">Mayar</h4>
+                            <p class="text-xs text-zinc-500">Local IDR payments</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-zinc-400 group-hover:text-[#FF001D] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <button id="scrollToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 z-[90] bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 w-12 h-12 rounded-full shadow-2xl flex items-center justify-center transform transition-all duration-300 hover:scale-110 hover:bg-[#FF001D] dark:hover:bg-[#FF001D] hover:text-white dark:hover:text-white translate-y-20 opacity-0">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"></path></svg>
     </button>
 
     <script>
-        // --- Navigation Logic ---
-        function navigate(viewId) {
-            document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));
-            document.getElementById('view-' + viewId).classList.add('active');
-            window.scrollTo({top: 0, behavior: 'smooth'});
-            if(viewId === 'home') setTimeout(initParticles, 100);
-            setTimeout(reveal, 100);
+        // --- Theme Initialization ---
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            const icon = document.getElementById('themeIcon');
+            if(icon) icon.className = "fa-solid fa-sun";
         }
 
-        // --- Theme Toggle Logic ---
         function toggleTheme() {
             const html = document.documentElement;
             const icon = document.getElementById('themeIcon');
@@ -738,14 +465,19 @@
             }
         }
 
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-            const icon = document.getElementById('themeIcon');
-            if(icon) icon.className = "fa-solid fa-sun";
+        // --- Language Initialization & Logic ---
+        if (localStorage.getItem('lang') === 'id') {
+            document.body.classList.add('lang-id');
         }
 
-        // --- Language Toggle Logic ---
-        function toggleLanguage() { document.body.classList.toggle('lang-id'); }
+        function toggleLanguage() { 
+            document.body.classList.toggle('lang-id'); 
+            if (document.body.classList.contains('lang-id')) {
+                localStorage.setItem('lang', 'id');
+            } else {
+                localStorage.setItem('lang', 'en');
+            }
+        }
 
         // --- Mobile Menu Logic ---
         function toggleMobileMenu() {
@@ -753,10 +485,7 @@
             const iconMenu = document.getElementById('icon-menu');
             const iconClose = document.getElementById('icon-close');
             
-            // Toggle visibility menu
             menu.classList.toggle('hidden');
-            
-            // Toggle ikon hamburger dan ikon close (X)
             iconMenu.classList.toggle('hidden');
             iconClose.classList.toggle('hidden');
         }
@@ -783,35 +512,6 @@
             }
         });
         setTimeout(reveal, 200);
-
-        // --- Download HTML Logic ---
-        function downloadHTML() {
-            const btn = document.querySelector('button[onclick="downloadHTML()"]');
-            btn.style.display = 'none';
-            const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-            const blob = new Blob([htmlContent], {type: "text/html"});
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url; a.download = "pengedar-seni-website.html"; a.click();
-            window.URL.revokeObjectURL(url);
-            btn.style.display = 'flex';
-        }
-
-        // --- WhatsApp Logic ---
-        function sendWhatsApp() {
-            const email = document.getElementById('contact-email').value;
-            const message = document.getElementById('contact-message').value;
-            
-            if(!email || !message) {
-                alert("Please fill out both email and message fields.");
-                return;
-            }
-
-            const text = `Email : ${email}\nPesan : ${message}`;
-            const encodedText = encodeURIComponent(text);
-            const waUrl = `https://wa.me/6285156020119?text=${encodedText}`;
-            window.open(waUrl, '_blank');
-        }
 
         // --- BACKGROUND CANVAS LOGO PARTICLES ---
         const canvas = document.getElementById('hero-canvas');
@@ -904,6 +604,39 @@
 
         if(document.getElementById('current-year')) {
             document.getElementById('current-year').innerText = new Date().getFullYear();
+        }
+
+        // --- Shop Modal Logic ---
+        function openShopModal() {
+            const modal = document.getElementById('shopModal');
+            const backdrop = document.getElementById('shopModalBackdrop');
+            const content = document.getElementById('shopModalContent');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            setTimeout(() => {
+                backdrop.classList.remove('opacity-0');
+                backdrop.classList.add('opacity-100');
+                content.classList.remove('opacity-0', 'scale-95');
+                content.classList.add('opacity-100', 'scale-100');
+            }, 10);
+        }
+
+        function closeShopModal() {
+            const modal = document.getElementById('shopModal');
+            const backdrop = document.getElementById('shopModalBackdrop');
+            const content = document.getElementById('shopModalContent');
+            
+            backdrop.classList.remove('opacity-100');
+            backdrop.classList.add('opacity-0');
+            content.classList.remove('opacity-100', 'scale-100');
+            content.classList.add('opacity-0', 'scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
         }
     </script>
 </body>
