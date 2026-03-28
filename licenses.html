@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 🚀 OPTIMASI SEO MULAI DI SINI 🚀 -->
     <title>Licenses & EULA | Pengedar Seni</title>
     <meta name="description" content="Read the End User License Agreement (EULA) and licensing terms for fonts, templates, and digital assets from Pengedar Seni.">
     <meta name="keywords" content="license, EULA, font license, template license, pengedarseni, terms of use">
@@ -11,21 +10,17 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://pengedarseni.com/licenses" />
 
-    <!-- Open Graph / Facebook / WhatsApp Preview -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pengedarseni.com/licenses">
     <meta property="og:title" content="Licenses & EULA | Pengedar Seni">
     <meta property="og:description" content="Read the End User License Agreement (EULA) and licensing terms for digital assets from Pengedar Seni.">
     <meta property="og:image" content="https://pengedarseni.com/preview-image.jpg">
 
-    <!-- Twitter Card -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://pengedarseni.com/licenses">
     <meta property="twitter:title" content="Licenses & EULA | Pengedar Seni">
     <meta property="twitter:description" content="Read the End User License Agreement (EULA) and licensing terms for digital assets from Pengedar Seni.">
     <meta property="twitter:image" content="https://pengedarseni.com/preview-image.jpg">
-    <!-- 🚀 OPTIMASI SEO SELESAI 🚀 -->
-    
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1.2">
     
@@ -65,7 +60,9 @@
 
         /* Language Logic */
         body.lang-id [lang="en"] { display: none !important; }
+        body.lang-id [lang="en-inline"] { display: none; }
         body:not(.lang-id) [lang="id"] { display: none !important; }
+        body:not(.lang-id) [lang="id-inline"] { display: none; }
 
         /* Page Entry Animation */
         .page-transition { animation: pageFadeIn 0.4s ease forwards; }
@@ -95,12 +92,10 @@
 </head>
 <body class="antialiased bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
 
-    <!-- Navigasi -->
     <nav class="fixed w-full top-0 z-50 bg-zinc-50/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-50">
             <div class="flex justify-between items-center h-[72px]">
                 
-                <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="/" class="flex items-center gap-3 group">
                         <svg version="1.1" viewBox="0 0 219 161" class="h-8 w-auto fill-zinc-900 dark:fill-zinc-50 group-hover:fill-[#FF001D] dark:group-hover:fill-[#FF001D] group-hover:scale-105 transition-all duration-300">
@@ -111,7 +106,6 @@
                     </a>
                 </div>
 
-                <!-- Menu Desktop -->
                 <div class="hidden lg:flex space-x-6 text-sm font-medium text-zinc-600 dark:text-zinc-400 items-center">
                     <div class="relative group py-2">
                         <button class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors flex items-center gap-1">
@@ -125,13 +119,11 @@
                     </div>
                     <a href="/services" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors"><span lang="en">Services</span><span lang="id">Layanan</span></a>
                     <a href="/freebies" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">Freebies</a>
-                    <!-- Active State on Licenses -->
                     <a href="/licenses" class="text-[#FF001D] transition-colors">Licenses/EULA</a>
                     <a href="/about" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors"><span lang="en">About Us</span><span lang="id">Tentang</span></a>
                     <a href="/contact" class="hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors"><span lang="en">Contact</span><span lang="id">Kontak</span></a>
                 </div>
 
-                <!-- Right Side Actions -->
                 <div class="flex items-center space-x-4">
                     <button onclick="toggleTheme()" class="text-zinc-500 hover:text-[#FF001D] dark:hover:text-[#FF001D] transition-colors">
                         <svg class="dark:hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -141,7 +133,6 @@
                         <span lang="en">EN</span><span lang="id">ID</span>
                     </button>
                     
-                    <!-- Tombol Hamburger -->
                     <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="lg:hidden text-zinc-500 hover:text-[#FF001D] dark:hover:text-[#FF001D] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-zinc-500 dark:focus:ring-zinc-400 p-2 rounded-md transition-colors">
                         <span class="sr-only">Buka menu utama</span>
                         <svg id="icon-menu" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -155,12 +146,10 @@
             </div>
         </div>
 
-        <!-- Menu Mobile (Dropdown) -->
         <div id="mobile-menu" class="hidden lg:hidden bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 absolute w-full shadow-xl">
             <div class="px-4 pt-2 pb-6 space-y-1 sm:px-6">
                 <a href="/" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150"><span lang="en">Home</span><span lang="id">Beranda</span></a>
                 
-                <!-- Sub-menu Shop -->
                 <div class="px-3 py-2">
                     <span class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1"><span lang="en">Shop</span><span lang="id">Toko</span></span>
                     <div class="space-y-1 pl-3 border-l-2 border-zinc-200 dark:border-zinc-800">
@@ -172,7 +161,6 @@
 
                 <a href="/services" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150"><span lang="en">Services</span><span lang="id">Layanan</span></a>
                 <a href="/freebies" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150">Freebies</a>
-                <!-- Active State on Licenses Mobile -->
                 <a href="/licenses" class="block px-3 py-2 rounded-md text-base font-medium text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150">Licenses / EULA</a>
                 <a href="/about" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150"><span lang="en">About Us</span><span lang="id">Tentang Kami</span></a>
                 <a href="/contact" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-[#FF001D] dark:hover:text-[#FF001D] hover:bg-zinc-100 dark:hover:bg-zinc-900 transition duration-150"><span lang="en">Contact</span><span lang="id">Kontak</span></a>
@@ -181,55 +169,191 @@
         </div>
     </nav>
 
-    <!-- CONTENT LICENSES & EULA -->
     <main class="pt-32 pb-24 max-w-5xl mx-auto px-6 min-h-screen page-transition">
-        <h2 class="text-4xl font-bold mb-10 border-b border-zinc-200 dark:border-zinc-800 pb-6 text-zinc-900 dark:text-zinc-50 fade-up">Licenses &amp; EULA</h2>
+        <h2 class="text-4xl font-bold mb-10 border-b border-zinc-200 dark:border-zinc-800 pb-6 text-zinc-900 dark:text-zinc-50 fade-up">
+            <span lang="en">Licenses &amp; EULA</span><span lang="id">Lisensi &amp; EULA</span>
+        </h2>
         
         <div class="space-y-12 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed fade-up">
             
             <section class="bg-zinc-100 dark:bg-zinc-900 p-8 rounded-3xl">
-                <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">Important Notes (Read Before Use)</h3>
-                <ul class="list-disc pl-5 space-y-2 mb-6">
-                    <li>If you are a designer, studio, agency, or consultant, the license must be owned by your client.</li>
-                    <li>Personal/Demo assets are strictly for non-commercial use only.</li>
-                    <li>Licenses are non-transferable. You cannot share, sublicense, or distribute the files to third parties outside your organization.</li>
-                    <li>Modifying, renaming, or reselling the source files (in any form) is strictly prohibited.</li>
-                    <li>We reserve the right to pursue fines (5–20x the license value) for license violations. No refunds.</li>
+                <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">
+                    <span lang="en">Important Notes (Read Before Use)</span>
+                    <span lang="id">Catatan Penting (Baca Sebelum Menggunakan)</span>
+                </h3>
+                <ul class="list-disc pl-5 space-y-2 mb-8">
+                    <li>
+                        <span lang="en">If you are a designer, studio, agency, or consultant, the license must be owned by your client.</span>
+                        <span lang="id">Jika Anda seorang desainer, studio, agensi, atau konsultan, lisensi harus dimiliki atas nama klien Anda.</span>
+                    </li>
+                    <li>
+                        <span lang="en">Personal/Demo assets are strictly for non-commercial use only.</span>
+                        <span lang="id">Aset Personal/Demo hanya diperuntukkan bagi penggunaan non-komersial.</span>
+                    </li>
+                    <li>
+                        <span lang="en">Licenses are non-transferable. You cannot share, sublicense, or distribute the files to third parties outside your organization.</span>
+                        <span lang="id">Lisensi tidak dapat dipindahtangankan. Anda dilarang membagikan, mensublisensikan, atau mendistribusikan file ke pihak ketiga di luar organisasi Anda.</span>
+                    </li>
+                    <li>
+                        <span lang="en">Modifying, renaming, or reselling the source files (in any form) is strictly prohibited.</span>
+                        <span lang="id">Dilarang keras memodifikasi, mengubah nama, atau menjual kembali file sumber (dalam bentuk apa pun).</span>
+                    </li>
+                    <li>
+                        <span lang="en">We reserve the right to pursue fines (5–20x the license value) for license violations. No refunds.</span>
+                        <span lang="id">Kami berhak menuntut denda (5–20x lipat nilai lisensi) atas pelanggaran lisensi. Tidak ada pengembalian dana (refund).</span>
+                    </li>
                 </ul>
-                <p class="font-bold text-red-500">Assets may not be used in: ❌ Violence, pornographic content ❌ Hate speech, racism, or religious defamation ❌ Illegal, misleading, or unethical projects.</p>
-            </section>
 
-            <section>
-                <h3 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">A. Font Licenses</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Personal License</h4><ul class="list-disc pl-5 space-y-1"><li>For personal, non-commercial use only</li><li>Not permitted for client projects</li></ul></div>
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Standard License</h4><ul class="list-disc pl-5 space-y-1"><li>Up to 1 User / Device</li><li>Commercial projects allowed</li><li>Not valid for brand logo</li></ul></div>
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Professional License</h4><ul class="list-disc pl-5 space-y-1"><li>Up to 5 Users / Devices</li><li>Commercial projects allowed</li><li>Not valid for brand logo</li></ul></div>
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Extended License</h4><ul class="list-disc pl-5 space-y-1"><li>Unlimited Users / Devices</li><li><span class="text-[#FF001D] font-semibold">Valid for Brand Logo / Wordmark</span></li><li>Unlimited products for sale</li></ul></div>
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Server/App/Game</h4><ul class="list-disc pl-5 space-y-1"><li>Font embedding for Mobile Apps \&amp; Games</li><li>Web server embedding allowed</li></ul></div>
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Broadcast License</h4><ul class="list-disc pl-5 space-y-1"><li>Valid for TV, Film, and Cinema</li><li>Streaming and Motion Graphics</li></ul></div>
-                    <div class="md:col-span-2 border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Corporate/Brand License</h4><ul class="list-disc pl-5 space-y-1"><li>Comprehensive license for large-scale enterprise usage</li><li>National and global campaigns</li><li>Unlimited digital and physical applications</li></ul></div>
+                <div class="border-t border-zinc-200 dark:border-zinc-800 pt-6">
+                    <p class="font-bold text-zinc-900 dark:text-zinc-100 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-exclamation text-red-500"></i>
+                        <span lang="en">Assets may not be used in:</span>
+                        <span lang="id">Aset dilarang digunakan untuk:</span>
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="bg-white dark:bg-zinc-950 p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 flex items-start gap-3">
+                            <span class="text-red-500">❌</span>
+                            <p class="text-xs leading-tight">
+                                <span lang="en">Violence or pornographic content</span>
+                                <span lang="id">Konten kekerasan atau pornografi</span>
+                            </p>
+                        </div>
+                        <div class="bg-white dark:bg-zinc-950 p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 flex items-start gap-3">
+                            <span class="text-red-500">❌</span>
+                            <p class="text-xs leading-tight">
+                                <span lang="en">Hate speech, racism, or religious defamation</span>
+                                <span lang="id">Ujaran kebencian, rasisme, atau penodaan agama</span>
+                            </p>
+                        </div>
+                        <div class="bg-white dark:bg-zinc-950 p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 flex items-start gap-3">
+                            <span class="text-red-500">❌</span>
+                            <p class="text-xs leading-tight">
+                                <span lang="en">Illegal, misleading, or unethical projects</span>
+                                <span lang="id">Proyek ilegal, menyesatkan, atau tidak etis</span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section>
-                <h3 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">B. Template &amp; Graphic Licenses</h3>
+                <h3 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">
+                    <span lang="en">A. Font Licenses</span><span lang="id">A. Lisensi Font</span>
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Personal License</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><span lang="en">For personal, non-commercial use only</span><span lang="id">Hanya untuk penggunaan pribadi & non-komersial</span></li>
+                            <li><span lang="en">Not permitted for client projects</span><span lang="id">Tidak diizinkan untuk proyek klien</span></li>
+                        </ul>
+                    </div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Standard License</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><span lang="en">Up to 1 User / Device</span><span lang="id">Maksimal 1 Pengguna / Perangkat</span></li>
+                            <li><span lang="en">Commercial projects allowed</span><span lang="id">Diizinkan untuk proyek komersial</span></li>
+                            <li><span lang="en">Not valid for brand logo</span><span lang="id">Tidak berlaku untuk logo brand</span></li>
+                        </ul>
+                    </div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Professional License</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><span lang="en">Up to 5 Users / Devices</span><span lang="id">Maksimal 5 Pengguna / Perangkat</span></li>
+                            <li><span lang="en">Commercial projects allowed</span><span lang="id">Diizinkan untuk proyek komersial</span></li>
+                            <li><span lang="en">Not valid for brand logo</span><span lang="id">Tidak berlaku untuk logo brand</span></li>
+                        </ul>
+                    </div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Extended License</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><span lang="en">Unlimited Users / Devices</span><span lang="id">Pengguna / Perangkat tidak terbatas</span></li>
+                            <li><span class="text-[#FF001D] font-semibold"><span lang="en">Valid for Brand Logo / Wordmark</span><span lang="id">Berlaku untuk Logo Brand / Wordmark</span></span></li>
+                            <li><span lang="en">Unlimited products for sale</span><span lang="id">Produk penjualan tidak terbatas</span></li>
+                        </ul>
+                    </div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Server/App/Game</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><span lang="en">Font embedding for Mobile Apps &amp; Games</span><span lang="id">Penyematan font untuk Aplikasi Mobile &amp; Game</span></li>
+                            <li><span lang="en">Web server embedding allowed</span><span lang="id">Diizinkan untuk penyematan web server</span></li>
+                        </ul>
+                    </div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Broadcast License</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><span lang="en">Valid for TV, Film, and Cinema</span><span lang="id">Berlaku untuk TV, Film, dan Bioskop</span></li>
+                            <li><span lang="en">Streaming and Motion Graphics</span><span lang="id">Streaming dan Motion Graphics</span></li>
+                        </ul>
+                    </div>
+                    <div class="md:col-span-2 border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Corporate/Brand License</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><span lang="en">Comprehensive license for large-scale enterprise usage</span><span lang="id">Lisensi menyeluruh untuk penggunaan perusahaan skala besar</span></li>
+                            <li><span lang="en">National and global campaigns</span><span lang="id">Kampanye nasional dan global</span></li>
+                            <li><span lang="en">Unlimited digital and physical applications</span><span lang="id">Aplikasi digital dan fisik tidak terbatas</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">
+                    <span lang="en">B. Template &amp; Graphic Licenses</span><span lang="id">B. Lisensi Grafis &amp; Template</span>
+                </h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Personal</h4><ul class="list-disc pl-5 space-y-1"><li>For personal, non-commercial use</li><li>Valid for personal social media</li></ul></div>
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Commercial</h4><ul class="list-disc pl-5 space-y-1"><li>Up to 5,000 end products for sale</li><li>1 Business social media account</li></ul></div>
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Extended</h4><ul class="list-disc pl-5 space-y-1"><li>Up to 250,000 products for sale</li><li>Unlimited business social media</li></ul></div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Personal</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><span lang="en">For personal, non-commercial use</span><span lang="id">Untuk penggunaan pribadi & non-komersial</span></li>
+                            <li><span lang="en">Valid for personal social media</span><span lang="id">Berlaku untuk media sosial pribadi</span></li>
+                        </ul>
+                    </div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Commercial</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><span lang="en">Up to 5,000 end products for sale</span><span lang="id">Hingga 5.000 produk akhir untuk dijual</span></li>
+                            <li><span lang="en">1 Business social media account</span><span lang="id">1 Akun media sosial bisnis</span></li>
+                        </ul>
+                    </div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Extended</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><span lang="en">Up to 250,000 products for sale</span><span lang="id">Hingga 250.000 produk akhir untuk dijual</span></li>
+                            <li><span lang="en">Unlimited business social media</span><span lang="id">Media sosial bisnis tidak terbatas</span></li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
             <section>
-                <h3 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">C. Software, Script &amp; HTML Licenses</h3>
+                <h3 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">
+                    <span lang="en">C. Software, Script &amp; HTML Licenses</span><span lang="id">C. Lisensi Perangkat Lunak, Script &amp; HTML</span>
+                </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Standard License</h4><ul class="list-disc pl-5 space-y-1"><li>1 User / Developer</li><li>Install on 1 website / domain</li><li>Cannot share or resell source code</li></ul></div>
-                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl"><h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Extended License</h4><ul class="list-disc pl-5 space-y-1"><li>Up to 10 Users within an agency</li><li>Install on unlimited domains</li><li>Cannot share or resell source code</li></ul></div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Standard License</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><span lang="en">1 User / Developer</span><span lang="id">1 Pengguna / Developer</span></li>
+                            <li><span lang="en">Install on 1 website / domain</span><span lang="id">Instalasi pada 1 situs web / domain</span></li>
+                            <li><span lang="en">Cannot share or resell source code</span><span lang="id">Dilarang membagikan atau menjual kembali kode sumber</span></li>
+                        </ul>
+                    </div>
+                    <div class="border border-zinc-200 dark:border-zinc-700 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-2 text-zinc-900 dark:text-zinc-100">Extended License</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><span lang="en">Up to 10 Users within an agency</span><span lang="id">Hingga 10 Pengguna dalam satu agensi</span></li>
+                            <li><span lang="en">Install on unlimited domains</span><span lang="id">Instalasi pada domain tidak terbatas</span></li>
+                            <li><span lang="en">Cannot share or resell source code</span><span lang="id">Dilarang membagikan atau menjual kembali kode sumber</span></li>
+                        </ul>
+                    </div>
                     <div class="md:col-span-2 border border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-950/30 p-6 rounded-2xl">
-                        <h4 class="font-bold text-lg mb-2 text-red-600 dark:text-red-400">Strict SaaS &amp; API Restriction</h4>
+                        <h4 class="font-bold text-lg mb-2 text-red-600 dark:text-red-400">
+                            <span lang="en">Strict SaaS &amp; API Restriction</span><span lang="id">Batasan Ketat SaaS &amp; API</span>
+                        </h4>
                         <p class="text-sm text-zinc-700 dark:text-zinc-300">
-                            You are <strong>strictly prohibited</strong> from wrapping our HTML/Scripts (especially AI API-connected tools) into a paid Software-as-a-Service (SaaS), White-label platform, or automated generator tool where end-users pay for access, unless you have obtained a custom <strong>Enterprise/OEM License</strong> from us.
+                            <span lang="en">You are <strong>strictly prohibited</strong> from wrapping our HTML/Scripts (especially AI API-connected tools) into a paid Software-as-a-Service (SaaS), White-label platform, or automated generator tool where end-users pay for access, unless you have obtained a custom <strong>Enterprise/OEM License</strong> from us.</span>
+                            <span lang="id">Anda <strong>dilarang keras</strong> mengemas HTML/Script kami (terutama alat yang terhubung dengan API AI) ke dalam Software-as-a-Service (SaaS) berbayar, platform White-label, atau alat generator otomatis di mana pengguna akhir membayar untuk akses, kecuali Anda telah mendapatkan <strong>Lisensi Enterprise/OEM</strong> khusus dari kami.</span>
                         </p>
                     </div>
                 </div>
@@ -302,7 +426,6 @@
         </div>
     </footer>
 
-    <!-- Shop Modal -->
     <div id="shopModal" class="fixed inset-0 z-[100] hidden items-center justify-center">
         <div class="absolute inset-0 bg-zinc-900/40 dark:bg-zinc-950/80 backdrop-blur-sm transition-opacity opacity-0 duration-300" id="shopModalBackdrop" onclick="closeShopModal()"></div>
         <div class="relative w-full max-w-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl shadow-2xl p-6 transform scale-95 opacity-0 transition-all duration-300 mx-4" id="shopModalContent">
