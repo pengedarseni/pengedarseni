@@ -1,207 +1,182 @@
-import React, { useState, useEffect } from 'react';
-import { Send, CheckCircle2, AlertCircle, Calendar, User, Briefcase, Hash } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absensi Karyawan</title>
+    <!-- Menggunakan Tailwind CSS untuk styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-50 flex items-center justify-center p-4 font-sans text-slate-700">
 
-export default function App() {
-  // Setup State untuk Form
-  const [formData, setFormData] = useState({
-    name: '',
-    date: '',
-    qty: '',
-    theme: ''
-  });
-
-  const [status, setStatus] = useState('idle'); // idle, loading, success, error
-  const [errorMessage, setErrorMessage] = useState('');
-
-  // Set default tanggal hari ini saat komponen dimuat
-  useEffect(() => {
-    const today = new Date().toISOString().split('T')[0];
-    setFormData(prev => ({ ...prev, date: today }));
-  }, []);
-
-  // Handle perubahan input
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  // Handle submit form
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus('loading');
-
-    // GANTI URL INI DENGAN URL WEB APP GOOGLE APPS SCRIPT KAMU NANTI
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz4o1QdIobK9rIRQqCzQVsJafLdo1izc5fRbUwK0DpjJs5JvcWDx-fkbQtI964dZIsK/exec'; 
-
-    try {
-      // Kita menggunakan mode no-cors karena Google Apps Script sering memblokir response CORS langsung
-      // meskipun datanya berhasil masuk.
-      await fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors', 
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
-
-      // Anggap berhasil jika tidak ada error network
-      setStatus('success');
-      
-      // Reset form (kecuali tanggal dan nama untuk memudahkan input selanjutnya)
-      setFormData(prev => ({
-        ...prev,
-        qty: '',
-        theme: ''
-      }));
-
-      // Hilangkan pesan sukses setelah 3 detik
-      setTimeout(() => {
-        setStatus('idle');
-      }, 3000);
-
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setStatus('error');
-      setErrorMessage('Gagal mengirim data. Pastikan koneksi internet lancar.');
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4 font-sans">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden">
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden">
         
-        {/* Header */}
-        <div className="bg-[#09090b] p-6 text-white text-center">
-          <h1 className="text-2xl font-bold mb-1">Absensi & Laporan</h1>
-          <p className="text-zinc-400 text-sm">Input progres harian kamu disini</p>
+        <!-- Header -->
+        <div class="bg-[#09090b] p-6 text-white text-center">
+            <h1 class="text-2xl font-bold mb-1">Absensi & Laporan</h1>
+            <p class="text-zinc-400 text-sm">Input progres harian kamu disini</p>
         </div>
 
-        {/* Form Body */}
-        <div className="p-6 text-slate-700">
-          <form onSubmit={handleSubmit} className="space-y-4">
-            
-            {/* Input Nama */}
-            <div>
-              <label className="block text-sm font-medium mb-1 text-slate-600">Nama Karyawan</label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <User className="h-5 w-5 text-slate-400" />
+        <!-- Form Body -->
+        <div class="p-6">
+            <form id="absenForm" class="space-y-4">
+                
+                <!-- Input Nama -->
+                <div>
+                    <label class="block text-sm font-medium mb-1 text-slate-600">Nama Karyawan</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        </div>
+                        <input type="text" id="name" name="name" required placeholder="Contoh: Tika"
+                            class="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-zinc-800 focus:border-zinc-800 outline-none transition-all">
+                    </div>
                 </div>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="Contoh: Tika"
-                  className="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-zinc-800 focus:border-zinc-800 outline-none transition-all"
-                />
-              </div>
-            </div>
 
-            {/* Input Tanggal */}
-            <div>
-              <label className="block text-sm font-medium mb-1 text-slate-600">Tanggal</label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Calendar className="h-5 w-5 text-slate-400" />
+                <!-- Input Tanggal -->
+                <div>
+                    <label class="block text-sm font-medium mb-1 text-slate-600">Tanggal</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <input type="date" id="date" name="date" required
+                            class="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-zinc-800 focus:border-zinc-800 outline-none transition-all">
+                    </div>
                 </div>
-                <input
-                  type="date"
-                  name="date"
-                  value={formData.date}
-                  onChange={handleChange}
-                  required
-                  className="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-zinc-800 focus:border-zinc-800 outline-none transition-all"
-                />
-              </div>
-            </div>
 
-            {/* Input Qty */}
-            <div>
-              <label className="block text-sm font-medium mb-1 text-slate-600">Qty (Tugas Selesai)</label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Hash className="h-5 w-5 text-slate-400" />
+                <!-- Input Qty -->
+                <div>
+                    <label class="block text-sm font-medium mb-1 text-slate-600">Qty (Tugas Selesai)</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path></svg>
+                        </div>
+                        <input type="number" id="qty" name="qty" min="0" required placeholder="Contoh: 20"
+                            class="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-zinc-800 focus:border-zinc-800 outline-none transition-all">
+                    </div>
                 </div>
-                <input
-                  type="number"
-                  name="qty"
-                  min="0"
-                  value={formData.qty}
-                  onChange={handleChange}
-                  required
-                  placeholder="Contoh: 20"
-                  className="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-zinc-800 focus:border-zinc-800 outline-none transition-all"
-                />
-              </div>
-            </div>
 
-            {/* Input Theme */}
-            <div>
-              <label className="block text-sm font-medium mb-1 text-slate-600">Theme / Pekerjaan</label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Briefcase className="h-5 w-5 text-slate-400" />
+                <!-- Input Theme -->
+                <div>
+                    <label class="block text-sm font-medium mb-1 text-slate-600">Theme / Pekerjaan</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <input type="text" id="theme" name="theme" required placeholder="Contoh: World Ocean Day"
+                            class="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-zinc-800 focus:border-zinc-800 outline-none transition-all">
+                    </div>
                 </div>
-                <input
-                  type="text"
-                  name="theme"
-                  value={formData.theme}
-                  onChange={handleChange}
-                  required
-                  placeholder="Contoh: World Ocean Day"
-                  className="w-full pl-10 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-zinc-800 focus:border-zinc-800 outline-none transition-all"
-                />
-              </div>
-            </div>
 
-            {/* Feedback Messages */}
-            {status === 'success' && (
-              <div className="flex items-center gap-2 text-green-600 bg-green-50 p-3 rounded-lg text-sm">
-                <CheckCircle2 className="h-5 w-5" />
-                <span>Absen berhasil dikirim!</span>
-              </div>
-            )}
+                <!-- Feedback Messages -->
+                <div id="successMessage" class="hidden items-center gap-2 text-green-600 bg-green-50 p-3 rounded-lg text-sm">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>Absen berhasil dikirim!</span>
+                </div>
 
-            {status === 'error' && (
-              <div className="flex items-center gap-2 text-red-600 bg-red-50 p-3 rounded-lg text-sm">
-                <AlertCircle className="h-5 w-5" />
-                <span>{errorMessage}</span>
-              </div>
-            )}
+                <div id="errorMessage" class="hidden items-center gap-2 text-red-600 bg-red-50 p-3 rounded-lg text-sm">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span id="errorText">Gagal mengirim data.</span>
+                </div>
 
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={status === 'loading'}
-              className={`w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-medium text-white transition-all 
-                ${status === 'loading' ? 'bg-zinc-800 cursor-not-allowed' : 'bg-[#09090b] hover:bg-zinc-800 active:transform active:scale-95'}
-              `}
-            >
-              {status === 'loading' ? (
-                <>
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  Mengirim...
-                </>
-              ) : (
-                <>
-                  <Send className="h-5 w-5" />
-                  Kirim Absen
-                </>
-              )}
-            </button>
-            
-          </form>
+                <!-- Submit Button -->
+                <button type="submit" id="submitBtn" class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-medium text-white transition-all bg-[#09090b] hover:bg-zinc-800 active:transform active:scale-95">
+                    <span id="btnText" class="flex items-center gap-2">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                        Kirim Absen
+                    </span>
+                    <span id="btnLoading" class="hidden flex items-center gap-2">
+                        <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Mengirim...
+                    </span>
+                </button>
+                
+            </form>
         </div>
-      </div>
     </div>
-  );
-}
+
+    <script>
+        // Set tanggal hari ini sebagai default
+        document.getElementById('date').valueAsDate = new Date();
+
+        const form = document.getElementById('absenForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnLoading = document.getElementById('btnLoading');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Sembunyikan pesan, tampilkan loading
+            successMessage.classList.add('hidden');
+            successMessage.classList.remove('flex');
+            errorMessage.classList.add('hidden');
+            errorMessage.classList.remove('flex');
+            
+            submitBtn.disabled = true;
+            submitBtn.classList.replace('bg-[#09090b]', 'bg-zinc-800');
+            submitBtn.classList.add('cursor-not-allowed');
+            btnText.classList.add('hidden');
+            btnLoading.classList.remove('hidden');
+            btnLoading.classList.add('flex');
+
+            // =========================================================================
+            // LOKASI MEMASUKKAN URL APPS SCRIPT
+            // =========================================================================
+            // Ganti URL di bawah ini dengan URL "Aplikasi Web" milikmu dari Langkah 4
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz4o1QdIobK9rIRQqCzQVsJafLdo1izc5fRbUwK0DpjJs5JvcWDx-fkbQtI964dZIsK/exec';
+            // =========================================================================
+
+            const formData = {
+                name: document.getElementById('name').value,
+                date: document.getElementById('date').value,
+                qty: document.getElementById('qty').value,
+                theme: document.getElementById('theme').value
+            };
+
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                // Tampilkan sukses
+                successMessage.classList.remove('hidden');
+                successMessage.classList.add('flex');
+                
+                // Kosongkan form Qty dan Theme saja
+                document.getElementById('qty').value = '';
+                document.getElementById('theme').value = '';
+
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                    successMessage.classList.remove('flex');
+                }, 4000);
+
+            } catch (error) {
+                // Tampilkan error
+                errorMessage.classList.remove('hidden');
+                errorMessage.classList.add('flex');
+            } finally {
+                // Kembalikan tombol ke kondisi semula
+                submitBtn.disabled = false;
+                submitBtn.classList.replace('bg-zinc-800', 'bg-[#09090b]');
+                submitBtn.classList.remove('cursor-not-allowed');
+                btnText.classList.remove('hidden');
+                btnLoading.classList.add('hidden');
+                btnLoading.classList.remove('flex');
+            }
+        });
+    </script>
+</body>
+</html>
