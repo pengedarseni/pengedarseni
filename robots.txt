@@ -1,0 +1,16 @@
+# Robots.txt untuk pengedarseni.com
+# Update: 16 April 2026
+
+User-agent: *
+
+# Folder rahasia/pribadi yang dilarang di-index
+Disallow: /absen/
+Disallow: /aistd/
+Disallow: /invitation/
+Disallow: /undangan/
+
+# Berikan akses penuh untuk sisanya
+Allow: /
+
+# Arahkan Google ke sitemap kamu
+Sitemap: https://pengedarseni.com/sitemap.xml
