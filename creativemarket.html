@@ -824,11 +824,9 @@ src="https://www.facebook.com/tr?id=2121880038353189&ev=PageView&noscript=1"
             
 
             // Filter products
-            const filteredProducts = currentCategory === 'all' 
-
-                ? productsData 
-
-                : productsData.filter(p => p.category === currentCategory);
+            const filteredProducts = productsData
+                .filter(p => currentCategory === 'all' ? true : p.category === currentCategory)
+                .sort((a, b) => b.id - a.id);
 
             
 
