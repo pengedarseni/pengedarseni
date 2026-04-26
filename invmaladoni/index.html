@@ -111,31 +111,31 @@
     <div class="app-container" id="app">
         
         <!-- COVER SCREEN - Diperbarui agar responsive & bisa di-scroll di layar kecil -->
-        <div id="cover-screen" class="fixed inset-0 z-[100] max-w-[430px] mx-auto bg-app-surface flex flex-col justify-between p-6 sm:p-8 h-[100dvh] min-h-screen overflow-y-auto no-scrollbar pb-12">
+        <div id="cover-screen" class="fixed inset-0 z-[100] max-w-[430px] mx-auto bg-app-surface flex flex-col justify-between p-6 sm:p-8 h-[100dvh] min-h-screen overflow-y-auto no-scrollbar pb-6">
             <div class="absolute inset-0 opacity-[0.04] pointer-events-none" style="background-image: radial-gradient(#09090B 1px, transparent 1px); background-size: 20px 20px;"></div>
             
-            <div class="mt-8 sm:mt-12 text-center relative z-10 flex flex-col items-center">
-                <i class="ph-fill ph-sparkle text-app-primary text-xl mb-4 sm:mb-6"></i>
-                <span class="text-[9px] text-app-muted font-bold uppercase tracking-[0.4em] mb-6 sm:mb-8 block">
+            <div class="mt-4 sm:mt-6 text-center relative z-10 flex flex-col items-center">
+                <i class="ph-fill ph-sparkle text-app-primary text-xl mb-3 sm:mb-4"></i>
+                <span class="text-[9px] text-app-muted font-bold uppercase tracking-[0.4em] mb-4 sm:mb-6 block">
                     The Wedding Of
                 </span>
-                <h1 class="font-story text-[5.5rem] sm:text-[6.5rem] leading-none text-app-text mb-4 mt-2 flex flex-col w-full px-4">
+                <h1 class="font-story text-[5.5rem] sm:text-[6.5rem] leading-none text-app-text mb-2 mt-0 flex flex-col w-full px-4">
                     <span class="self-start">Mala</span>
-                    <span class="text-app-primary text-[3rem] sm:text-[3.5rem] self-center my-2 sm:my-4">&</span>
+                    <span class="text-app-primary text-[3rem] sm:text-[3.5rem] self-center -my-2">&</span>
                     <span class="self-end">Doni</span>
                 </h1>
-                <div class="w-[1px] h-10 sm:h-12 bg-app-primary opacity-50 my-6"></div>
+                <div class="w-[1px] h-8 sm:h-10 bg-app-primary opacity-50 my-4"></div>
                 <p class="font-semibold text-app-text text-xs tracking-[0.2em]">20 . 05 . 2026</p>
             </div>
 
-            <div class="mb-4 sm:mb-8 relative z-20 mt-8">
-                <div class="bg-white/60 backdrop-blur-md p-6 rounded-3xl border border-app-line mb-6 text-center shadow-[0_10px_40px_rgba(0,0,0,0.02)]">
-                    <p class="text-[9px] text-app-muted font-bold uppercase tracking-[0.2em] mb-2">Kepada Yth.</p>
+            <div class="mb-2 sm:mb-4 relative z-20 mt-4 w-full">
+                <div class="bg-white/60 backdrop-blur-md p-5 rounded-3xl border border-app-line mb-4 text-center shadow-[0_10px_40px_rgba(0,0,0,0.02)]">
+                    <p class="text-[9px] text-app-muted font-bold uppercase tracking-[0.2em] mb-1">Kepada Yth.</p>
                     <p class="font-bricolage font-bold text-lg text-app-text">Bapak/Ibu/Saudara/i</p>
                 </div>
                 
                 <!-- TOMBOL BUKA UNDANGAN - Diperbarui untuk iPhone -->
-                <button onclick="openApp()" class="w-full bg-app-text text-white font-bold py-4 rounded-full flex justify-center items-center gap-2 active:scale-95 transition-transform uppercase tracking-widest text-[10px] shadow-xl cursor-pointer touch-manipulation relative z-50">
+                <button onclick="openApp()" class="w-full bg-app-text text-white font-bold py-3.5 rounded-full flex justify-center items-center gap-2 active:scale-95 transition-transform uppercase tracking-widest text-[10px] shadow-xl cursor-pointer touch-manipulation relative z-50">
                     <span>Buka Undangan</span>
                     <i class="ph ph-arrow-right"></i>
                 </button>
