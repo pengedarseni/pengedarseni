@@ -361,7 +361,7 @@
                     <div class="space-y-4" id="message-list">
                         <div class="bg-white p-5 rounded-2xl border border-app-line">
                             <div class="flex justify-between items-center mb-2">
-                                <span class="font-bold text-[13px]">Keluarga Besar</span>
+                                <span class="font-bold text-[13px]">H. Yusuf, S.Ag.</span>
                                 <span class="border border-green-200 text-green-700 px-2 py-0.5 rounded text-[9px] uppercase font-bold tracking-widest">Hadir</span>
                             </div>
                             <p class="text-[12px] text-app-muted leading-relaxed font-light">Selamat menempuh hidup baru Mala & Doni! Semoga sakinah, mawaddah, warahmah.</p>
@@ -462,7 +462,9 @@
             }, 2000);
         }
 
-        // 6. Submit Form RSVP Simulasi
+        // 6. Submit Form RSVP ke Google Sheets
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxEeXQ31we4F8rPKGWTZCLoiik6E2wxuroLKuqt98zpYxpQe_kwk9lkcQt7su_pwfo2IQ/exec';
+
         function submitForm(e) {
             e.preventDefault();
             const btn = document.getElementById('btn-submit');
@@ -474,26 +476,41 @@
             btn.innerHTML = 'Mengirim...';
             btn.classList.add('opacity-70');
 
-            setTimeout(() => {
-                const newMsg = `
-                <div class="bg-white p-5 rounded-2xl border border-app-line fade-up visible">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="font-bold text-[13px]">${name}</span>
-                        <span class="border border-${status === 'Hadir' ? 'green' : 'gray'}-200 text-${status === 'Hadir' ? 'green' : 'gray'}-700 px-2 py-0.5 rounded text-[9px] uppercase font-bold tracking-widest">${status}</span>
-                    </div>
-                    <p class="text-[12px] text-app-muted leading-relaxed font-light">${msg}</p>
-                </div>`;
-                
-                document.getElementById('message-list').insertAdjacentHTML('afterbegin', newMsg);
-                
-                document.getElementById('rsvp-form').reset();
-                btn.innerHTML = 'Terkirim ✓';
-                
-                setTimeout(() => {
-                    btn.innerHTML = originalBtnText;
-                    btn.classList.remove('opacity-70');
-                }, 2000);
-            }, 1000);
+            // Siapkan data
+            const formData = new FormData();
+            formData.append('nama', name);
+            formData.append('kehadiran', status);
+            formData.append('ucapan', msg);
+
+            // Kirim ke Google Sheets
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => {
+                    // Munculkan pesan langsung di halaman
+                    const newMsg = `
+                    <div class="bg-white p-5 rounded-2xl border border-app-line fade-up visible">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-[13px]">${name}</span>
+                            <span class="border border-${status === 'Hadir' ? 'green' : 'gray'}-200 text-${status === 'Hadir' ? 'green' : 'gray'}-700 px-2 py-0.5 rounded text-[9px] uppercase font-bold tracking-widest">${status}</span>
+                        </div>
+                        <p class="text-[12px] text-app-muted leading-relaxed font-light">${msg}</p>
+                    </div>`;
+                    document.getElementById('message-list').insertAdjacentHTML('afterbegin', newMsg);
+                    
+                    document.getElementById('rsvp-form').reset();
+                    btn.innerHTML = 'Terkirim ✓';
+                    setTimeout(() => {
+                        btn.innerHTML = originalBtnText;
+                        btn.classList.remove('opacity-70');
+                    }, 2000);
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    btn.innerHTML = 'Gagal Mengirim';
+                    setTimeout(() => {
+                        btn.innerHTML = originalBtnText;
+                        btn.classList.remove('opacity-70');
+                    }, 2000);
+                });
         }
 
         // 7. Countdown Timer Minimalis
