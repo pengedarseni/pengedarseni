@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APPAREL — Gaya Tanpa Kompromi</title>
+  <meta name="description" content="Premium local streetwear. Didesain untuk yang berani tampil beda.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ===================================================
+       DESIGN TOKENS
+    =================================================== */
+    :root {
+      --ink:        #0a0a0a;
+      --ink-2:      #111111;
+      --ink-3:      #1a1a1a;
+      --ink-4:      #252525;
+      --smoke:      #9a9a94;
+      --fog:        #3a3a38;
+      --paper:      #f5f2ec;
+      --white:      #ffffff;
+      --acid:       #d4f43c;        /* neon lime signature */
+      --acid-dim:   #b8d932;
+      --red:        #ff3333;
+
+      --ff-display: 'Bebas Neue', sans-serif;
+      --ff-body:    'DM Sans', sans-serif;
+      --ff-mono:    'Space Mono', monospace;
+
+      --r-sm:   6px;
+      --r-md:   12px;
+      --r-lg:   20px;
+      --r-full: 999px;
+
+      --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in:   cubic-bezier(0.5, 0, 0.75, 0);
+      --ease-circ: cubic-bezier(0.85, 0, 0.15, 1);
+
+      /* Mode Adaptable Transparencies */
+      --stroke-color: rgba(255,255,255,.3);
+      --grid-line:    rgba(255,255,255,.025);
+      --glow-light:   rgba(255,255,255,.02);
+      --nav-bg:       rgba(10,10,10,.88);
+      --btn-hover:    rgba(255,255,255,.15);
+      --glass-bg:     rgba(10,10,10,.7);
+      --glass-border: rgba(255,255,255,.1);
+      --glass-icon:   #ffffff;
+      --dot-bg:       rgba(255,255,255,.3);
+      --warning-text: rgba(255,150,150,.9);
+    }
+
+    .light {
+      --ink:    #f5f2ec;
+      --ink-2:  #ece9e2;
+      --ink-3:  #e0ddd6;
+      --ink-4:  #d0cdc6;
+      --smoke:  #5a5a54;
+      --fog:    #aaa89e;
+      --paper:  #0a0a0a;
+      --white:  #0a0a0a;
+      --acid:   #5c8800;
+      --acid-dim: #4a6f00;
+
+      /* Mode Adaptable Transparencies for Light Mode */
+      --stroke-color: rgba(10,10,10,.4);
+      --grid-line:    rgba(10,10,10,.06);
+      --glow-light:   rgba(10,10,10,.03);
+      --nav-bg:       rgba(245,242,236,.88);
+      --btn-hover:    rgba(10,10,10,.08);
+      --glass-bg:     rgba(245,242,236,.8);
+      --glass-border: rgba(10,10,10,.15);
+      --glass-icon:   #0a0a0a;
+      --dot-bg:       rgba(10,10,10,.25);
+      --warning-text: #d92020;
+    }
+
+    /* ===================================================
+       RESET & BASE
+    =================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--ink);
+      color: var(--white);
+      font-family: var(--ff-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--acid); color: var(--ink); }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--ink); }
+    ::-webkit-scrollbar-thumb { background: var(--fog); border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--acid); }
+
+    img { display: block; max-width: 100%; }
+    a   { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    .no-scroll { overflow: hidden; }
+
+    /* ===================================================
+       UTILITY
+    =================================================== */
+    .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    @media (min-width: 768px) { .container { padding: 0 48px; } }
+
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--ff-mono); font-size: 10px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--acid); background: rgba(212,244,60,.08);
+      border: 1px solid rgba(212,244,60,.25);
+      padding: 5px 12px; border-radius: var(--r-full);
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* ===================================================
+       NOISE OVERLAY (aesthetic grain texture)
+    =================================================== */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: .028;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ===================================================
+       NAVBAR
+    =================================================== */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      transition: background .4s var(--ease-out), border-color .4s;
+    }
+
+    #navbar.scrolled {
+      background: var(--nav-bg);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--ink-4);
+    }
+
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: var(--ff-display);
+      font-size: 26px;
+      letter-spacing: .05em;
+      display: flex; align-items: center; gap: 8px;
+      color: var(--white);
+      transition: color .2s;
+    }
+    .nav-logo span { color: var(--acid); }
+    .nav-logo:hover { color: var(--acid); }
+
+    .nav-logo .logo-dot {
+      width: 8px; height: 8px;
+      background: var(--acid); border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%      { transform: scale(1.4); opacity: .7; }
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    @media (min-width: 768px) { .nav-links { display: flex; } }
+
+    .nav-links a {
+      font-size: 13px; font-weight: 500; letter-spacing: .04em;
+      color: var(--smoke);
+      position: relative; padding-bottom: 2px;
+      transition: color .2s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--acid);
+      transition: width .3s var(--ease-out);
+    }
+
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-actions {
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    .btn-icon {
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: var(--r-md);
+      color: var(--smoke);
+      border: 1px solid var(--ink-4);
+      background: var(--ink-3);
+      font-size: 14px;
+      transition: all .2s;
+    }
+    .btn-icon:hover { color: var(--acid); border-color: var(--acid); }
+
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--acid); color: var(--ink);
+      font-weight: 700; font-size: 13px; letter-spacing: .04em;
+      padding: 10px 20px; border-radius: var(--r-full);
+      transition: all .25s var(--ease-out);
+      box-shadow: 0 0 0 0 rgba(212,244,60,0);
+    }
+    .btn-cta:hover {
+      background: var(--acid-dim);
+      transform: translateY(-1px);
+      box-shadow: 0 0 24px rgba(212,244,60,.35);
+    }
+    .btn-cta:active { transform: translateY(0); }
+
+    /* Mobile menu btn */
+    #mob-menu-btn {
+      display: flex; flex-direction: column; gap: 5px;
+      width: 40px; height: 40px; padding: 10px;
+      justify-content: center;
+    }
+    .hamburger-line {
+      display: block; height: 1.5px;
+      background: var(--white);
+      transition: all .3s var(--ease-out);
+      transform-origin: center;
+    }
+    #mob-menu-btn.open .hamburger-line:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    #mob-menu-btn.open .hamburger-line:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    #mob-menu-btn.open .hamburger-line:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    @media (min-width: 768px) { #mob-menu-btn { display: none; } }
+
+    /* Mobile Nav Drawer */
+    #mobile-nav {
+      position: fixed; top: 68px; left: 0; right: 0; bottom: 0;
+      background: var(--ink);
+      z-index: 99;
+      display: flex; flex-direction: column;
+      padding: 40px 24px 60px;
+      gap: 8px;
+      transform: translateX(-100%);
+      transition: transform .4s var(--ease-out);
+    }
+    #mobile-nav.open { transform: translateX(0); }
+
+    .mob-nav-link {
+      font-family: var(--ff-display);
+      font-size: 52px; letter-spacing: .02em;
+      color: var(--ink-4);
+      border-bottom: 1px solid var(--ink-3);
+      padding: 12px 0;
+      transition: color .2s, padding-left .3s var(--ease-out);
+    }
+    .mob-nav-link:hover { color: var(--acid); padding-left: 12px; }
+
+    @media (min-width: 768px) { #mobile-nav { display: none; } }
+
+    /* ===================================================
+       HERO SECTION
+    =================================================== */
+    #hero {
+      min-height: 100svh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding-top: 68px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 80%, rgba(212,244,60,.06) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 90% 20%, var(--glow-light) 0%, transparent 60%),
+        var(--ink);
+    }
+
+    /* Decorative grid lines */
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 80%);
+    }
+
+    /* Ticker bar */
+    .hero-ticker {
+      position: absolute; top: 88px; left: 0; right: 0;
+      overflow: hidden;
+      border-top: 1px solid var(--ink-3);
+      border-bottom: 1px solid var(--ink-3);
+      padding: 10px 0;
+    }
+
+    .ticker-track {
+      display: flex; gap: 0;
+      animation: ticker 18s linear infinite;
+      width: max-content;
+    }
+
+    .ticker-item {
+      display: flex; align-items: center; gap: 16px;
+      padding: 0 32px;
+      font-family: var(--ff-mono); font-size: 10px;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--smoke); white-space: nowrap;
+    }
+
+    .ticker-item span { color: var(--acid); }
+
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* Hero content */
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 60px 0 80px;
+    }
+
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .hero-line {
+      flex: 0 0 40px; height: 1px;
+      background: var(--acid);
+    }
+
+    .hero-title {
+      font-family: var(--ff-display);
+      font-size: clamp(72px, 14vw, 180px);
+      line-height: .92;
+      letter-spacing: -.01em;
+      color: var(--white);
+      margin-bottom: 40px;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--stroke-color);
+    }
+
+    .hero-title .acid-word {
+      color: var(--acid);
+      -webkit-text-stroke: 0;
+    }
+
+    .hero-body-row {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-body-row {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      color: var(--smoke);
+      max-width: 380px;
+      line-height: 1.75;
+    }
+
+    .hero-cta-group {
+      display: flex; align-items: center; gap: 16px;
+      flex-shrink: 0;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--acid); color: var(--ink);
+      font-weight: 700; font-size: 14px; letter-spacing: .05em; text-transform: uppercase;
+      padding: 16px 32px; border-radius: var(--r-full);
+      transition: all .3s var(--ease-out);
+      box-shadow: 0 0 0 0 rgba(212,244,60,0);
+      position: relative; overflow: hidden;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--btn-hover);
+      transform: translateX(-100%);
+      transition: transform .4s var(--ease-out);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(212,244,60,.4);
+    }
+    .btn-primary:hover::before { transform: translateX(0); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: var(--smoke);
+      font-weight: 500; font-size: 14px;
+      padding: 16px 0;
+      transition: color .2s;
+    }
+    .btn-ghost i { transition: transform .3s var(--ease-out); }
+    .btn-ghost:hover { color: var(--white); }
+    .btn-ghost:hover i { transform: translateX(4px); }
+
+    /* Hero scroll indicator */
+    .hero-scroll {
+      position: absolute; bottom: 32px; right: 48px;
+      display: flex; align-items: center; gap: 12px;
+      font-family: var(--ff-mono); font-size: 9px;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: var(--fog);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+    .hero-scroll::before {
+      content: '';
+      flex: 0 0 40px; height: 1px;
+      background: currentColor;
+    }
+
+    /* ===================================================
+       MARQUEE STRIP (between sections)
+    =================================================== */
+    .marquee-strip {
+      overflow: hidden;
+      border-top: 1px solid var(--ink-3);
+      border-bottom: 1px solid var(--ink-3);
+      padding: 14px 0;
+      background: var(--ink-2);
+    }
+
+    .marquee-track {
+      display: flex; gap: 0;
+      width: max-content;
+      animation: ticker 22s linear infinite;
+    }
+
+    .marquee-item {
+      display: flex; align-items: center; gap: 24px;
+      padding: 0 32px;
+      font-family: var(--ff-display);
+      font-size: 26px; letter-spacing: .06em;
+      color: var(--fog);
+      white-space: nowrap;
+    }
+
+    .marquee-item .dot {
+      width: 6px; height: 6px;
+      background: var(--acid); border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ===================================================
+       SECTION HEADER (shared)
+    =================================================== */
+    .section-header {
+      display: flex; flex-direction: column;
+      gap: 12px;
+      margin-bottom: 56px;
+    }
+
+    @media (min-width: 768px) {
+      .section-header {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+    }
+
+    .section-eyebrow {
+      font-family: var(--ff-mono); font-size: 10px;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: var(--acid); margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: .95;
+      letter-spacing: .01em;
+      color: var(--white);
+    }
+
+    .section-desc {
+      font-size: 14px; color: var(--smoke);
+      max-width: 340px; line-height: 1.7;
+    }
+
+    /* ===================================================
+       CATEGORY TABS
+    =================================================== */
+    .tab-bar {
+      display: flex; align-items: center; gap: 8px;
+      overflow-x: auto; padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .tab-bar::-webkit-scrollbar { display: none; }
+
+    .tab-pill {
+      flex-shrink: 0;
+      font-family: var(--ff-mono); font-size: 11px;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--smoke);
+      background: var(--ink-3);
+      border: 1px solid var(--ink-4);
+      padding: 8px 20px; border-radius: var(--r-full);
+      transition: all .25s var(--ease-out);
+    }
+    .tab-pill:hover { color: var(--white); border-color: var(--fog); }
+    .tab-pill.active {
+      background: var(--acid); color: var(--ink);
+      border-color: var(--acid);
+      font-weight: 700;
+    }
+
+    /* ===================================================
+       PRODUCTS SECTION
+    =================================================== */
+    #products {
+      padding: 96px 0;
+      background: var(--ink);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) { .product-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+    @media (min-width: 1024px) { .product-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    /* Product card */
+    .product-card {
+      background: var(--ink-2);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid var(--ink-3);
+      cursor: pointer;
+      transition: border-color .3s, transform .3s var(--ease-out), box-shadow .3s;
+      display: flex; flex-direction: column;
+    }
+    .product-card:hover {
+      border-color: rgba(212,244,60,.4);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,.4);
+    }
+
+    .product-img-wrap {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: var(--ink-3);
+    }
+
+    .product-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .7s var(--ease-out), opacity .5s;
+    }
+
+    .product-img.back {
+      opacity: 0;
+      transform: scale(1.06);
+    }
+
+    .product-card:hover .product-img.front { opacity: 0; transform: scale(1.04); }
+    .product-card:hover .product-img.back  { opacity: 1; transform: scale(1); }
+
+    .product-badge {
+      position: absolute; top: 12px; left: 12px; z-index: 2;
+      font-family: var(--ff-mono); font-size: 9px;
+      font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      background: var(--acid); color: var(--ink);
+      padding: 4px 10px; border-radius: var(--r-sm);
+    }
+
+    .product-overlay {
+      position: absolute; inset: 0; z-index: 3;
+      background: rgba(10,10,10,.5);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+      transition: opacity .3s;
+    }
+    .product-card:hover .product-overlay { opacity: 1; }
+
+    .overlay-btn {
+      background: var(--acid); color: var(--ink);
+      font-family: var(--ff-mono); font-size: 11px;
+      font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: 12px 28px; border-radius: var(--r-full);
+      transform: translateY(12px);
+      transition: transform .35s var(--ease-out), box-shadow .3s;
+      box-shadow: 0 0 0 0 rgba(212,244,60,0);
+    }
+    .product-card:hover .overlay-btn {
+      transform: translateY(0);
+      box-shadow: 0 0 20px rgba(212,244,60,.4);
+    }
+
+    .product-info {
+      padding: 16px;
+      flex: 1;
+      display: flex; flex-direction: column;
+      gap: 6px;
+    }
+
+    .product-cat {
+      font-family: var(--ff-mono); font-size: 9px;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--smoke);
+    }
+
+    .product-name {
+      font-size: 14px; font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .product-price {
+      font-family: var(--ff-mono); font-size: 15px; font-weight: 700;
+      color: var(--acid);
+      margin-top: auto; padding-top: 10px;
+    }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center; padding: 80px 0;
+      color: var(--fog);
+      font-family: var(--ff-mono); font-size: 12px;
+      letter-spacing: .12em; text-transform: uppercase;
+    }
+
+    /* ===================================================
+       ABOUT SECTION
+    =================================================== */
+    #about {
+      padding: 96px 0;
+      background: var(--ink-2);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 64px;
+    }
+
+    @media (min-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+      }
+    }
+
+    .about-img-frame {
+      position: relative;
+    }
+
+    .about-img-frame::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: var(--r-lg);
+      background: linear-gradient(135deg, rgba(212,244,60,.5), transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .about-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: var(--r-lg);
+      filter: grayscale(30%);
+      transition: filter .6s;
+      position: relative; z-index: 1;
+    }
+    .about-img:hover { filter: grayscale(0%); }
+
+    /* Floating badge on image */
+    .about-float-badge {
+      position: absolute;
+      bottom: -20px; right: -20px; z-index: 2;
+      background: var(--ink-3);
+      border: 1px solid var(--ink-4);
+      border-radius: var(--r-lg);
+      padding: 20px 24px;
+      display: flex; flex-direction: column; gap: 4px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.4);
+    }
+
+    .float-badge-number {
+      font-family: var(--ff-display);
+      font-size: 42px; line-height: 1;
+      color: var(--acid);
+    }
+
+    .float-badge-label {
+      font-family: var(--ff-mono); font-size: 10px;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--smoke);
+    }
+
+    .about-text-content { display: flex; flex-direction: column; gap: 32px; }
+
+    .about-body {
+      font-size: 15px; color: var(--smoke);
+      line-height: 1.85;
+    }
+
+    .stats-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .stat-box {
+      background: var(--ink-3);
+      border: 1px solid var(--ink-4);
+      border-radius: var(--r-lg);
+      padding: 20px;
+      transition: border-color .3s;
+    }
+    .stat-box:hover { border-color: rgba(212,244,60,.3); }
+
+    .stat-number {
+      font-family: var(--ff-display);
+      font-size: 42px; line-height: 1;
+      color: var(--acid);
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-family: var(--ff-mono); font-size: 10px;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--smoke);
+    }
+
+    .values-list {
+      display: flex; flex-direction: column; gap: 12px;
+    }
+
+    .value-item {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 14px; color: var(--smoke);
+      padding: 14px 16px;
+      background: var(--ink-3);
+      border-radius: var(--r-md);
+      border: 1px solid var(--ink-4);
+    }
+
+    .value-icon {
+      width: 32px; height: 32px; flex-shrink: 0;
+      background: rgba(212,244,60,.1);
+      border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; color: var(--acid);
+    }
+
+    /* ===================================================
+       TERMS SECTION
+    =================================================== */
+    #snk {
+      padding: 96px 0;
+      background: var(--ink);
+    }
+
+    .snk-header { margin-bottom: 56px; }
+
+    .snk-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) { .snk-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .snk-card {
+      background: var(--ink-2);
+      border: 1px solid var(--ink-3);
+      border-radius: var(--r-lg);
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .3s, transform .3s var(--ease-out);
+    }
+    .snk-card:hover {
+      border-color: rgba(212,244,60,.3);
+      transform: translateY(-4px);
+    }
+
+    .snk-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--acid), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .snk-card:hover::before { opacity: 1; }
+
+    .snk-number {
+      font-family: var(--ff-display); font-size: 60px; line-height: 1;
+      color: var(--ink-4);
+      margin-bottom: 20px;
+      transition: color .3s;
+    }
+    .snk-card:hover .snk-number { color: rgba(212,244,60,.15); }
+
+    .snk-icon {
+      width: 44px; height: 44px;
+      background: rgba(212,244,60,.08);
+      border: 1px solid rgba(212,244,60,.2);
+      border-radius: var(--r-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: var(--acid);
+      margin-bottom: 20px;
+    }
+
+    .snk-title {
+      font-weight: 700; font-size: 16px; color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .snk-body {
+      font-size: 13px; color: var(--smoke); line-height: 1.75;
+    }
+
+    /* ===================================================
+       FOOTER
+    =================================================== */
+    #footer {
+      background: var(--ink-2);
+      border-top: 1px solid var(--ink-3);
+      padding: 72px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      margin-bottom: 64px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid { grid-template-columns: 2fr 1fr 1fr; gap: 32px; }
+    }
+
+    .footer-brand-desc {
+      font-size: 14px; color: var(--smoke);
+      line-height: 1.75; max-width: 300px;
+      margin: 16px 0 24px;
+    }
+
+    .social-row { display: flex; gap: 10px; }
+
+    .social-btn {
+      width: 38px; height: 38px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: var(--r-md);
+      background: var(--ink-3);
+      border: 1px solid var(--ink-4);
+      color: var(--smoke); font-size: 14px;
+      transition: all .2s;
+    }
+    .social-btn:hover { background: var(--acid); color: var(--ink); border-color: var(--acid); }
+
+    .footer-col-title {
+      font-family: var(--ff-mono); font-size: 10px;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: var(--white); margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 14px; color: var(--smoke);
+      transition: color .2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .footer-links a::before {
+      content: '';
+      width: 0; height: 1px; background: var(--acid);
+      transition: width .25s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-links a:hover::before { width: 12px; }
+
+    .footer-contact-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 13px; color: var(--smoke);
+      margin-bottom: 14px; line-height: 1.6;
+    }
+    .footer-contact-item i { color: var(--acid); margin-top: 2px; flex-shrink: 0; }
+
+    .footer-bottom {
+      border-top: 1px solid var(--ink-3);
+      padding-top: 28px;
+      display: flex; flex-direction: column;
+      gap: 8px;
+      align-items: center; text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+
+    .footer-copy {
+      font-family: var(--ff-mono); font-size: 11px;
+      color: var(--fog); letter-spacing: .06em;
+    }
+
+    /* ===================================================
+       DETAIL MODAL
+    =================================================== */
+    .modal-backdrop {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,.85);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+    }
+    .modal-backdrop.open { opacity: 1; pointer-events: all; }
+
+    .modal-box {
+      background: var(--ink-2);
+      border: 1px solid var(--ink-3);
+      border-radius: var(--r-lg);
+      width: 100%; max-width: 900px;
+      max-height: 90svh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: scale(.96) translateY(16px);
+      transition: transform .35s var(--ease-out);
+    }
+
+    .modal-backdrop.open .modal-box { transform: scale(1) translateY(0); }
+
+    @media (min-width: 640px) {
+      .modal-box { flex-direction: row; }
+    }
+
+    /* Modal left: image slider */
+    .modal-slider {
+      position: relative;
+      flex-shrink: 0;
+      background: var(--ink-3);
+    }
+
+    @media (min-width: 640px) { .modal-slider { width: 46%; } }
+
+    .modal-slider-inner {
+      aspect-ratio: 1;
+      position: relative; overflow: hidden;
+      width: 100%;
+    }
+
+    .modal-slide-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity .4s var(--ease-out), transform .5s var(--ease-out);
+      transform: scale(1.02);
+    }
+    .modal-slide-img.active { opacity: 1; transform: scale(1); }
+
+    .slide-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 36px; height: 36px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--glass-icon);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+      opacity: 0;
+      transition: opacity .2s, background .2s, border-color .2s;
+      z-index: 5;
+    }
+    .slide-nav:hover { background: var(--acid); color: var(--ink); border-color: var(--acid); }
+    .slide-nav-prev { left: 12px; }
+    .slide-nav-next { right: 12px; }
+    .modal-slider:hover .slide-nav { opacity: 1; }
+
+    .slide-dots {
+      position: absolute; bottom: 12px; left: 0; right: 0;
+      display: flex; justify-content: center; gap: 6px; z-index: 5;
+    }
+
+    .slide-dot {
+      height: 4px; border-radius: 99px;
+      background: var(--dot-bg);
+      transition: width .3s var(--ease-out), background .3s;
+      width: 8px;
+    }
+    .slide-dot.active { background: var(--acid); width: 24px; }
+
+    /* Modal right: product details */
+    .modal-info {
+      flex: 1;
+      display: flex; flex-direction: column;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--fog) transparent;
+    }
+
+    .modal-close {
+      position: absolute; top: 16px; right: 16px; z-index: 10;
+      width: 36px; height: 36px;
+      background: var(--glass-bg); 
+      color: var(--glass-icon);
+      border: 1px solid var(--glass-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      transition: background .2s, color .2s;
+    }
+    .modal-close:hover { background: var(--acid); color: var(--ink); }
+
+    .modal-info-header {
+      padding: 28px 28px 0;
+      position: sticky; top: 0;
+      background: var(--ink-2);
+      z-index: 2;
+    }
+
+    .modal-info-body { padding: 20px 28px; flex: 1; }
+
+    .modal-info-footer {
+      padding: 20px 28px;
+      border-top: 1px solid var(--ink-3);
+      position: sticky; bottom: 0;
+      background: var(--ink-2);
+    }
+
+    .modal-cat {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--ff-mono); font-size: 10px;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--acid);
+      background: rgba(212,244,60,.08);
+      border: 1px solid rgba(212,244,60,.2);
+      padding: 4px 12px; border-radius: var(--r-full);
+      margin-bottom: 10px;
+    }
+
+    .modal-title {
+      font-family: var(--ff-display); font-size: clamp(28px, 4vw, 38px);
+      line-height: .95; letter-spacing: .01em;
+      color: var(--white); margin-bottom: 10px;
+    }
+
+    .modal-price {
+      font-family: var(--ff-mono); font-size: 22px; font-weight: 700;
+      color: var(--acid);
+    }
+
+    .modal-divider {
+      height: 1px; background: var(--ink-3);
+      margin: 20px 0;
+    }
+
+    .detail-label {
+      font-family: var(--ff-mono); font-size: 10px;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--smoke); margin-bottom: 12px;
+    }
+
+    .modal-desc {
+      font-size: 13px; color: var(--smoke);
+      line-height: 1.8; white-space: pre-line;
+      background: var(--ink-3);
+      border-radius: var(--r-md);
+      padding: 16px 18px;
+      border: 1px solid var(--ink-4);
+    }
+
+    .sizes-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .size-chip {
+      font-family: var(--ff-mono); font-size: 12px; font-weight: 700;
+      color: var(--smoke);
+      background: var(--ink-3);
+      border: 1px solid var(--ink-4);
+      padding: 7px 16px; border-radius: var(--r-sm);
+      letter-spacing: .06em;
+      transition: all .15s;
+    }
+    .size-chip:hover { color: var(--white); border-color: var(--fog); }
+
+    .btn-proceed {
+      width: 100%;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--acid); color: var(--ink);
+      font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase;
+      padding: 16px 24px; border-radius: var(--r-md);
+      transition: all .25s var(--ease-out);
+    }
+    .btn-proceed:hover {
+      background: var(--acid-dim);
+      box-shadow: 0 8px 24px rgba(212,244,60,.35);
+      transform: translateY(-1px);
+    }
+
+    /* ===================================================
+       CHECKOUT MODAL
+    =================================================== */
+    #checkout-modal.modal-backdrop { z-index: 210; }
+
+    .checkout-box {
+      background: var(--ink-2);
+      border: 1px solid var(--ink-3);
+      border-radius: var(--r-lg);
+      width: 100%; max-width: 460px;
+      max-height: 90svh;
+      display: flex; flex-direction: column;
+      overflow: hidden;
+      transform: scale(.96) translateY(16px);
+      transition: transform .35s var(--ease-out);
+    }
+    .modal-backdrop.open .checkout-box { transform: scale(1) translateY(0); }
+
+    .checkout-header {
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--ink-3);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .checkout-title {
+      font-family: var(--ff-display); font-size: 20px;
+      letter-spacing: .05em; color: var(--white);
+    }
+
+    .checkout-body {
+      padding: 24px;
+      overflow-y: auto;
+      flex: 1;
+      scrollbar-width: thin;
+      scrollbar-color: var(--fog) transparent;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+
+    /* Product summary in checkout */
+    .checkout-product {
+      display: flex; gap: 14px;
+      background: var(--ink-3);
+      border-radius: var(--r-md);
+      border: 1px solid var(--ink-4);
+      padding: 12px;
+    }
+
+    .checkout-product-img {
+      width: 60px; height: 60px; flex-shrink: 0;
+      object-fit: cover;
+      border-radius: var(--r-sm);
+    }
+
+    .checkout-product-name {
+      font-size: 13px; font-weight: 600; color: var(--white);
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+      overflow: hidden; line-height: 1.4;
+    }
+
+    .checkout-product-price {
+      font-family: var(--ff-mono); font-size: 14px;
+      font-weight: 700; color: var(--acid); margin-top: 4px;
+    }
+
+    /* Form fields */
+    .form-group { display: flex; flex-direction: column; gap: 7px; }
+
+    .form-label {
+      font-family: var(--ff-mono); font-size: 10px;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--smoke);
+    }
+
+    .form-required { color: var(--red); }
+
+    .form-select, .form-textarea {
+      width: 100%;
+      background: var(--ink-3);
+      border: 1px solid var(--ink-4);
+      border-radius: var(--r-md);
+      color: var(--white);
+      font-family: var(--ff-body); font-size: 14px;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-select:focus, .form-textarea:focus {
+      border-color: var(--acid);
+      box-shadow: 0 0 0 3px rgba(212,244,60,.12);
+    }
+
+    .form-select.error, .form-textarea.error {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(255,51,51,.1);
+    }
+
+    .form-textarea { resize: vertical; min-height: 90px; }
+
+    /* Rekening info */
+    .bank-info {
+      background: var(--ink-3);
+      border: 1px solid var(--ink-4);
+      border-radius: var(--r-md);
+      padding: 16px;
+    }
+
+    .bank-info-header {
+      font-family: var(--ff-mono); font-size: 10px;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--white); margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .bank-info-header i { color: var(--acid); }
+
+    .bank-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 8px 0;
+      font-size: 13px; color: var(--smoke);
+    }
+
+    .bank-row:not(:last-child) { border-bottom: 1px solid var(--ink-4); }
+
+    .bank-name { font-weight: 600; color: var(--white); }
+
+    .bank-copy-btn {
+      font-family: var(--ff-mono); font-size: 9px;
+      letter-spacing: .1em; text-transform: uppercase;
+      background: var(--ink-4); color: var(--smoke);
+      padding: 3px 8px; border-radius: 4px;
+      transition: all .2s;
+    }
+    .bank-copy-btn:hover { background: var(--acid); color: var(--ink); }
+
+    /* Warning box */
+    .warning-box {
+      background: rgba(255,51,51,.06);
+      border: 1px solid rgba(255,51,51,.2);
+      border-radius: var(--r-md);
+      padding: 14px 16px;
+      display: flex; gap: 10px;
+      font-size: 12px; 
+      color: var(--warning-text);
+      line-height: 1.6;
+    }
+    .warning-box i { color: var(--red); margin-top: 1px; flex-shrink: 0; }
+
+    .checkout-footer {
+      padding: 16px 24px;
+      border-top: 1px solid var(--ink-3);
+      display: flex; gap: 10px;
+    }
+
+    .btn-back {
+      flex: 0 0 auto;
+      display: flex; align-items: center; justify-content: center;
+      padding: 14px 20px;
+      background: var(--ink-3);
+      border: 1px solid var(--ink-4);
+      border-radius: var(--r-md);
+      color: var(--smoke); font-size: 13px; font-weight: 600;
+      transition: all .2s;
+    }
+    .btn-back:hover { color: var(--white); border-color: var(--fog); }
+
+    .btn-wa {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--acid); color: var(--ink);
+      font-weight: 700; font-size: 13px; letter-spacing: .04em;
+      padding: 14px; border-radius: var(--r-md);
+      transition: all .25s var(--ease-out);
+    }
+    .btn-wa:hover { background: var(--acid-dim); box-shadow: 0 6px 20px rgba(212,244,60,.3); }
+
+    /* ===================================================
+       ENTRANCE ANIMATIONS
+    =================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
+
+    /* ===================================================
+       WHATSAPP FLOAT
+    =================================================== */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 150;
+      width: 54px; height: 54px;
+      background: #25D366; color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 6px 24px rgba(37,211,102,.4);
+      transition: all .3s var(--ease-out);
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(37,211,102,.5); }
+    .wa-float::before {
+      content: '';
+      position: absolute; inset: -4px;
+      border-radius: 50%;
+      background: rgba(37,211,102,.2);
+      animation: wa-ring 2.5s ease-in-out infinite;
+    }
+    @keyframes wa-ring { 0%, 100% { transform: scale(1); opacity: .7; } 50% { transform: scale(1.3); opacity: 0; } }
+
+    /* ===================================================
+       LIGHT MODE overrides for form elements
+    =================================================== */
+    .light .form-select,
+    .light .form-textarea {
+      color: #0a0a0a;
+    }
+
+    .light .form-select option { background: #ece9e2; color: #0a0a0a; }
+  </style>
+</head>
+<body>
+
+  <!-- ======================================
+       NAVBAR
+  ======================================= -->
+  <header id="navbar">
+    <div class="container">
+      <nav class="nav-inner">
+
+        <a href="#hero" class="nav-logo">
+          <div class="logo-dot"></div>
+          APPAREL<span>STORE</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#products">Koleksi</a></li>
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#snk">S&K</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="btn-icon" id="theme-toggle" title="Ganti Tema" aria-label="Ganti tema warna">
+            <i class="fas fa-moon" id="theme-icon"></i>
+          </button>
+          <a href="https://wa.me/6285156020119?text=Halo%20Admin%20ApparelStore" target="_blank" class="btn-cta" style="display:none;" id="nav-wa-btn">
+            <i class="fab fa-whatsapp"></i> Support
+          </a>
+          <button id="mob-menu-btn" aria-label="Buka menu navigasi">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav id="mobile-nav" aria-label="Mobile navigation">
+    <a href="#hero"     class="mob-nav-link" data-mob-link>Home</a>
+    <a href="#products" class="mob-nav-link" data-mob-link>Koleksi</a>
+    <a href="#about"    class="mob-nav-link" data-mob-link>Tentang</a>
+    <a href="#snk"      class="mob-nav-link" data-mob-link>S&K</a>
+    <a href="https://wa.me/6285156020119" target="_blank" class="mob-nav-link" style="color:var(--acid)">
+      <i class="fab fa-whatsapp"></i> Chat Admin
+    </a>
+  </nav>
+
+
+  <!-- ======================================
+       HERO
+  ======================================= -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+
+    <!-- Ticker -->
+    <div class="hero-ticker" aria-hidden="true">
+      <div class="ticker-track" id="ticker-track">
+        <!-- JS will duplicate items -->
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="hero-eyebrow reveal">
+          <div class="hero-line"></div>
+          <span class="tag">🔥 Hot Drop — 2026 Collection</span>
+        </div>
+
+        <h1 class="hero-title reveal reveal-delay-1">
+          TAMPIL<br>
+          <em>TANPA</em><br>
+          <span class="acid-word">KOMPROMI.</span>
+        </h1>
+
+        <div class="hero-body-row reveal reveal-delay-2">
+          <p class="hero-desc">
+            Streetwear lokal premium. Didesain untuk yang berani tampil beda, tanpa harus merogoh kantong dalam-dalam.
+          </p>
+          <div class="hero-cta-group">
+            <a href="#products" class="btn-primary">
+              Lihat Koleksi <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#about" class="btn-ghost">
+              Tentang Kami <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">Scroll Down</div>
+  </section>
+
+
+  <!-- ======================================
+       MARQUEE
+  ======================================= -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track" id="marquee-track"></div>
+  </div>
+
+
+  <!-- ======================================
+       PRODUCTS
+  ======================================= -->
+  <section id="products">
+    <div class="container">
+
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow reveal">Koleksi</p>
+          <h2 class="section-title reveal reveal-delay-1">Drop<br>Terbaru.</h2>
+        </div>
+        <div class="tab-bar reveal reveal-delay-2" id="tab-bar" role="tablist">
+          <button class="tab-pill active" data-cat="semua" role="tab" aria-selected="true">Semua</button>
+          <button class="tab-pill" data-cat="kaos"   role="tab" aria-selected="false">Kaos</button>
+          <button class="tab-pill" data-cat="celana" role="tab" aria-selected="false">Celana</button>
+          <button class="tab-pill" data-cat="outer"  role="tab" aria-selected="false">Outer</button>
+        </div>
+      </div>
+
+      <div class="product-grid" id="product-grid" role="list">
+        <!-- Rendered by JS -->
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       MARQUEE 2 (reverse)
+  ======================================= -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track" id="marquee-track-2" style="animation-direction:reverse;animation-duration:28s;"></div>
+  </div>
+
+
+  <!-- ======================================
+       ABOUT
+  ======================================= -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Left: Image -->
+        <div class="about-img-frame reveal">
+          <img
+            src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80"
+            alt="Workshop ApparelStore"
+            class="about-img"
+            loading="lazy"
+          >
+          <div class="about-float-badge">
+            <span class="float-badge-number">10K+</span>
+            <span class="float-badge-label">Item Terjual</span>
+          </div>
+        </div>
+
+        <!-- Right: Text -->
+        <div class="about-text-content">
+
+          <div class="reveal">
+            <p class="section-eyebrow">Tentang Kami</p>
+            <h2 class="section-title">Identity<br><span style="color:var(--acid);">&</span><br>Quality.</h2>
+          </div>
+
+          <p class="about-body reveal reveal-delay-1">
+            Berdiri sejak 2026, ApparelStore hadir untuk meredefinisi gaya urban lokal.
+            Kami percaya streetwear berkualitas tinggi tidak harus datang dengan harga yang tidak masuk akal.
+            Setiap helai kain, setiap jahitan — dikerjakan dengan presisi dan dikontrol secara lokal.
+          </p>
+
+          <div class="stats-row reveal reveal-delay-2">
+            <div class="stat-box">
+              <div class="stat-number">10K+</div>
+              <div class="stat-label">Produk Terjual</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Quality Assured</div>
+            </div>
+          </div>
+
+          <div class="values-list reveal reveal-delay-3">
+            <div class="value-item">
+              <div class="value-icon"><i class="fas fa-leaf"></i></div>
+              Bahan premium lokal, dipilih dengan standar tinggi
+            </div>
+            <div class="value-item">
+              <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+              Setiap produk melewati quality control ketat
+            </div>
+            <div class="value-item">
+              <div class="value-icon"><i class="fas fa-bolt"></i></div>
+              Pengiriman cepat ke seluruh Indonesia
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       TERMS & CONDITIONS
+  ======================================= -->
+  <section id="snk">
+    <div class="container">
+
+      <div class="snk-header section-header" style="margin-bottom:56px;">
+        <div>
+          <p class="section-eyebrow reveal">Informasi Penting</p>
+          <h2 class="section-title reveal reveal-delay-1">Syarat &amp;<br>Ketentuan.</h2>
+        </div>
+        <p class="section-desc reveal reveal-delay-2">
+          Baca baik-baik sebelum memesan. Kami ingin pengalaman belanjamu selalu menyenangkan.
+        </p>
+      </div>
+
+      <div class="snk-grid">
+
+        <div class="snk-card reveal">
+          <div class="snk-number">01</div>
+          <div class="snk-icon"><i class="fas fa-box"></i></div>
+          <h3 class="snk-title">Pemesanan &amp; Pengiriman</h3>
+          <p class="snk-body">
+            Pesanan diproses pada hari kerja Senin–Jumat.
+            Konfirmasi pembayaran setelah pukul 15.00 WIB akan diproses hari kerja berikutnya.
+            Nomor resi dikirim via WhatsApp setelah barang dikirim.
+          </p>
+        </div>
+
+        <div class="snk-card reveal reveal-delay-1">
+          <div class="snk-number">02</div>
+          <div class="snk-icon"><i class="fas fa-money-bill-wave"></i></div>
+          <h3 class="snk-title">Pembayaran Manual</h3>
+          <p class="snk-body">
+            Pembayaran dilakukan via transfer ke rekening resmi.
+            Pelanggan <strong style="color:var(--acid);">wajib melampirkan foto bukti transfer</strong>
+            melalui WhatsApp untuk verifikasi pesanan.
+          </p>
+        </div>
+
+        <div class="snk-card reveal reveal-delay-2">
+          <div class="snk-number">03</div>
+          <div class="snk-icon"><i class="fas fa-undo"></i></div>
+          <h3 class="snk-title">Retur Barang</h3>
+          <p class="snk-body">
+            Retur diterima maksimal 2×24 jam setelah barang diterima,
+            khusus untuk cacat produksi yang terbukti.
+            Wajib melampirkan video unboxing yang lengkap dan tidak terpotong.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       FOOTER
+  ======================================= -->
+  <footer id="footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <!-- Brand -->
+        <div>
+          <a href="#hero" class="nav-logo" style="font-size:22px;">
+            <div class="logo-dot"></div>
+            APPAREL<span>STORE</span>
+          </a>
+          <p class="footer-brand-desc">
+            Elevating your daily wear. Premium local streetwear brand designed for comfort and hype.
+            Proudly made in Indonesia.
+          </p>
+          <div class="social-row">
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/6285156020119" target="_blank" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Nav -->
+        <div>
+          <h4 class="footer-col-title">Navigasi</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#products">Koleksi Produk</a></li>
+            <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#snk">Syarat &amp; Ketentuan</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="footer-col-title">Hubungi Kami</h4>
+          <div class="footer-contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <span>+62 851-5602-0119</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>support@apparelstore.id</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Sukabumi, Jawa Barat, Indonesia</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 ApparelStore. All rights reserved.</p>
+        <p class="footer-copy">Designed &amp; Built in Indonesia 🇮🇩</p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ======================================
+       WA FLOAT
+  ======================================= -->
+  <a href="https://wa.me/6285156020119?text=Halo%20Admin" target="_blank" class="wa-float" aria-label="Chat via WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+
+  <!-- ======================================
+       DETAIL MODAL
+  ======================================= -->
+  <div class="modal-backdrop" id="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+
+    <div class="modal-box" id="detail-box">
+
+      <!-- Image slider -->
+      <div class="modal-slider" id="modal-slider">
+        <div class="modal-slider-inner" id="modal-slider-inner">
+          <!-- Slides rendered by JS -->
+        </div>
+        <button class="slide-nav slide-nav-prev" id="slide-prev" aria-label="Foto sebelumnya">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slide-nav slide-nav-next" id="slide-next" aria-label="Foto berikutnya">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="slide-dots" id="slide-dots"></div>
+        <button class="modal-close" id="detail-close-mobile" style="display:none;" aria-label="Tutup modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <!-- Info panel -->
+      <div class="modal-info">
+
+        <div class="modal-info-header">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">
+            <div>
+              <div class="modal-cat" id="modal-cat">Kategori</div>
+              <h2 class="modal-title" id="modal-title">Nama Produk</h2>
+              <div class="modal-price" id="modal-price">Rp 0</div>
+            </div>
+            <button class="modal-close" id="detail-close" aria-label="Tutup modal" style="position:static;flex-shrink:0;margin-top:4px;">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="modal-info-body">
+          <div class="modal-divider"></div>
+          <p class="detail-label">Deskripsi Produk</p>
+          <p class="modal-desc" id="modal-desc">—</p>
+          <div style="height:24px;"></div>
+          <p class="detail-label">Pilihan Ukuran</p>
+          <div class="sizes-row" id="modal-sizes"></div>
+        </div>
+
+        <div class="modal-info-footer">
+          <button class="btn-proceed" id="btn-proceed">
+            Pesan Sekarang <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================
+       CHECKOUT MODAL
+  ======================================= -->
+  <div class="modal-backdrop" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-heading">
+
+    <div class="checkout-box" id="checkout-box">
+
+      <div class="checkout-header">
+        <h3 class="checkout-title" id="checkout-heading">Form Pesanan</h3>
+        <button class="btn-icon" id="checkout-close" aria-label="Tutup form pesanan">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="checkout-body">
+
+        <!-- Product info -->
+        <div class="checkout-product">
+          <img src="" alt="" class="checkout-product-img" id="co-img">
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+            <div class="checkout-product-name" id="co-name">Nama Produk</div>
+            <div class="checkout-product-price" id="co-price">Rp 0</div>
+          </div>
+        </div>
+
+        <!-- Size -->
+        <div class="form-group">
+          <label for="co-size" class="form-label">Ukuran <span class="form-required">*</span></label>
+          <select id="co-size" class="form-select">
+            <option value="" disabled selected>— Pilih Ukuran —</option>
+          </select>
+        </div>
+
+        <!-- Address -->
+        <div class="form-group">
+          <label for="co-address" class="form-label">Alamat Pengiriman <span class="form-required">*</span></label>
+          <textarea id="co-address" class="form-textarea"
+            placeholder="Nama Jalan, Kelurahan, Kecamatan, Kota, Kode Pos…"
+            rows="3"></textarea>
+        </div>
+
+        <!-- Bank info -->
+        <div class="bank-info">
+          <div class="bank-info-header">
+            <i class="fas fa-university"></i> Transfer Bank Resmi
+          </div>
+          <div class="bank-row">
+            <span><strong class="bank-name">BCA</strong> — 1234567890</span>
+            <button class="bank-copy-btn" data-copy="1234567890">Salin</button>
+          </div>
+          <div class="bank-row">
+            <span><strong class="bank-name">Mandiri</strong> — 0987654321</span>
+            <button class="bank-copy-btn" data-copy="0987654321">Salin</button>
+          </div>
+        </div>
+
+        <!-- Warning -->
+        <div class="warning-box">
+          <i class="fas fa-exclamation-triangle"></i>
+          <span>
+            <strong>Penting:</strong> Setelah klik "Pesan via WA", Anda <strong>wajib melampirkan foto bukti transfer</strong> secara manual di dalam chat WhatsApp!
+          </span>
+        </div>
+
+      </div>
+
+      <div class="checkout-footer">
+        <button class="btn-back" id="co-btn-back">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <button class="btn-wa" id="co-btn-confirm">
+          <i class="fab fa-whatsapp" style="font-size:18px;"></i> Pesan via WA
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ======================================
+       JAVASCRIPT
+  ======================================= -->
+  <script>
+    /* ================================================
+       CONFIG
+    ================================================ */
+    const WA_NUMBER = "6285156020119";
+
+    /* ================================================
+       DATA PRODUK
+       Untuk menambah produk: cukup tambah objek baru
+       ke array ini. Urutkan ID terbesar = terbaru.
+    ================================================ */
+    const products = [
+      {
+        id: 1,
+        name: "Kaos Basic Polos Hitam",
+        category: "kaos",
+        price: 75000,
+        sizes: ["S", "M", "L", "XL"],
+        description: "Kaos basic esensial yang wajib ada di lemarimu.\n\n• Bahan: 100% Cotton Combed 30s — Lembut & Adem\n• Cutting: Regular Fit\n• Menyerap keringat dengan baik\n• Anti pilling, tahan cuci berkali-kali",
+        images: [
+          "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+          "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&q=80",
+          "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=800&q=80"
+        ]
+      },
+      {
+        id: 2,
+        name: "Celana Kargo Pria Khaki",
+        category: "celana",
+        price: 185000,
+        sizes: ["28", "30", "32", "34", "36"],
+        description: "Celana kargo fungsional dengan banyak kantong. Ideal untuk urban style maupun aktivitas outdoor.\n\n• Bahan: Premium Cotton Twill\n• Jahitan kuat & presisi\n• 6 saku serbaguna\n• Pinggang elastis belakang",
+        images: [
+          "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=800&q=80",
+          "https://images.unsplash.com/photo-1517438476312-10d79c077509?auto=format&fit=crop&w=800&q=80"
+        ]
+      },
+      {
+        id: 3,
+        name: "Hoodie Oversize Ash Grey",
+        category: "outer",
+        price: 210000,
+        sizes: ["M", "L", "XL"],
+        description: "Hoodie streetwear dengan potongan oversize boxy yang ikonik.\n\n• Bahan: Heavy Cotton Fleece\n• Tali hoodie custom tebal\n• Karet rib kuat, tidak melar\n• Kantong kangguru depan",
+        images: [
+          "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80",
+          "https://images.unsplash.com/photo-1614975059251-992f11792b9f?auto=format&fit=crop&w=800&q=80",
+          "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+        ]
+      },
+      {
+        id: 4,
+        name: "Kaos Striped Navy Klasik",
+        category: "kaos",
+        price: 85000,
+        sizes: ["M", "L", "XL"],
+        description: "Kaos garis-garis timeless yang mudah dipadukan dengan berbagai outfit.\n\n• Motif benang celup — bukan sablon\n• Anti luntur meski dicuci berkali-kali\n• Cutting: Regular Fit",
+        images: [
+          "https://images.unsplash.com/photo-1574180566232-aaad1b5b8450?auto=format&fit=crop&w=800&q=80",
+          "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80"
+        ]
+      },
+      {
+        id: 5,
+        name: "Jeans Slimfit Midnight Black",
+        category: "celana",
+        price: 195000,
+        sizes: ["30", "32", "34"],
+        description: "Jeans hitam pekat untuk melengkapi outfit gelapmu.\n\n• Bahan: Denim Stretch Premium\n• Cutting: Slim fit — merampingkan siluet\n• Pewarnaan tahan lama\n• Cocok untuk casual hingga semi-formal",
+        images: [
+          "https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?auto=format&fit=crop&w=800&q=80",
+          "https://images.unsplash.com/photo-1604176354204-9268737828e4?auto=format&fit=crop&w=800&q=80"
+        ]
+      }
+    ];
+
+    // Sort: newest (highest id) first
+    products.sort((a, b) => b.id - a.id);
+
+    /* ================================================
+       THEME
+    ================================================ */
+    const html = document.documentElement;
+    const themeBtn  = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+
+    // On load: apply saved or system preference
+    const savedTheme = localStorage.getItem('as_theme');
+    if (savedTheme === 'light') {
+      html.classList.add('light');
+    } else if (!savedTheme && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      html.classList.add('light');
+    }
+
+    function syncThemeIcon() {
+      const isLight = html.classList.contains('light');
+      themeIcon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
+    }
+
+    themeBtn.addEventListener('click', () => {
+      html.classList.toggle('light');
+      localStorage.setItem('as_theme', html.classList.contains('light') ? 'light' : 'dark');
+      syncThemeIcon();
+    });
+
+    syncThemeIcon();
+
+    /* ================================================
+       NAVBAR SCROLL
+    ================================================ */
+    const navbar = document.getElementById('navbar');
+    const navWaBtn = document.getElementById('nav-wa-btn');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+        navWaBtn.style.display = 'inline-flex';
+      } else {
+        navbar.classList.remove('scrolled');
+        navWaBtn.style.display = 'none';
+      }
+    }, { passive: true });
+
+    /* ================================================
+       MOBILE MENU
+    ================================================ */
+    const mobMenuBtn = document.getElementById('mob-menu-btn');
+    const mobileNav  = document.getElementById('mobile-nav');
+
+    mobMenuBtn.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      mobMenuBtn.classList.toggle('open', isOpen);
+      document.body.classList.toggle('no-scroll', isOpen);
+    });
+
+    document.querySelectorAll('[data-mob-link]').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        mobMenuBtn.classList.remove('open');
+        document.body.classList.remove('no-scroll');
+      });
+    });
+
+    /* ================================================
+       TICKER / MARQUEE
+    ================================================ */
+    function buildTicker() {
+      const items = [
+        '🔥 New Drop',
+        '⚡ Free Ongkir Min. Rp200rb',
+        '✦ Local Brand',
+        '👕 Premium Quality',
+        '🛒 Fast Response',
+        '🇮🇩 Made in Indonesia',
+        '✦ 10.000+ Terjual',
+        '⚡ Bayar via Transfer'
+      ];
+
+      const track = document.getElementById('ticker-track');
+      const doubled = [...items, ...items];
+      track.innerHTML = doubled.map(item =>
+        `<span class="ticker-item"><span>✦</span> ${item}</span>`
+      ).join('');
+    }
+
+    function buildMarquee() {
+      const words = ['STREETWEAR', 'PREMIUM', 'LOCAL BRAND', 'INDONESIA', 'URBAN STYLE', 'QUALITY FIRST', 'FAST SHIPPING', 'ORIGINAL'];
+      const doubled = [...words, ...words];
+
+      [document.getElementById('marquee-track'), document.getElementById('marquee-track-2')].forEach(track => {
+        if (!track) return;
+        track.innerHTML = doubled.map(w =>
+          `<span class="marquee-item"><span class="dot"></span>${w}</span>`
+        ).join('');
+      });
+    }
+
+    buildTicker();
+    buildMarquee();
+
+    /* ================================================
+       PRODUCT RENDER
+    ================================================ */
+    let currentCat = 'semua';
+
+    function formatRp(n) {
+      return 'Rp ' + n.toLocaleString('id-ID');
+    }
+
+    function renderProducts(cat) {
+      currentCat = cat;
+      const grid = document.getElementById('product-grid');
+      const filtered = cat === 'semua' ? products : products.filter(p => p.category === cat);
+
+      if (!filtered.length) {
+        grid.innerHTML = `<div class="empty-state">Koleksi kosong untuk kategori ini.</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map((p, idx) => {
+        const img1 = p.images[0];
+        const img2 = p.images[1] || img1;
+        const isNewest = p.id === products[0].id;
+
+        return `
+          <article
+            class="product-card reveal ${idx < 2 ? '' : `reveal-delay-${(idx % 4) + 1}`}"
+            role="listitem"
+            tabindex="0"
+            aria-label="${p.name}"
+            onclick="openDetail(${p.id})"
+            onkeydown="if(event.key==='Enter')openDetail(${p.id})"
+          >
+            <div class="product-img-wrap">
+              ${isNewest ? `<span class="product-badge">New Drop</span>` : ''}
+              <img src="${img1}" alt="${p.name}" class="product-img front" loading="lazy">
+              <img src="${img2}" alt="${p.name} — alt view" class="product-img back" loading="lazy">
+              <div class="product-overlay">
+                <span class="overlay-btn">Quick View</span>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-cat">${p.category}</span>
+              <h3 class="product-name">${p.name}</h3>
+              <div class="product-price">${formatRp(p.price)}</div>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      // Re-observe newly added cards for scroll reveal
+      grid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    }
+
+    /* Tab filter */
+    document.getElementById('tab-bar').addEventListener('click', e => {
+      const btn = e.target.closest('.tab-pill');
+      if (!btn) return;
+      document.querySelectorAll('.tab-pill').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      renderProducts(btn.dataset.cat);
+    });
+
+    /* ================================================
+       DETAIL MODAL
+    ================================================ */
+    let activeProduct = null;
+    let activeImages  = [];
+    let slideIndex    = 0;
+
+    function openDetail(id) {
+      const p = products.find(x => x.id === id);
+      if (!p) return;
+
+      activeProduct = p;
+      activeImages  = p.images;
+      slideIndex    = 0;
+
+      // Populate text
+      document.getElementById('modal-cat').textContent   = p.category;
+      document.getElementById('modal-title').textContent = p.name;
+      document.getElementById('modal-price').textContent = formatRp(p.price);
+      document.getElementById('modal-desc').textContent  = p.description;
+
+      // Sizes
+      document.getElementById('modal-sizes').innerHTML =
+        p.sizes.map(s => `<span class="size-chip">${s}</span>`).join('');
+
+      // Slides
+      buildSlider();
+
+      // Show modal
+      const modal = document.getElementById('detail-modal');
+      modal.classList.add('open');
+      document.body.classList.add('no-scroll');
+
+      // Mobile close btn
+      const mobileClose = document.getElementById('detail-close-mobile');
+      mobileClose.style.display = window.innerWidth < 640 ? 'flex' : 'none';
+    }
+
+    function buildSlider() {
+      const inner = document.getElementById('modal-slider-inner');
+      const dots  = document.getElementById('slide-dots');
+
+      inner.innerHTML = activeImages.map((src, i) =>
+        `<img src="${src}" alt="Foto ${i+1}" class="modal-slide-img${i === 0 ? ' active' : ''}" loading="lazy">`
+      ).join('');
+
+      dots.innerHTML = activeImages.map((_, i) =>
+        `<button class="slide-dot${i === 0 ? ' active' : ''}" data-idx="${i}" aria-label="Foto ${i+1}"></button>`
+      ).join('');
+
+      dots.querySelectorAll('.slide-dot').forEach(dot => {
+        dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.idx)));
+      });
+    }
+
+    function goToSlide(idx) {
+      const slides = document.querySelectorAll('.modal-slide-img');
+      const dots   = document.querySelectorAll('.slide-dot');
+
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+
+      slideIndex = (idx + activeImages.length) % activeImages.length;
+      slides[slideIndex].classList.add('active');
+      dots[slideIndex].classList.add('active');
+    }
+
+    function closeDetail() {
+      const modal = document.getElementById('detail-modal');
+      modal.classList.remove('open');
+      document.body.classList.remove('no-scroll');
+    }
+
+    document.getElementById('detail-close').addEventListener('click', closeDetail);
+    document.getElementById('detail-close-mobile').addEventListener('click', closeDetail);
+    document.getElementById('slide-prev').addEventListener('click', () => goToSlide(slideIndex - 1));
+    document.getElementById('slide-next').addEventListener('click', () => goToSlide(slideIndex + 1));
+
+    document.getElementById('detail-modal').addEventListener('click', e => {
+      if (e.target === document.getElementById('detail-modal')) closeDetail();
+    });
+
+    /* ================================================
+       CHECKOUT MODAL
+    ================================================ */
+    function openCheckout() {
+      if (!activeProduct) return;
+
+      document.getElementById('co-img').src            = activeImages[0];
+      document.getElementById('co-img').alt            = activeProduct.name;
+      document.getElementById('co-name').textContent   = activeProduct.name;
+      document.getElementById('co-price').textContent  = formatRp(activeProduct.price);
+
+      const sizeSelect = document.getElementById('co-size');
+      sizeSelect.innerHTML = '<option value="" disabled selected>— Pilih Ukuran —</option>' +
+        activeProduct.sizes.map(s => `<option value="${s}">${s}</option>`).join('');
+
+      sizeSelect.classList.remove('error');
+      document.getElementById('co-address').classList.remove('error');
+
+      const saved = localStorage.getItem('as_address');
+      document.getElementById('co-address').value = saved || '';
+
+      const modal = document.getElementById('checkout-modal');
+      modal.classList.add('open');
+      document.body.classList.add('no-scroll');
+    }
+
+    function closeCheckout() {
+      document.getElementById('checkout-modal').classList.remove('open');
+      document.body.classList.remove('no-scroll');
+    }
+
+    document.getElementById('btn-proceed').addEventListener('click', () => {
+      closeDetail();
+      setTimeout(openCheckout, 320);
+    });
+
+    document.getElementById('checkout-close').addEventListener('click', closeCheckout);
+    document.getElementById('co-btn-back').addEventListener('click', () => {
+      closeCheckout();
+      setTimeout(() => openDetail(activeProduct.id), 320);
+    });
+
+    document.getElementById('checkout-modal').addEventListener('click', e => {
+      if (e.target === document.getElementById('checkout-modal')) closeCheckout();
+    });
+
+    /* Copy bank number */
+    document.querySelectorAll('[data-copy]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        navigator.clipboard.writeText(btn.dataset.copy).then(() => {
+          const orig = btn.textContent;
+          btn.textContent = '✓ Disalin';
+          setTimeout(() => btn.textContent = orig, 2000);
+        });
+      });
+    });
+
+    /* Confirm payment */
+    document.getElementById('co-btn-confirm').addEventListener('click', () => {
+      const size    = document.getElementById('co-size').value;
+      const address = document.getElementById('co-address').value.trim();
+      let valid     = true;
+
+      document.getElementById('co-size').classList.toggle('error', !size);
+      document.getElementById('co-address').classList.toggle('error', !address);
+
+      if (!size || !address) return;
+
+      localStorage.setItem('as_address', address);
+
+      const d = new Date();
+      const pad = n => String(n).padStart(2, '0');
+      const trxID = `INV-${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${Math.floor(1000 + Math.random()*9000)}`;
+
+      const msg = [
+        `Halo Admin ApparelStore, saya ingin konfirmasi pesanan saya.`,
+        ``,
+        `*🧾 DETAIL PESANAN:*`,
+        `ID Transaksi: ${trxID}`,
+        `Produk: ${activeProduct.name}`,
+        `Ukuran: ${size}`,
+        `Total Bayar: ${formatRp(activeProduct.price)}`,
+        ``,
+        `*📍 ALAMAT PENGIRIMAN:*`,
+        address,
+        ``,
+        `---------------------------`,
+        `🚨 *BUKTI TRANSFER SAYA LAMPIRKAN DI BAWAH INI (Foto)* 🚨`
+      ].join('%0A');
+
+      window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
+      closeCheckout();
+    });
+
+    /* ================================================
+       SCROLL REVEAL
+    ================================================ */
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    function observeRevealElements() {
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    }
+
+    /* ================================================
+       INIT
+    ================================================ */
+    renderProducts('semua');
+    observeRevealElements();
+
+    // Show nav WA btn if already scrolled (e.g. after refresh)
+    if (window.scrollY > 40) {
+      navbar.classList.add('scrolled');
+      navWaBtn.style.display = 'inline-flex';
+    }
+
+    /* Keyboard: close modals with Escape */
+    document.addEventListener('keydown', e => {
+      if (e.key !== 'Escape') return;
+      if (document.getElementById('checkout-modal').classList.contains('open')) closeCheckout();
+      else if (document.getElementById('detail-modal').classList.contains('open')) closeDetail();
+    });
+  </script>
+
+</body>
+</html>
