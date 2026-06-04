@@ -1,1 +1,678 @@
 
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApparelStore | Gaya Kekinian</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome & Google Fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { 
+                        // Menggunakan RGB CSS Variables agar support opacity bawaan Tailwind (misal: bg-putih/10)
+                        dark: 'rgb(var(--color-bg) / <alpha-value>)',
+                        alt: 'rgb(var(--color-alt) / <alpha-value>)',
+                        card: 'rgb(var(--color-card) / <alpha-value>)',
+                        accent: 'rgb(var(--color-accent) / <alpha-value>)',
+                        'accent-hover': 'rgb(var(--color-accent-hover) / <alpha-value>)',
+                        abu: 'rgb(var(--color-abu) / <alpha-value>)',
+                        putih: 'rgb(var(--color-text) / <alpha-value>)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            /* LIGHT MODE (Default) */
+            --color-bg: 248 250 252; /* Slate 50 (Sangat terang) */
+            --color-alt: 255 255 255; /* Putih murni */
+            --color-card: 255 255 255;
+            --color-text: 15 23 42; /* Slate 900 (Hitam kebiruan) */
+            --color-abu: 71 85 105; /* Slate 600 (Abu-abu teks) */
+            --color-accent: 153 194 17; /* #99C211 - Neon lebih pekat untuk contrast di light mode */
+            --color-accent-hover: 130 166 12;
+        }
+        
+        .dark {
+            /* DARK MODE (Sesuai Palet Hypebeast-mu) */
+            --color-bg: 10 10 10; /* #0a0a0a */
+            --color-alt: 15 15 15; /* #0f0f0f */
+            --color-card: 23 23 23; /* #171717 */
+            --color-text: 255 255 255; /* #FFFFFF */
+            --color-abu: 192 194 184; /* #C0C2B8 */
+            --color-accent: 213 255 64; /* #D5FF40 */
+            --color-accent-hover: 196 235 42; /* #c4eb2a */
+        }
+
+        /* Custom Scrollbar Dinamis */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: rgb(var(--color-bg)); }
+        ::-webkit-scrollbar-thumb { background: rgb(var(--color-abu) / 0.5); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgb(var(--color-accent)); }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Image Fade In Animation */
+        .fade-in { animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+    </style>
+    <script>
+        // Cek Local Storage agar tema tidak flash berkedip saat pertama kali load
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-dark text-putih font-sans antialiased selection:bg-accent selection:text-[#0a0a0a]">
+
+    <!-- Navbar Sticky -->
+    <header class="fixed w-full top-0 z-40 bg-dark/80 backdrop-blur-md border-b border-putih/10 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-black tracking-tighter uppercase text-putih flex items-center gap-2">
+                <i class="fas fa-tshirt text-accent"></i> Apparel<span class="text-accent">Store</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-sm font-semibold text-abu hover:text-accent transition">Home</a>
+                <a href="#products" class="text-sm font-semibold text-abu hover:text-accent transition">Koleksi</a>
+                <a href="#about" class="text-sm font-semibold text-abu hover:text-accent transition">Tentang Kami</a>
+                <a href="#snk" class="text-sm font-semibold text-abu hover:text-accent transition">S&K</a>
+                
+                <!-- Toggle Theme Desktop -->
+                <button id="theme-toggle" class="text-abu hover:text-accent transition text-lg" title="Ganti Tema Warna">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
+
+                <a href="https://wa.me/6285156020119?text=Halo%20Admin%20ApparelStore,%20saya%20butuh%20bantuan" target="_blank" class="bg-accent text-[#0a0a0a] px-5 py-2 rounded-full text-sm font-bold hover:bg-accent-hover transition shadow-[0_0_15px] shadow-accent/30 hover:shadow-[0_0_25px] hover:shadow-accent/50">
+                    <i class="fab fa-whatsapp mr-1 text-lg"></i> Support
+                </a>
+            </nav>
+
+            <!-- Mobile Toggle -->
+            <div class="md:hidden flex items-center gap-5">
+                <button id="theme-toggle-mobile" class="text-xl text-putih hover:text-accent transition">
+                    <i class="fas fa-moon" id="theme-icon-mobile"></i>
+                </button>
+                <button class="text-2xl text-putih hover:text-accent transition" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden bg-card border-t border-putih/10 absolute w-full left-0 shadow-2xl">
+            <div class="flex flex-col px-6 py-6 space-y-5">
+                <a href="#home" class="mobile-link text-abu hover:text-accent font-semibold">Home</a>
+                <a href="#products" class="mobile-link text-abu hover:text-accent font-semibold">Koleksi</a>
+                <a href="#about" class="mobile-link text-abu hover:text-accent font-semibold">Tentang Kami</a>
+                <a href="#snk" class="mobile-link text-abu hover:text-accent font-semibold">Syarat & Ketentuan</a>
+                <a href="https://wa.me/6285156020119" target="_blank" class="text-accent font-bold"><i class="fab fa-whatsapp"></i> Chat Admin</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero / Promo Section -->
+    <section id="home" class="pt-32 pb-20 lg:pt-40 lg:pb-32 relative overflow-hidden flex items-center min-h-[80vh]">
+        <!-- Glow Effects -->
+        <div class="absolute top-1/4 left-0 w-96 h-96 bg-accent rounded-full mix-blend-screen filter blur-[100px] opacity-10 transform -translate-x-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-putih rounded-full mix-blend-overlay filter blur-[120px] opacity-5 transform translate-x-1/3 translate-y-1/3"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 text-center max-w-4xl">
+            <span class="inline-block py-1 px-4 rounded-full bg-accent/10 text-accent font-bold text-xs tracking-widest border border-accent/20 mb-6 uppercase">
+                🔥 Hot Drop Collection
+            </span>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight uppercase tracking-tighter">
+                Tampil <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-putih">Maksimal</span><br>
+                Harga Minimal.
+            </h1>
+            <p class="text-lg text-abu mb-10 max-w-2xl mx-auto">Dapatkan diskon eksklusif untuk koleksi streetwear terbaru minggu ini. Kualitas premium, desain timeless, tanpa menguras kantong.</p>
+            <a href="#products" class="inline-flex items-center bg-accent text-[#0a0a0a] px-8 py-4 rounded-full font-bold text-lg hover:bg-accent-hover transition-all shadow-[0_0_20px] shadow-accent/30 hover:scale-105">
+                Belanja Sekarang <i class="fas fa-arrow-right ml-3"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-alt">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-putih/10 pb-6 gap-6">
+                <div>
+                    <h2 class="text-4xl font-black text-putih uppercase tracking-tighter mb-2">Koleksi Terbaru</h2>
+                    <p class="text-abu">Update lemarimu dengan drop terbaru dari kami.</p>
+                </div>
+
+                <!-- Category Tabs -->
+                <div class="flex space-x-2 overflow-x-auto no-scrollbar pb-1 w-full md:w-auto">
+                    <button onclick="filterCategory('semua')" class="tab-btn active bg-accent text-[#0a0a0a] border border-accent px-6 py-2.5 rounded-full text-sm font-bold transition whitespace-nowrap">Semua</button>
+                    <button onclick="filterCategory('kaos')" class="tab-btn bg-transparent text-abu border border-putih/20 px-6 py-2.5 rounded-full text-sm font-bold hover:border-accent hover:text-accent transition whitespace-nowrap">Kaos</button>
+                    <button onclick="filterCategory('celana')" class="tab-btn bg-transparent text-abu border border-putih/20 px-6 py-2.5 rounded-full text-sm font-bold hover:border-accent hover:text-accent transition whitespace-nowrap">Celana</button>
+                    <button onclick="filterCategory('outer')" class="tab-btn bg-transparent text-abu border border-putih/20 px-6 py-2.5 rounded-full text-sm font-bold hover:border-accent hover:text-accent transition whitespace-nowrap">Outer</button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="product-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <!-- Produk di-render via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-dark">
+        <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2 relative">
+                    <div class="absolute inset-0 bg-accent transform translate-x-4 translate-y-4 rounded-2xl opacity-20"></div>
+                    <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80" alt="Tentang Toko" class="rounded-2xl relative z-10 grayscale hover:grayscale-0 transition-all duration-700 object-cover aspect-[4/3] w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl font-black text-putih mb-6 uppercase tracking-tighter">Identity <span class="text-accent">&</span> Quality</h2>
+                    <p class="text-abu mb-4 leading-relaxed text-lg">Berdiri sejak 2026, ApparelStore berkomitmen meredefinisi gaya urban. Kami percaya bahwa streetwear berkualitas tinggi tidak harus hadir dengan harga yang tidak masuk akal.</p>
+                    <p class="text-abu leading-relaxed mb-8">Dibuat dengan presisi tinggi, setiap jahitan dikontrol secara lokal untuk mendukung industri kreatif dalam negeri.</p>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-card p-6 rounded-2xl border border-putih/5">
+                            <h4 class="text-3xl font-black text-accent mb-1">10k+</h4>
+                            <p class="text-sm text-abu font-semibold">Produk Terjual</p>
+                        </div>
+                        <div class="bg-card p-6 rounded-2xl border border-putih/5">
+                            <h4 class="text-3xl font-black text-accent mb-1">100%</h4>
+                            <p class="text-sm text-abu font-semibold">Quality Assured</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Syarat & Ketentuan -->
+    <section id="snk" class="py-24 bg-alt">
+        <div class="container mx-auto px-4 lg:px-8 max-w-4xl">
+            <div class="bg-card p-8 md:p-12 rounded-3xl border border-putih/10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-accent opacity-5 rounded-full blur-2xl"></div>
+                
+                <h2 class="text-3xl font-black text-putih mb-10 text-center uppercase tracking-tighter">Syarat & Ketentuan</h2>
+                
+                <div class="space-y-8 text-abu">
+                    <div class="flex gap-4">
+                        <div class="mt-1 w-10 h-10 rounded-full bg-dark border border-putih/10 flex items-center justify-center shrink-0 text-accent">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-putih mb-2 text-lg">Pemesanan & Pengiriman</h3>
+                            <p class="text-sm leading-relaxed">Pesanan akan diproses pada hari kerja (Senin-Jumat). Konfirmasi pembayaran yang dilakukan di atas jam 15.00 WIB akan diproses pada hari kerja berikutnya. Resi dikirim via WA.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="mt-1 w-10 h-10 rounded-full bg-dark border border-putih/10 flex items-center justify-center shrink-0 text-accent">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-putih mb-2 text-lg">Pembayaran Manual</h3>
+                            <p class="text-sm leading-relaxed">Pembayaran dilakukan secara transfer ke rekening resmi. <strong class="text-accent font-semibold">Pelanggan wajib menyertakan foto bukti transfer</strong> melalui WhatsApp untuk verifikasi.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="mt-1 w-10 h-10 rounded-full bg-dark border border-putih/10 flex items-center justify-center shrink-0 text-accent">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-putih mb-2 text-lg">Retur Barang</h3>
+                            <p class="text-sm leading-relaxed">Retur diterima maksimal 2x24 jam setelah barang sampai, khusus untuk cacat produksi. Wajib melampirkan video unboxing utuh.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-alt pt-16 pb-8 border-t border-putih/10">
+        <div class="container mx-auto px-4 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div class="md:col-span-2">
+                <a href="#home" class="text-2xl font-black tracking-tighter uppercase text-putih flex items-center gap-2 mb-4">
+                    <i class="fas fa-tshirt text-accent"></i> Apparel<span class="text-accent">Store</span>
+                </a>
+                <p class="text-sm text-abu leading-relaxed mb-6 max-w-sm">Elevating your daily wear. Premium local streetwear brand designed for comfort and hype.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-card border border-putih/10 flex items-center justify-center hover:bg-accent hover:text-dark text-putih transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-card border border-putih/10 flex items-center justify-center hover:bg-accent hover:text-dark text-putih transition"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-putih font-black mb-6 uppercase tracking-wider text-sm">Navigasi</h4>
+                <ul class="space-y-3 text-sm font-medium text-abu">
+                    <li><a href="#home" class="hover:text-accent transition">Home</a></li>
+                    <li><a href="#products" class="hover:text-accent transition">Koleksi Produk</a></li>
+                    <li><a href="#about" class="hover:text-accent transition">Tentang Kami</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-putih font-black mb-6 uppercase tracking-wider text-sm">Hubungi Kami</h4>
+                <ul class="space-y-4 text-sm font-medium text-abu">
+                    <li class="flex items-start gap-3">
+                        <i class="fab fa-whatsapp mt-1 text-accent"></i>
+                        <span>+62 851-5602-0119</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-accent"></i>
+                        <span>support@apparelstore.id</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 lg:px-8 pt-8 border-t border-putih/10 flex flex-col md:flex-row justify-between items-center text-xs text-abu/50 font-medium">
+            <p>&copy; 2026 ApparelStore. All rights reserved.</p>
+            <p class="mt-2 md:mt-0">Designed & Built in Indonesia</p>
+        </div>
+    </footer>
+
+    <!-- 1. PRODUCT DETAIL MODAL -->
+    <div id="detail-modal" class="fixed inset-0 bg-dark/95 backdrop-blur-md hidden flex items-center justify-center z-[60] p-4 opacity-0 transition-opacity duration-300">
+        <!-- Wrapper Modal - Max width & Auto Height -->
+        <div class="bg-card rounded-2xl w-full max-w-5xl max-h-[90vh] flex flex-col md:flex-row shadow-2xl border border-putih/10 transform scale-95 transition-transform duration-300 overflow-hidden relative" id="detail-content">
+            
+            <!-- Close Button (Mobile Absolute) -->
+            <button onclick="closeDetail()" class="md:hidden absolute top-4 right-4 z-[70] w-10 h-10 bg-dark/50 backdrop-blur rounded-full text-putih shadow-md flex items-center justify-center border border-putih/10"><i class="fas fa-times"></i></button>
+
+            <!-- Kiri: Slider Foto (MUTLAK 1:1 Aspect Ratio Crop) -->
+            <div class="w-full md:w-1/2 flex items-start bg-dark relative">
+                <!-- Kontainer ini mengunci ukuran agar SELALU 1:1 Square -->
+                <div class="w-full aspect-square relative overflow-hidden group">
+                    <img id="slider-main-img" src="" alt="Detail Produk" class="absolute inset-0 w-full h-full object-cover fade-in">
+                    
+                    <!-- Nav Arrows -->
+                    <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-dark/50 backdrop-blur border border-putih/10 hover:bg-accent hover:text-dark rounded-full flex items-center justify-center text-putih transition opacity-0 group-hover:opacity-100"><i class="fas fa-chevron-left"></i></button>
+                    <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-dark/50 backdrop-blur border border-putih/10 hover:bg-accent hover:text-dark rounded-full flex items-center justify-center text-putih transition opacity-0 group-hover:opacity-100"><i class="fas fa-chevron-right"></i></button>
+                    
+                    <!-- Dots -->
+                    <div id="slider-dots" class="absolute bottom-4 left-0 w-full flex justify-center space-x-2 z-10">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kanan: Detail & Deskripsi (Scrollable mandiri) -->
+            <div class="w-full md:w-1/2 flex flex-col max-h-[50vh] md:max-h-[90vh]">
+                <!-- Header (Fixed) -->
+                <div class="p-6 md:p-8 pb-0 flex justify-between items-start shrink-0">
+                    <div>
+                        <p id="detail-category" class="text-xs font-black text-accent uppercase tracking-widest mb-2 border border-accent/30 bg-accent/5 px-3 py-1 rounded-full inline-block">Kategori</p>
+                        <h3 id="detail-title" class="text-2xl md:text-3xl font-black text-putih leading-tight">Nama Produk</h3>
+                        <p id="detail-price" class="text-2xl font-bold text-accent mt-3">Rp 0</p>
+                    </div>
+                    <button onclick="closeDetail()" class="hidden md:flex w-10 h-10 bg-dark border border-putih/10 hover:border-accent hover:text-accent rounded-full text-abu items-center justify-center transition shrink-0"><i class="fas fa-times text-lg"></i></button>
+                </div>
+                
+                <!-- Scrollable Description Body -->
+                <div class="p-6 md:p-8 overflow-y-auto custom-scrollbar flex-1 text-abu">
+                    <h4 class="font-bold text-putih mb-3 uppercase tracking-wider text-sm">Deskripsi</h4>
+                    <p id="detail-desc" class="text-sm leading-relaxed whitespace-pre-line bg-dark/50 p-4 rounded-xl border border-putih/5">Deskripsi...</p>
+
+                    <h4 class="font-bold text-putih mt-8 mb-3 uppercase tracking-wider text-sm">Pilihan Ukuran</h4>
+                    <div id="detail-sizes" class="flex flex-wrap gap-3">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+
+                <!-- Footer / Button Lanjut (Fixed) -->
+                <div class="p-6 md:p-8 pt-4 border-t border-putih/5 bg-card shrink-0">
+                    <button onclick="proceedToCheckout()" class="w-full py-4 bg-accent text-[#0a0a0a] rounded-xl hover:bg-accent-hover transition font-black text-lg flex justify-center items-center gap-3">
+                        Lanjut ke Pembayaran <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. CHECKOUT MODAL -->
+    <div id="checkout-modal" class="fixed inset-0 bg-dark/95 backdrop-blur-md hidden flex items-center justify-center z-[70] p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-card border border-putih/10 rounded-2xl w-full max-w-md max-h-[90vh] flex flex-col shadow-2xl transform scale-95 transition-transform duration-300" id="checkout-content">
+            
+            <div class="p-5 border-b border-putih/10 flex justify-between items-center bg-dark/50 rounded-t-2xl">
+                <h3 class="text-lg font-black text-putih uppercase tracking-wider">Form Pemesanan</h3>
+                <button onclick="closeCheckout()" class="text-abu hover:text-accent transition text-2xl leading-none">&times;</button>
+            </div>
+
+            <div class="p-6 overflow-y-auto flex-1 custom-scrollbar">
+                
+                <!-- Info Singkat Produk (Kotak) -->
+                <div class="flex gap-4 mb-6 bg-dark p-3 rounded-xl border border-putih/10">
+                    <img id="checkout-img" src="" class="w-16 h-16 object-cover rounded-lg aspect-square" alt="">
+                    <div class="flex-1 flex flex-col justify-center">
+                        <h4 id="checkout-title" class="font-bold text-putih text-sm line-clamp-2 leading-tight">Nama Produk</h4>
+                        <p id="checkout-price" class="text-accent font-bold mt-1 text-sm">Rp 0</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-5">
+                    <div>
+                        <label class="block text-xs font-bold text-abu uppercase tracking-wider mb-2">Ukuran <span class="text-red-500">*</span></label>
+                        <select id="checkout-size" class="w-full bg-dark border border-putih/20 text-putih rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-accent focus:border-accent outline-none transition appearance-none font-medium">
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-abu uppercase tracking-wider mb-2">Alamat Pengiriman <span class="text-red-500">*</span></label>
+                        <textarea id="checkout-address" rows="3" class="w-full bg-dark border border-putih/20 text-putih rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-accent focus:border-accent outline-none transition text-sm font-medium" placeholder="Nama Jalan, Kelurahan, Kecamatan, Kota, Kode Pos..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Peringatan Teks Merah (Versi Dark Mode) -->
+                <div class="mt-6 bg-red-950/40 border border-red-500/50 p-4 rounded-xl">
+                    <p class="text-red-400 text-xs font-bold flex items-start gap-2 leading-relaxed">
+                        <i class="fas fa-exclamation-triangle mt-0.5 text-base"></i>
+                        <span>PENTING: Setelah klik Konfirmasi, aplikasi WA akan terbuka. Anda WAJIB melampirkan Foto Bukti Transfer secara manual di dalam chat!</span>
+                    </p>
+                </div>
+                
+                <!-- Rekening Bank -->
+                <div class="mt-4 bg-dark border border-putih/10 p-4 rounded-xl text-xs text-abu">
+                    <p class="font-bold mb-2 text-putih uppercase tracking-wider"><i class="fas fa-university text-accent mr-1"></i> Transfer Bank Resmi</p>
+                    <div class="flex justify-between items-center border-b border-putih/5 pb-2 mb-2">
+                        <span class="font-medium text-putih">BCA - 1234567890</span>
+                        <span class="text-[10px] bg-card px-2 py-1 rounded">ApparelStore</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium text-putih">Mandiri - 0987654321</span>
+                        <span class="text-[10px] bg-card px-2 py-1 rounded">ApparelStore</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-5 border-t border-putih/10 bg-dark/50 rounded-b-2xl flex gap-3">
+                <button onclick="closeCheckout()" class="w-1/3 py-3.5 font-bold text-abu bg-card border border-putih/10 rounded-xl hover:bg-putih/5 transition">Kembali</button>
+                <button onclick="confirmPayment()" class="w-2/3 py-3.5 bg-accent text-[#0a0a0a] rounded-xl hover:bg-accent-hover transition font-black flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp text-lg"></i> Pesan via WA
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // ----------------------------------------------------------------
+        // 1. PENGATURAN UMUM
+        // ----------------------------------------------------------------
+        const WA_NUMBER = "6285156020119"; 
+
+        // ----------------------------------------------------------------
+        // 2. DATA PRODUK (Update Manual Disini, support s/d 10 foto)
+        // ----------------------------------------------------------------
+        let products = [
+            { 
+                id: 1, 
+                name: "Kaos Basic Polos Hitam", 
+                category: "kaos", 
+                price: 75000, 
+                sizes: ["S", "M", "L", "XL"],
+                description: "Kaos basic esensial yang wajib ada di lemari pakaianmu.\n\n- Bahan: 100% Cotton Combed 30s (Lembut & Adem)\n- Cutting: Regular Fit\n- Menyerap keringat dengan baik.",
+                // Foto bisa banyak, otomatis di crop 1:1
+                images: [
+                    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80", 
+                    "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=800&q=80"
+                ] 
+            },
+            { 
+                id: 2, 
+                name: "Celana Kargo Pria Khaki", 
+                category: "celana", 
+                price: 185000, 
+                sizes: ["28", "30", "32", "34", "36"],
+                description: "Celana Kargo fungsional dengan banyak kantong. Cocok untuk urban style atau aktivitas outdoor.\n\n- Bahan: Premium Cotton Twill\n- Jahitan kuat presisi\n- Terdapat 6 saku serbaguna.",
+                images: [
+                    "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=800&q=80", 
+                    "https://images.unsplash.com/photo-1517438476312-10d79c077509?auto=format&fit=crop&w=800&q=80"
+                ] 
+            },
+            { 
+                id: 3, 
+                name: "Hoodie Oversize Ash Grey", 
+                category: "outer", 
+                price: 210000, 
+                sizes: ["M", "L", "XL"],
+                description: "Hoodie bergaya streetwear dengan potongan oversize yang boxy.\n\n- Bahan: Heavy Cotton Fleece\n- Tali hoodie custom tebal\n- Karet rib kuat dan tidak mudah melar.",
+                images: [
+                    "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80", 
+                    "https://images.unsplash.com/photo-1614975059251-992f11792b9f?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+                ] 
+            },
+            { 
+                id: 4, 
+                name: "Kaos Striped Navy Klasik", 
+                category: "kaos", 
+                price: 85000, 
+                sizes: ["M", "L", "XL"],
+                description: "Kaos salur/garis-garis yang tak lekang oleh waktu. Sangat mudah dipadukan dengan celana apapun.\n\n- Motif benang celup (bukan sablon)\n- Anti luntur.",
+                images: [
+                    "https://images.unsplash.com/photo-1574180566232-aaad1b5b8450?auto=format&fit=crop&w=800&q=80", 
+                    "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80"
+                ] 
+            },
+            { 
+                id: 5, 
+                name: "Jeans Slimfit Midnight Black", 
+                category: "celana", 
+                price: 195000, 
+                sizes: ["30", "32", "34"],
+                description: "Jeans hitam pekat yang cocok untuk melengkapi outfit gelapmu.\n\n- Bahan: Denim Stretch Premium\n- Cutting: Slim fit (merampingkan bentuk kaki)\n- Pewarnaan tahan lama.",
+                images: [
+                    "https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?auto=format&fit=crop&w=800&q=80", 
+                    "https://images.unsplash.com/photo-1604176354204-9268737828e4?auto=format&fit=crop&w=800&q=80"
+                ] 
+            }
+        ];
+
+        // ----------------------------------------------------------------
+        // 3. LOGIKA RENDER GRID PRODUK
+        // ----------------------------------------------------------------
+        let currentActiveProduct = null;
+
+        // Auto Sort: ID terbesar (Terbaru) tampil pertama
+        products.sort((a, b) => b.id - a.id);
+
+        function renderProducts(category = 'semua') {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = ''; 
+
+            const filtered = category === 'semua' ? products : products.filter(p => p.category === category);
+
+            if(filtered.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-10 text-abu">Koleksi kosong.</div>`;
+                return;
+            }
+
+            filtered.forEach(product => {
+                const img1 = product.images[0];
+                const img2 = product.images[1] || img1; 
+
+                // Grid Image dijamin 1:1 via aspect-square object-cover
+                const cardHTML = `
+                    <div class="bg-card rounded-2xl transition-all duration-300 overflow-hidden group border border-putih/5 hover:border-accent/50 cursor-pointer flex flex-col h-full" onclick='openDetail(${product.id})'>
+                        <div class="relative aspect-square overflow-hidden bg-dark">
+                            ${product.id === products[0].id ? `<span class="absolute top-3 left-3 bg-accent text-[#0a0a0a] text-[10px] font-black px-3 py-1 rounded-sm z-20 shadow-md uppercase tracking-wider">New Drop</span>` : ''}
+                            
+                            <img src="${img1}" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-100 group-hover:opacity-0" alt="${product.name}" loading="lazy">
+                            <img src="${img2}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 scale-100 group-hover:scale-110 opacity-0 group-hover:opacity-100" alt="${product.name}" loading="lazy">
+                            
+                            <div class="absolute inset-0 bg-dark/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 backdrop-blur-sm">
+                                <button class="bg-accent text-[#0a0a0a] px-6 py-2.5 rounded-full font-black uppercase tracking-wider text-sm shadow-[0_0_15px] shadow-accent/40 hover:scale-105 transition">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <p class="text-[10px] text-abu uppercase tracking-widest mb-1.5 font-bold">${product.category}</p>
+                            <h3 class="font-bold text-putih text-sm md:text-base line-clamp-2 leading-tight mb-3">${product.name}</h3>
+                            <div class="mt-auto pt-3 border-t border-putih/5">
+                                <p class="text-accent font-black text-lg tracking-tight">Rp ${product.price.toLocaleString('id-ID')}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += cardHTML;
+            });
+        }
+
+        // Logic Filter Tab warna Dark Mode
+        function filterCategory(cat) {
+            renderProducts(cat);
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = 'tab-btn bg-transparent text-abu border border-putih/20 px-6 py-2.5 rounded-full text-sm font-bold hover:border-accent hover:text-accent transition whitespace-nowrap';
+            });
+            event.target.className = 'tab-btn active bg-accent text-[#0a0a0a] border border-accent px-6 py-2.5 rounded-full text-sm font-bold transition whitespace-nowrap';
+        }
+
+        // ----------------------------------------------------------------
+        // 4. LOGIKA MODAL DETAIL & CAROUSEL GAMBAR
+        // ----------------------------------------------------------------
+        let currentSlideIndex = 0;
+        let currentImages = [];
+
+        function openDetail(id) {
+            const product = products.find(p => p.id === id);
+            currentActiveProduct = product;
+            currentImages = product.images;
+            currentSlideIndex = 0;
+
+            // Isi Data Modal
+            document.getElementById('detail-title').innerText = product.name;
+            document.getElementById('detail-price').innerText = `Rp ${product.price.toLocaleString('id-ID')}`;
+            document.getElementById('detail-desc').innerText = product.description;
+            document.getElementById('detail-category').innerText = product.category;
+            
+            // Pilihan Ukuran
+            const sizesDiv = document.getElementById('detail-sizes');
+            sizesDiv.innerHTML = product.sizes.map(s => 
+                `<span class="border border-putih/20 bg-dark text-putih px-4 py-1.5 rounded-md text-sm font-bold">${s}</span>`
+            ).join('');
+
+            updateSlider();
+
+            // Tampilkan Modal Animasi
+            const modal = document.getElementById('detail-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                document.getElementById('detail-content').classList.remove('scale-95');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDetail() {
+            const modal = document.getElementById('detail-modal');
+            modal.classList.add('opacity-0');
+            document.getElementById('detail-content').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // Fungsi Slider Gambar
+        function updateSlider() {
+            const mainImg = document.getElementById('slider-main-img');
+            mainImg.src = currentImages[currentSlideIndex];
+            
+            // Re-trigger CSS animation
+            mainImg.classList.remove('fade-in');
+            void mainImg.offsetWidth; 
+            mainImg.classList.add('fade-in');
+
+            // Render Dots Hijau Neon
+            const dotsContainer = document.getElementById('slider-dots');
+            dotsContainer.innerHTML = currentImages.map((_, idx) => `
+                <button onclick="goToSlide(${idx})" class="h-2 rounded-full transition-all duration-300 ${idx === currentSlideIndex ? 'bg-accent w-6 shadow-[0_0_8px] shadow-accent/80' : 'bg-putih/30 hover:bg-putih w-2'}"></button>
+            `).join('');
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % currentImages.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + currentImages.length) % currentImages.length;
+            updateSlider();
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            updateSlider();
+        }
+
+        // ----------------------------------------------------------------
+        // 6. UI INTERACTION (SCROLL, MENU & THEME)
+        // ----------------------------------------------------------------
+        
+        // Theme Toggle Logic
+        const themeIcon = document.getElementById('theme-icon');
+        const themeIconMobile = document.getElementById('theme-icon-mobile');
+        
+        function updateThemeIcon() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const iconClassAdd = isDark ? 'fa-sun' : 'fa-moon';
+            const iconClassRemove = isDark ? 'fa-moon' : 'fa-sun';
+            
+            if (themeIcon) {
+                themeIcon.classList.remove(iconClassRemove);
+                themeIcon.classList.add(iconClassAdd);
+            }
+            if (themeIconMobile) {
+                themeIconMobile.classList.remove(iconClassRemove);
+                themeIconMobile.classList.add(iconClassAdd);
+            }
+        }
+
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeIcon();
+        }
+
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+        document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
+        
+        // Panggil saat halaman diload untuk sinkronisasi icon
+        updateThemeIcon();
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('navbar');
+            if(window.scrollY > 20) {
+                header.classList.add('shadow-[0_4px_30px_rgba(0,0,0,0.8)]');
+            } else {
+                header.classList.remove('shadow-[0_4px_30px_rgba(0,0,0,0.8)]');
+            }
+        });
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+        });
+
+        // INIT LOAD
+        window.onload = () => renderProducts();
+
+    </script>
+</body>
+</html>
